@@ -1,0 +1,44 @@
+# ALFWorld config for JitRL port.
+# Only the keys AlfredTWEnv actually reads are kept; the DQN/DAgger training
+# blocks that the upstream base_config.yaml carries are dropped except for the
+# two fields init_env() dereferences.
+#
+# Verified against alfworld 0.4.2:
+#   - collect_game_files() asserts on env.task_types              (alfred_tw_env.py:147)
+#   - init_env() raises NotImplementedError unless
+#     general.training_method in {dqn, dagger}                    (alfred_tw_env.py:256-269)
+#   - training_method=dqn reads rl.training.max_nb_steps_per_episode
+#   - dagger would append the AlfredExpert wrapper; we do NOT want that.
+
+dataset:
+  data_path: $ALFWORLD_DATA/json_2.1.1/train
+  eval_id_data_path: $ALFWORLD_DATA/json_2.1.1/valid_seen
+  eval_ood_data_path: $ALFWORLD_DATA/json_2.1.1/valid_unseen
+  num_train_games: -1
+  num_eval_games: -1
+
+logic:
+  domain: $ALFWORLD_DATA/logic/alfred.pddl
+  grammar: $ALFWORLD_DATA/logic/alfred.twl2
+
+env:
+  type: AlfredTWEnv
+  task_types: [1, 2, 3, 4, 5, 6]     # all six ALFWorld task types
+  goal_desc_human_anns_prob: 0.0     # templated goals only -> deterministic across runs
+  domain_randomization: False
+  expert_type: handcoded
+  regen_game_files: False
+
+general:
+  training_method: dqn               # NOT dagger: dagger attaches AlfredExpert
+  training:
+    batch_size: 1
+  evaluate:
+    batch_size: 1
+
+rl:
+  training:
+    # Load-bearing: AlfWorldEnv issues extra `look`/`inventory` probes per agent
+    # step, and the TextWorld gym wrapper counts EVERY step against
+    # max_episode_steps. We enforce the real budget via --env_step_limit.
+    max_nb_steps_per_episode: 1000

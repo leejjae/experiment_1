@@ -1,0 +1,269 @@
+{
+  "status": "complete",
+  "method": "iterative_self_distillation",
+  "beta": 1.0,
+  "rule": "ema",
+  "lam": 0.5,
+  "feedback_from": "/workspace/jitrl/experiments/alfworld_ace_sd/runs/20261029_iter/beta_1",
+  "target": "living_room",
+  "split": "valid_seen",
+  "task_index": 22,
+  "game_id": "pick_and_place_simple-CreditCard-None-ArmChair-201/trial_T20190908_124340_258012",
+  "task_type": "pick_and_place_simple",
+  "repeat": 3,
+  "seed": 2267,
+  "goal": "put some creditcard on armchair.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a coffeetable 1, a diningtable 2, a diningtable 1, a drawer 2, a drawer 1, a garbagecan 1, a sidetable 2, a sidetable 1, a sofa 1, and a tvstand 1.\n\nYour task is to: put some creditcard on armchair.",
+      "action": "go to sidetable 2",
+      "next_observation": "You arrive at sidetable 2. On the sidetable 2, you see a curtains 1.",
+      "inventory": "You are not carrying anything.",
+      "phase": "SEARCHING",
+      "candidates": [
+        "go to sidetable 2",
+        "go to drawer 2",
+        "go to diningtable 1"
+      ],
+      "log_p": [
+        -0.22049905437730336,
+        -1.8454990692784645,
+        -3.220498950069175
+      ],
+      "log_q": [
+        [
+          -0.19264761012790918,
+          -1.911397595226748,
+          -3.598897595226748
+        ],
+        [
+          -0.4751346943702043,
+          -1.1626346943702042,
+          -2.725134694370204
+        ]
+      ],
+      "scores": [
+        -0.33389115224905674,
+        -1.537016144798476,
+        -3.162016144798476
+      ],
+      "chosen": 0,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"No progress has been made yet, as the [SEARCHING] phase has just begun. The goal is to find a creditcard and subsequently put it on an armchair. The next step is to navigate to a plausible receptacle where the creditcard might be located.\",\n    \"next_objective\": \"Navigate to a receptacle that might contain a creditcard.\",\n    \"reasoning1\": \"The sidetables are likely places where one would store small, flat objects like a creditcard. Navigating to sidetable 2 first increases the chances of locating the creditcard quickly.\",\n    \"option1\": \"go to sidetable 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The drawers are also plausible storage locations for a creditcard. Navigating to drawer 2 is a logical choice to search for the object.\",\n    \"option2\": \"go to drawer 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The diningtables and tvstands are less likely to hold a creditcard, but still reasonable places to search if the sidetables and drawers are unsuccessful. Navigating to diningtable 1 is a moderate choice.\",\n    \"option3\": \"go to diningtable 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at sidetable 2. On the sidetable 2, you see a curtains 1.",
+      "action": "go to drawer 1",
+      "next_observation": "You arrive at drawer 1. The drawer 1 is closed.",
+      "inventory": "You are not carrying anything.",
+      "phase": "SEARCHING",
+      "candidates": [
+        "go to armchair 1",
+        "examine sidetable 2",
+        "go to drawer 1"
+      ],
+      "log_p": [
+        -0.3963926091632083,
+        -1.6151426091632084,
+        -2.052642489953919
+      ],
+      "log_q": [
+        [
+          -1.2248057567484945,
+          -2.474805637539205,
+          -0.47480572694617196
+        ],
+        [
+          -2.7787027205400188,
+          -2.9349527205400188,
+          -0.12245272799059922
+        ]
+      ],
+      "scores": [
+        -2.0017542386442564,
+        -2.7048791790396116,
+        -0.2986292274683855
+      ],
+      "chosen": 2,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"No progress has been made toward finding a credit card. The current phase is SEARCHING, and the agent has only visited the sidetable 2, which contains curtains 1. The next step is to locate a credit card, which likely resides in a receptacle that has not yet been searched.\",\n    \"next_objective\": \"Search new receptacles that might contain a credit card.\",\n    \"reasoning1\": \"The armchair is a destination for the credit card, not a likely location for it, so searching the armchair will not advance the current phase of searching for the credit card.\",\n    \"option1\": \"go to armchair 1\",\n    \"confidence1\": 20,\n    \"reasoning2\": \"The sidetable 2 has already been visited and examined, and it only contains curtains 1. Revisiting it will not yield a credit card and is inefficient.\",\n    \"option2\": \"examine sidetable 2\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"The drawer 1 is a plausible place to store small items like a credit card. Searching it would advance the current phase of finding the credit card without revisiting already searched locations.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 60,\n    \"best_action\": 3\n}"
+    },
+    {
+      "index": 2,
+      "observation": "You arrive at drawer 1. The drawer 1 is closed.",
+      "action": "open drawer 1",
+      "next_observation": "You open the drawer 1. The drawer 1 is open. In it, you see a creditcard 2.",
+      "inventory": "You are not carrying anything.",
+      "phase": "LOCATED",
+      "candidates": [
+        "open drawer 1",
+        "examine drawer 1",
+        "go to armchair 1"
+      ],
+      "log_p": [
+        -7.310329993023082e-05,
+        -10.906323463809079,
+        -9.812573463809079
+      ],
+      "log_q": [
+        [
+          -3.5012907714485958e-06,
+          -12.906253382098763,
+          -13.796878382098763
+        ],
+        [
+          -1.7844246099815382e-06,
+          -13.562501307592909,
+          -14.515626307592909
+        ]
+      ],
+      "scores": [
+        -2.6428576907150603e-06,
+        -13.234377344845836,
+        -14.156252344845836
+      ],
+      "chosen": 0,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent is in the SEARCHING phase and needs to locate a credit card. Currently, the agent is at drawer 1, which is closed. No credit card has been found yet, and the agent has not searched inside this drawer. The challenge is to proceed in a way that efficiently reveals potential locations of the credit card.\",\n    \"next_objective\": \"Open drawer 1 to search its contents for a credit card.\",\n    \"reasoning1\": \"Opening drawer 1 is the most direct way to access its contents and determine if the credit card is inside. This action directly advances the SEARCHING phase.\",\n    \"option1\": \"open drawer 1\",\n    \"confidence1\": 45,\n    \"reasoning2\": \"Examining drawer 1 could provide additional information about its state or contents without opening it. This action might help determine if it is worth opening or if it's likely to contain the credit card.\",\n    \"option2\": \"examine drawer 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Going to armchair 1 or armchair 2 is an alternative if the credit card is already on an armchair, but that is unlikely given the current phase. Still, it is a valid option and could be considered if the credit card is misplaced.\",\n    \"option3\": \"go to armchair 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 3,
+      "observation": "You open the drawer 1. The drawer 1 is open. In it, you see a creditcard 2.",
+      "action": "take creditcard 2 from drawer 1",
+      "next_observation": "You pick up the creditcard 2 from the drawer 1.",
+      "inventory": "You are carrying: a creditcard 2.",
+      "phase": "TREATED",
+      "candidates": [
+        "take creditcard 2 from drawer 1",
+        "examine drawer 1",
+        "close drawer 1"
+      ],
+      "log_p": [
+        -1.642271488348e-06,
+        -14.093751880696434,
+        -13.937501880696434
+      ],
+      "log_q": [
+        [
+          -9.66687494614539e-07,
+          -14.062501085898376,
+          -15.500001085898376
+        ],
+        [
+          -5.350934868321638e-07,
+          -14.875000654304367,
+          -15.484375654304367
+        ]
+      ],
+      "scores": [
+        -7.508904907233514e-07,
+        -14.46875087010137,
+        -15.49218837010137
+      ],
+      "chosen": 0,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent has successfully located a creditcard 2 inside drawer 1, which was opened. The credit card is currently in the drawer, and the agent is not carrying it yet. The immediate challenge is to pick up the creditcard 2 before moving it to the armchair.\",\n    \"next_objective\": \"Take the creditcard 2 from drawer 1.\",\n    \"reasoning1\": \"Taking the creditcard 2 from drawer 1 is the immediate next step before navigating to the armchair. This action directly aligns with advancing the current phase.\",\n    \"option1\": \"take creditcard 2 from drawer 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"While examining the drawer may provide additional information, it is unnecessary because the creditcard is already visible and accessible. This action is less direct and not required for progress.\",\n    \"option2\": \"examine drawer 1\",\n    \"confidence2\": 7,\n    \"reasoning3\": \"Closing the drawer is not useful at this stage, as the creditcard is already visible and accessible. This action would delay progress and is irrelevant to the current objective.\",\n    \"option3\": \"close drawer 1\",\n    \"confidence3\": 3,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 4,
+      "observation": "You pick up the creditcard 2 from the drawer 1.",
+      "action": "go to armchair 1",
+      "next_observation": "You arrive at armchair 1. On the armchair 1, you see nothing.",
+      "inventory": "You are carrying: a creditcard 2.",
+      "phase": "AT_DEST",
+      "candidates": [
+        "go to armchair 2",
+        "go to armchair 1",
+        "examine creditcard 2"
+      ],
+      "log_p": [
+        -0.0024897142899375827,
+        -6.002489801135767,
+        -11.174364801135768
+      ],
+      "log_q": [
+        [
+          -5.5974835028651855,
+          -0.0037332930847755012,
+          -10.863108026028026
+        ],
+        [
+          -5.908994880335764,
+          -0.002744881499917382,
+          -10.549620357172923
+        ]
+      ],
+      "scores": [
+        -5.753239191600475,
+        -0.003239087292346454,
+        -10.706364191600475
+      ],
+      "chosen": 1,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The creditcard 2 has been successfully located and taken from drawer 1. The current phase is 'TREATED', which means the object has been handled and is ready to be placed in the destination. The next step is to move to the destination receptacle (armchair) and place the creditcard 2 there.\",\n    \"next_objective\": \"Go to the armchair to place the creditcard 2.\",\n    \"reasoning1\": \"Going to armchair 2 directly advances the task by positioning the agent at the destination receptacle where the creditcard 2 needs to be placed.\",\n    \"option1\": \"go to armchair 2\",\n    \"confidence1\": 45,\n    \"reasoning2\": \"Going to armchair 1 is also a valid option if armchair 2 is not the correct one, though the task specifies 'armchair', not a specific instance. It's a plausible alternative destination.\",\n    \"option2\": \"go to armchair 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Examine creditcard 2 is a valid action but doesn't directly advance the TREATED phase unless the task required inspection. It's a low-priority action at this stage.\",\n    \"option3\": \"examine creditcard 2\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at armchair 1. On the armchair 1, you see nothing.",
+      "action": "move creditcard 2 to armchair 1",
+      "next_observation": "You move the creditcard 2 to the armchair 1.",
+      "inventory": "You are carrying: a creditcard 2.",
+      "phase": "AT_DEST",
+      "candidates": [
+        "move creditcard 2 to armchair 1",
+        "examine armchair 1",
+        "go to armchair 2"
+      ],
+      "log_p": [
+        -5.1959743494585276e-05,
+        -11.515677321358588,
+        -10.078177321358588
+      ],
+      "log_q": [
+        [
+          -8.412197401386409e-06,
+          -13.60938329307906,
+          -11.84375829307906
+        ],
+        [
+          -1.1373007340068936e-05,
+          -14.343761254019967,
+          -11.437511254019967
+        ]
+      ],
+      "scores": [
+        -9.892602370727672e-06,
+        -13.976572273549515,
+        -11.640634773549515
+      ],
+      "chosen": 0,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent has already located and taken creditcard 2 from drawer 1. It is now at armchair 1, which is currently empty and ready to receive the credit card. The next step is to place the credit card on the armchair.\",\n    \"next_objective\": \"Place creditcard 2 on armchair 1\",\n    \"reasoning1\": \"This action directly fulfills the task goal by placing the credit card on the armchair, completing the current phase (AT_DEST).\",\n    \"option1\": \"move creditcard 2 to armchair 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"Examining the armchair confirms it is empty and suitable for the placement, but it doesn't advance the phase as much as the placement itself.\",\n    \"option2\": \"examine armchair 1\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Navigating to another armchair is irrelevant to the task since the agent is already at the correct destination armchair and has the target object in inventory.\",\n    \"option3\": \"go to armchair 2\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}"
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "counters": {
+    "n_steps_with_retrieval": 0,
+    "n_advantage_overrides": 0,
+    "n_memory_actions_injected": 0,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0,
+    "n_label_floor": 0,
+    "n_teacher_changed": 2,
+    "n_scoring_failures": 0
+  },
+  "trajectory_text": "[0] OBSERVATION: -= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a coffeetable 1, a diningtable 2, a diningtable 1, a drawer 2, a drawer 1, a garbagecan 1, a sidetable 2, a sidetable 1, a sofa 1, and a tvstand 1.\n\nYour task is to: put some creditcard on armchair.\n[1] ACTION: go to sidetable 2\n[1] OBSERVATION: You arrive at sidetable 2. On the sidetable 2, you see a curtains 1.\n[2] ACTION: go to drawer 1\n[2] OBSERVATION: You arrive at drawer 1. The drawer 1 is closed.\n[3] ACTION: open drawer 1\n[3] OBSERVATION: You open the drawer 1. The drawer 1 is open. In it, you see a creditcard 2.\n[4] ACTION: take creditcard 2 from drawer 1\n[4] OBSERVATION: You pick up the creditcard 2 from the drawer 1.\n[5] ACTION: go to armchair 1\n[5] OBSERVATION: You arrive at armchair 1. On the armchair 1, you see nothing.\n[6] ACTION: move creditcard 2 to armchair 1\n[6] OBSERVATION: You move the creditcard 2 to the armchair 1.",
+  "feedbacks_used": [
+    "{\n  \"reasoning\": \"The agent successfully completed the task of putting a credit card on an armchair. The trajectory shows that the agent first located the creditcard 2 in drawer 1 (steps 6–8), then moved to armchair 1 and placed the creditcard 2 there (steps 9–10). The final observation confirms that the creditcard 2 was moved to the armchair 1. Since the task was to 'put some creditcard on armchair,' and the agent did so, there is no clear error in the trajectory. No playbook was provided, so no bullet IDs are relevant.\",\n  \"error_identification\": \"No clear problem identified\",\n  \"root_cause_analysis\": \"Not applicable; the observed behavior was consistent with the task goal.\",\n  \"correct_approach\": \"Continue following the same strategy of locating the object first and then placing it in the target location.\",\n  \"key_insight\": \"When an object is inside a closed receptacle, the agent should first open the receptacle before attempting to take the object.\"\n}",
+    "{\n  \"reasoning\": \"The agent successfully completed the task of putting a credit card on an armchair. The trajectory shows that the agent first located the creditcard 2 in drawer 1, took it, and then moved it to armchair 1. All actions resulted in the expected observable changes: the drawer was opened, the credit card was picked up, and it was moved to the armchair. Since no playbook was provided, there are no specific bullet points to reference, but the agent's actions were goal-directed and effective.\",\n  \"error_identification\": \"No clear problem identified\",\n  \"root_cause_analysis\": \"Not applicable; the observed behavior was consistent with successful task execution.\",\n  \"correct_approach\": \"Continue following the same goal-directed strategy of locating the object, picking it up, and placing it in the target location.\",\n  \"key_insight\": \"When an object is found in a closed receptacle, open it first, then take the object and move it to the target location.\"\n}"
+  ],
+  "reflection": "{\n  \"reasoning\": \"The agent successfully completed the task of putting a credit card on an armchair. The trajectory shows that the agent first located the creditcard 2 in drawer 1, took it, and then moved it to armchair 1. All actions resulted in the expected observable changes: the drawer was opened, the credit card was picked up, and it was moved to the armchair. Since no playbook was provided, there are no specific bullet points to reference, but the agent's actions were goal-directed and effective.\",\n  \"error_identification\": \"No clear problem identified\",\n  \"root_cause_analysis\": \"Not applicable; the observed behavior was consistent with successful task execution.\",\n  \"correct_approach\": \"Continue following the same goal-directed strategy of locating the object, picking it up, and placing it in the target location.\",\n  \"key_insight\": \"When an object is found in a closed receptacle, open it first, then take the object and move it to the target location.\"\n}",
+  "actor_endpoint": "http://localhost:8000/v1",
+  "elapsed_seconds": 76.24,
+  "completed_utc": "2026-10-29T06:49:49.417681+00:00"
+}

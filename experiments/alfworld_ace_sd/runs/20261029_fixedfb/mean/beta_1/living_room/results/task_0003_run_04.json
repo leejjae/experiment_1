@@ -1,0 +1,773 @@
+{
+  "status": "complete",
+  "method": "iterative_self_distillation",
+  "beta": 1.0,
+  "rule": "mean",
+  "lam": 0.5,
+  "feedback_from": "/workspace/jitrl/experiments/alfworld_ace_sd/runs/20261029_iter/beta_1",
+  "target": "living_room",
+  "split": "valid_seen",
+  "task_index": 3,
+  "game_id": "look_at_obj_in_light-Box-None-DeskLamp-205/trial_T20190907_074425_330493",
+  "task_type": "look_at_obj_in_light",
+  "repeat": 4,
+  "seed": 349,
+  "goal": "look at box under the desklamp.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a diningtable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a ottoman 1, a sidetable 3, a sidetable 2, a sidetable 1, and a sofa 1.\n\nYour task is to: look at box under the desklamp.",
+      "action": "go to sidetable 1",
+      "next_observation": "You arrive at sidetable 1. On the sidetable 1, you see a statue 1.",
+      "inventory": "You are not carrying anything.",
+      "phase": "SEARCHING",
+      "candidates": [
+        "go to sidetable 1",
+        "go to dresser 1",
+        "go to ottoman 1"
+      ],
+      "log_p": [
+        -0.34555492477351046,
+        -1.9393049843781553,
+        -1.9080549843781553
+      ],
+      "log_q": [
+        [
+          -0.1740288152694048,
+          -2.6427789344786943,
+          -2.4240289344786943
+        ],
+        [
+          -2.72513473143245,
+          -0.4751346718278052,
+          -1.16263473143245
+        ],
+        [
+          -0.46161157800798935,
+          -1.0866115780079895,
+          -3.430361697217279
+        ]
+      ],
+      "scores": [
+        -1.1202583749032813,
+        -1.4015083947714961,
+        -2.339008454376141
+      ],
+      "chosen": 0,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"I have not yet begun the task, and I am currently in the room. The next step is to locate the desklamp by navigating to the most likely receptacles that could be associated with it or that might be under which a box might be placed. The desklamp is not visible in the initial observation, so I must search for it.\",\n    \"next_objective\": \"Locate the desklamp by exploring receptacles that are likely to be associated with it or under which a box might be placed.\",\n    \"reasoning1\": \"The sidetables are small and commonly used to place objects like lamps. Navigating to sidetable 1 is a logical first step to look for the desklamp or any box that might be under it.\",\n    \"option1\": \"go to sidetable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The dresser is another likely location for lamps or boxes. Navigating to dresser 1 will allow me to check if the desklamp or a box is present.\",\n    \"option2\": \"go to dresser 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The ottoman is a large piece of furniture that might have objects on or under it, including the desklamp or a box. Navigating to ottoman 1 is a reasonable next step.\",\n    \"option3\": \"go to ottoman 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at sidetable 1. On the sidetable 1, you see a statue 1.",
+      "action": "go to diningtable 1",
+      "next_observation": "You arrive at diningtable 1. On the diningtable 1, you see a box 1, a laptop 2, and a statue 3.",
+      "inventory": "You are not carrying anything.",
+      "phase": "LOCATED",
+      "candidates": [
+        "examine sidetable 1",
+        "go to sidetable 3",
+        "go to diningtable 1"
+      ],
+      "log_p": [
+        -3.308645149188292,
+        -0.7461452087929363,
+        -0.7148952087929363
+      ],
+      "log_q": [
+        [
+          -7.447345607378938,
+          -0.32234572658822713,
+          -1.291095726588227
+        ],
+        [
+          -4.265521116872357,
+          -3.4530213552909363,
+          -0.046771336664484825
+        ],
+        [
+          -9.783234176467644,
+          -0.12698439998506197,
+          -2.1269844148862234
+        ]
+      ],
+      "scores": [
+        -7.165366966906313,
+        -1.300783827288075,
+        -1.1549504927129783
+      ],
+      "chosen": 2,
+      "base_choice": 2,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent has arrived at sidetable 1 and observed a statue, but the box under the desklamp has not yet been located. The next step is to continue searching for the desklamp or any other receptacles that might hold the box.\",\n    \"next_objective\": \"Search for the desklamp or any other receptacles that might contain the box.\",\n    \"reasoning1\": \"Examining the sidetable 1 may reveal additional details about its contents or any objects on or under it, potentially including the box or a clue to the desklamp's location.\",\n    \"option1\": \"examine sidetable 1\",\n    \"confidence1\": 35,\n    \"reasoning2\": \"Moving to other nearby receptacles (like sidetable 3 or drawer 1) increases the likelihood of encountering the desklamp or the box, which are likely to be in nearby locations.\",\n    \"option2\": \"go to sidetable 3\",\n    \"confidence2\": 40,\n    \"reasoning3\": \"Exploring other nearby furniture such as the diningtable or armchair increases the chance of locating the box or desklamp, as these are common places for such items.\",\n    \"option3\": \"go to diningtable 1\",\n    \"confidence3\": 25,\n    \"best_action\": 2\n}"
+    },
+    {
+      "index": 2,
+      "observation": "You arrive at diningtable 1. On the diningtable 1, you see a box 1, a laptop 2, and a statue 3.",
+      "action": "take box 1 from diningtable 1",
+      "next_observation": "You pick up the box 1 from the diningtable 1.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "take box 1 from diningtable 1",
+        "examine diningtable 1",
+        "go to dresser 1"
+      ],
+      "log_p": [
+        -0.0150765671766021,
+        -4.421326550412796,
+        -5.827576550412796
+      ],
+      "log_q": [
+        [
+          -1.262125040933317,
+          -0.8558751005379618,
+          -1.230875040933317
+        ],
+        [
+          -0.06685452140039226,
+          -2.7856045363015536,
+          -5.8168542978829745
+        ],
+        [
+          -1.4400701968732634,
+          -1.0963201968732634,
+          -0.8463201968732633
+        ]
+      ],
+      "scores": [
+        -0.9230165864023243,
+        -1.579266611237593,
+        -2.6313498452298516
+      ],
+      "chosen": 0,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent has located the box on the diningtable 1. The next objective is to interact with the box in order to look at it.\",\n    \"next_objective\": \"Take the box from the diningtable to look at it.\",\n    \"reasoning1\": \"Taking the box from the diningtable is the direct action needed to interact with it and fulfill the task goal of looking at it.\",\n    \"option1\": \"take box 1 from diningtable 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"While examining the diningtable might provide more context, the box is already visible and the next step is to take it, not examine the table.\",\n    \"option2\": \"examine diningtable 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Going to other receptacles like the dresser or ottoman is irrelevant at this stage, as the box is already located and visible.\",\n    \"option3\": \"go to dresser 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 3,
+      "observation": "You pick up the box 1 from the diningtable 1.",
+      "action": "examine box 1",
+      "next_observation": "This is a normal box 1. In it, you see nothing.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "examine box 1",
+        "move box 1 to diningtable 1",
+        "go to sidetable 3"
+      ],
+      "log_p": [
+        -0.008733062171258214,
+        -9.039982760422744,
+        -4.758733237259902
+      ],
+      "log_q": [
+        [
+          -4.389806645210989,
+          -6.077306645210989,
+          -0.014806553010053741
+        ],
+        [
+          -0.00027601101471085634,
+          -10.687775596576165,
+          -8.281525596576165
+        ],
+        [
+          -2.0996570412802096,
+          -8.50590727969879,
+          -0.13090707108253194
+        ]
+      ],
+      "scores": [
+        -2.163246565835303,
+        -8.423663173828647,
+        -2.8090797402229164
+      ],
+      "chosen": 0,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the box from the diningtable. The current phase is HOLDING, and the next objective is to examine the box to fulfill the task of looking at it under the desklamp.\",\n    \"next_objective\": \"Examine the box to complete the task of looking at it under the desklamp.\",\n    \"reasoning1\": \"The task requires looking at the box under the desklamp, and examining the box is a direct way to achieve this objective. This action aligns with the HOLDING phase and completes the task goal.\",\n    \"option1\": \"examine box 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Moving the box to the diningtable might help place it under the desklamp if the desklamp is located there. However, the desklamp has not been visited yet, and this action doesn't directly fulfill the task of examining the box under the desklamp.\",\n    \"option2\": \"move box 1 to diningtable 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Going to sidetable 3 is a potential location, but it doesn't directly contribute to examining the box or fulfilling the task of looking at it under the desklamp. It is not a strategic action for the current phase.\",\n    \"option3\": \"go to sidetable 3\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 4,
+      "observation": "This is a normal box 1. In it, you see nothing.",
+      "action": "go to drawer 2",
+      "next_observation": "You arrive at drawer 2. The drawer 2 is closed.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "move box 1 to diningtable 1",
+        "go to drawer 1",
+        "go to drawer 2"
+      ],
+      "log_p": [
+        -5.047730029763494,
+        -0.6102299105542053,
+        -0.7977299105542053
+      ],
+      "log_q": [
+        [
+          -3.2212922747256947,
+          -0.8150422747256948,
+          -0.6587922747256948
+        ],
+        [
+          -1.9983891894537271,
+          -1.6233893086630167,
+          -0.4046392788606944
+        ],
+        [
+          -3.0650166811117026,
+          -1.002516561902413,
+          -0.5337665619024129
+        ]
+      ],
+      "scores": [
+        -2.7615660484303746,
+        -1.1469827150970415,
+        -0.5323993718296007
+      ],
+      "chosen": 2,
+      "base_choice": 1,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The box 1 has already been examined and found to be empty. The current phase is [HOLDING], and the next objective is to complete the task goal, which is to look at the box under the desklamp. Since the box has already been examined, the task is effectively complete, but the goal may require placing it under the desklamp or further inspection at another location.\",\n    \"next_objective\": \"Place the box under the desklamp or examine it at another location to complete the task goal.\",\n    \"reasoning1\": \"Moving the box to the diningtable 1 could be a step toward placing it near a desklamp or another relevant receptacle, which may be the intended location for the desklamp.\",\n    \"option1\": \"move box 1 to diningtable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to drawer 1 may lead to a location where the desklamp is located, potentially fulfilling the requirement to place the box under it.\",\n    \"option2\": \"go to drawer 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to drawer 2 may also lead to a location where the desklamp is located, potentially fulfilling the requirement to place the box under it.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at drawer 2. The drawer 2 is closed.",
+      "action": "go to sidetable 2",
+      "next_observation": "You arrive at sidetable 2. On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "open drawer 2",
+        "examine drawer 2",
+        "go to sidetable 2"
+      ],
+      "log_p": [
+        -0.0064457761095675515,
+        -5.75644563222023,
+        -5.72519563222023
+      ],
+      "log_q": [
+        [
+          -2.8957805300332784,
+          -2.5207805300332784,
+          -0.14578063434140656
+        ],
+        [
+          -1.0220180685482965,
+          -1.4595180685482965,
+          -0.8970181281529414
+        ],
+        [
+          -3.393695505033082,
+          -2.299945505033082,
+          -0.1436956093412105
+        ]
+      ],
+      "scores": [
+        -2.437164701204886,
+        -2.093414701204886,
+        -0.39549812394518646
+      ],
+      "chosen": 2,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent has located, taken, and examined the box 1, which was found empty. The current challenge is to determine the next step from the current [PHASE], which is HOLDING. Since the examination of the box is complete, the agent is free to proceed with any further task or movement, but no new subgoal has been defined in the task that requires action beyond this point. The current location is drawer 2, which is closed.\",\n    \"next_objective\": \"Determine the next destination or action while holding the box.\",\n    \"reasoning1\": \"Opening drawer 2 could provide access to further objects or actions relevant to the task. This is the most logical next step as the drawer is directly in the agent's vicinity and is closed.\",\n    \"option1\": \"open drawer 2\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining drawer 2 could clarify its contents or purpose. This is a reasonable step if the agent suspects the drawer may contain relevant information or objects.\",\n    \"option2\": \"examine drawer 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Moving to another receptacle could be useful if the agent suspects another location might provide context or a next step. Sidetable 2 is a nearby unvisited receptacle and is a plausible candidate.\",\n    \"option3\": \"go to sidetable 2\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 6,
+      "observation": "You arrive at sidetable 2. On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.",
+      "action": "examine box 1",
+      "next_observation": "This is a normal box 1. In it, you see nothing.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "examine box 1",
+        "move box 1 to sidetable 2",
+        "go to drawer 1"
+      ],
+      "log_p": [
+        -0.024668151548562358,
+        -6.555918205565272,
+        -3.7746682055652716
+      ],
+      "log_q": [
+        [
+          -1.5723708270448302,
+          -0.8223707674401856,
+          -1.0411208270448302
+        ],
+        [
+          -0.02635031453964985,
+          -5.151350189742425,
+          -3.901350428161004
+        ],
+        [
+          -0.4289662924095193,
+          -2.3664663222118416,
+          -1.3664663222118416
+        ]
+      ],
+      "scores": [
+        -0.6758958113313331,
+        -2.7800624264648177,
+        -2.1029791924725583
+      ],
+      "chosen": 0,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The box has been located on the diningtable, picked up, and examined, revealing that it's empty. The agent is currently at sidetable 2 and is in the [HOLDING] phase, which means the task is to either treat the object further or move to the next phase. Since the goal is to 'look at box under the desklamp,' the focus is on examining the box, which has already been done. The next objective is to either move the box to a receptacle under the desklamp or continue searching for additional clues.\",\n    \"next_objective\": \"Move the box to a receptacle under the desklamp or continue searching for new locations\",\n    \"reasoning1\": \"Examining the box again could reveal any overlooked details or hidden features that might be relevant to the task of looking at it under the desklamp, such as identifying where the desklamp is located.\",\n    \"option1\": \"examine box 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Moving the box to sidetable 2 places it in a location that might be under the desklamp, potentially fulfilling the task goal if the sidetable is under the desklamp. This is a direct action that brings the object closer to its intended destination.\",\n    \"option2\": \"move box 1 to sidetable 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to another drawer or location may lead to discovering the desklamp or a receptacle associated with it. Continuing the search is a logical step given the current phase and lack of a clear destination for the box.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 7,
+      "observation": "This is a normal box 1. In it, you see nothing.",
+      "action": "go to sidetable 3",
+      "next_observation": "You arrive at sidetable 3. On the sidetable 3, you see a desklamp 1, and a houseplant 1.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "go to dresser 1",
+        "go to armchair 1",
+        "go to sidetable 3"
+      ],
+      "log_p": [
+        -0.9451327607252489,
+        -1.8513827607252489,
+        -0.7888827607252489
+      ],
+      "log_q": [
+        [
+          -6.196910514341778,
+          -4.915660514341778,
+          -0.009410726683324802
+        ],
+        [
+          -2.548662487332251,
+          -3.611162487332251,
+          -0.11116241282644533
+        ],
+        [
+          -6.791830804060199,
+          -4.666830804060199,
+          -0.010580709065296496
+        ]
+      ],
+      "scores": [
+        -5.179134601911409,
+        -4.397884601911409,
+        -0.04371794952502228
+      ],
+      "chosen": 2,
+      "base_choice": 2,
+      "proposal_raw": "{\n    \"progress_analysis\": \"So far, the agent has located and examined the box, finding it empty. The next objective is to find the desklamp to look at the box under it. The agent is currently holding the box and has already searched the sidetable and diningtable multiple times. The next step is to locate the desklamp and move to it.\",\n    \"next_objective\": \"Locate the desklamp and move to it to fulfill the goal of looking at the box under it.\",\n    \"reasoning1\": \"Moving to new receptacles like dresser 1 increases the chance of discovering the desklamp, which is necessary to complete the task of looking at the box under it.\",\n    \"option1\": \"go to dresser 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Moving to armchair 1 could lead to discovering the desklamp or provide a new vantage point to locate it, helping achieve the task goal.\",\n    \"option2\": \"go to armchair 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Moving to sidetable 3 provides a new location that might reveal the desklamp or lead to it, advancing the search for the required location.\",\n    \"option3\": \"go to sidetable 3\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 8,
+      "observation": "You arrive at sidetable 3. On the sidetable 3, you see a desklamp 1, and a houseplant 1.",
+      "action": "examine box 1",
+      "next_observation": "This is a normal box 1. In it, you see nothing.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "use desklamp 1",
+        "examine box 1",
+        "move box 1 to sidetable 3"
+      ],
+      "log_p": [
+        -0.008539337629258095,
+        -5.196039143914162,
+        -5.821039143914162
+      ],
+      "log_q": [
+        [
+          -0.21737092127063917,
+          -2.7486210106776063,
+          -2.0298710106776063
+        ],
+        [
+          -6.927772383475331,
+          -0.021522562289265215,
+          -3.89652262189391
+        ],
+        [
+          -0.7203579161471582,
+          -1.0953579757518028,
+          -1.7203579757518028
+        ]
+      ],
+      "scores": [
+        -2.62183374029771,
+        -1.2885005162395577,
+        -2.5489172027744393
+      ],
+      "chosen": 1,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The box has been located and taken from the diningtable, and it was found to be empty. The agent has now arrived at sidetable 3, where the desklamp 1 is located. The next objective is to use the desklamp to examine the box under its light, as the task requires looking at the box under the desklamp.\",\n    \"next_objective\": \"Use the desklamp 1 to examine the box 1 under its light.\",\n    \"reasoning1\": \"The desklamp 1 is in the room, and using it would create the necessary condition of light for examining the box under it, directly fulfilling the task goal.\",\n    \"option1\": \"use desklamp 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining the box again might be redundant if it's already been determined to be empty, but it could be useful for confirmation under the light provided by the desklamp.\",\n    \"option2\": \"examine box 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Moving the box to the sidetable 3 would place it directly under the desklamp, making it easier to examine it under its light once the desklamp is turned on.\",\n    \"option3\": \"move box 1 to sidetable 3\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 9,
+      "observation": "This is a normal box 1. In it, you see nothing.",
+      "action": "go to ottoman 1",
+      "next_observation": "You arrive at ottoman 1. On the ottoman 1, you see nothing.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "use desklamp 1",
+        "go to dresser 1",
+        "go to ottoman 1"
+      ],
+      "log_p": [
+        -1.4627991362501556,
+        -0.6502990766455109,
+        -1.4002991362501556
+      ],
+      "log_q": [
+        [
+          -1.1689166849754846,
+          -1.7314166849754846,
+          -0.6689166849754847
+        ],
+        [
+          -1.7965169558037362,
+          -0.859017015408381,
+          -0.890267015408381
+        ],
+        [
+          -1.1209031760437405,
+          -1.7771531760437405,
+          -0.6834031164390957
+        ]
+      ],
+      "scores": [
+        -1.3621122722743204,
+        -1.4558622921425353,
+        -0.7475289389409872
+      ],
+      "chosen": 2,
+      "base_choice": 1,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The box has been located and examined, but it is empty. The goal is to look at a box under the desklamp, so the next objective is to locate the desklamp and determine if it can be used to illuminate the box for examination.\",\n    \"next_objective\": \"Locate and interact with the desklamp.\",\n    \"reasoning1\": \"Using the desklamp will allow us to examine the box under its light, which is the core of the goal. This directly supports the task objective.\",\n    \"option1\": \"use desklamp 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Navigating to other unvisited receptacles may help us locate the desklamp, which is necessary to achieve the goal.\",\n    \"option2\": \"go to dresser 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Searching for other unvisited furniture such as the ottoman might lead to finding the desklamp or a clue to its location.\",\n    \"option3\": \"go to ottoman 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 10,
+      "observation": "You arrive at ottoman 1. On the ottoman 1, you see nothing.",
+      "action": "go to dresser 1",
+      "next_observation": "You arrive at dresser 1. On the dresser 1, you see a television 1.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "go to sidetable 1",
+        "go to sidetable 2",
+        "go to dresser 1"
+      ],
+      "log_p": [
+        -3.106777206161862,
+        -3.575527206161862,
+        -0.07552730301940971
+      ],
+      "log_q": [
+        [
+          -0.8143338638627518,
+          -1.501833804258107,
+          -1.095583804258107
+        ],
+        [
+          -1.39862546525782,
+          -2.80487558446711,
+          -0.36737549506014244
+        ],
+        [
+          -1.0591047941341887,
+          -2.1528547941341887,
+          -0.6216048537388333
+        ]
+      ],
+      "scores": [
+        -1.09068804108492,
+        -2.153188060953135,
+        -0.6948547176856943
+      ],
+      "chosen": 2,
+      "base_choice": 2,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent has located and picked up the box, and is currently in the [HOLDING] phase of the task. The next objective is to find the desklamp, under which the box should be placed. The agent is at the ottoman, which is already searched and contains nothing. The focus should now shift to finding the desklamp.\",\n    \"next_objective\": \"Locate the desklamp to place the box underneath it.\",\n    \"reasoning1\": \"The desklamp is likely located on a sidetable or dresser, so navigating to one of these receptacles increases the chance of locating it. This action advances the phase by bringing the agent closer to the destination.\",\n    \"option1\": \"go to sidetable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Moving to another sidetable increases the likelihood of encountering the desklamp in an unvisited location. This action aligns with the objective of locating the desklamp and is a reasonable next step.\",\n    \"option2\": \"go to sidetable 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Exploring a dresser is a logical next step since desklamps are often placed there. This action directly aligns with the goal of finding the desklamp and advancing the phase.\",\n    \"option3\": \"go to dresser 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 11,
+      "observation": "You arrive at dresser 1. On the dresser 1, you see a television 1.",
+      "action": "go to sidetable 2",
+      "next_observation": "You arrive at sidetable 2. On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "examine dresser 1",
+        "go to sidetable 2",
+        "go to drawer 2"
+      ],
+      "log_p": [
+        -0.15737871430043737,
+        -3.063628759003921,
+        -2.313628759003921
+      ],
+      "log_q": [
+        [
+          -3.524862314067554,
+          -0.18111235877103757,
+          -1.993612314067554
+        ],
+        [
+          -0.24010719829691074,
+          -3.271357228099233,
+          -1.7401072280992331
+        ],
+        [
+          -4.144945130914907,
+          -0.17619530972884165,
+          -1.9261953693334863
+        ]
+      ],
+      "scores": [
+        -2.6366382144264575,
+        -1.209554965533037,
+        -1.8866383038334245
+      ],
+      "chosen": 1,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The box has been located and taken, and it has been examined, but it is empty. The current objective is to find a desklamp to place the box under. The agent is now at the dresser 1, which has a television 1 but no desklamp. The next step is to continue searching for the desklamp.\",\n    \"next_objective\": \"Locate the desklamp.\",\n    \"reasoning1\": \"Examining the dresser 1 might reveal the presence of a desklamp, which would directly lead to the next step of placing the box under it.\",\n    \"option1\": \"examine dresser 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"The sidetables have not been ruled out as locations for the desklamp. Sidetable 2 could potentially hold the desklamp, and navigating there would help continue the search.\",\n    \"option2\": \"go to sidetable 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The drawer 2 is another possible location for the desklamp. Searching it would further the search without backtracking or revisiting already searched locations.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 12,
+      "observation": "You arrive at sidetable 2. On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.",
+      "action": "examine sidetable 2",
+      "next_observation": "On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "go to drawer 3",
+        "examine sidetable 2",
+        "go to armchair 2"
+      ],
+      "log_p": [
+        -2.719996240265497,
+        -0.407496329672464,
+        -1.3137463594747865
+      ],
+      "log_q": [
+        [
+          -2.16639208892734,
+          -0.5726420889273399,
+          -1.13514208892734
+        ],
+        [
+          -2.5172257004108016,
+          -0.42347576001544623,
+          -1.3297257004108014
+        ],
+        [
+          -3.233062188307937,
+          -0.514312247912582,
+          -1.0143121883079371
+        ]
+      ],
+      "scores": [
+        -2.638893325882026,
+        -0.5034766989517894,
+        -1.1597266592153594
+      ],
+      "chosen": 1,
+      "base_choice": 1,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent has located and picked up the box, and it is currently being carried. The goal is to find the desklamp under which the box is supposed to be examined. So far, the desklamp has not been located. The agent is at sidetable 2, and the next objective is to find the desklamp.\",\n    \"next_objective\": \"Locate the desklamp to place the box under it for examination.\",\n    \"reasoning1\": \"Navigating to a new location increases the chance of encountering the desklamp, which is the next necessary step in the task.\",\n    \"option1\": \"go to drawer 3\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examining the current location might reveal the desklamp or additional clues to its location, helping to avoid unnecessary navigation.\",\n    \"option2\": \"examine sidetable 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Continuing to search new locations increases the likelihood of locating the desklamp. This action moves the agent to a new unsearched location.\",\n    \"option3\": \"go to armchair 2\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 13,
+      "observation": "On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.",
+      "action": "examine sidetable 2",
+      "next_observation": "On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "examine box 1",
+        "go to sidetable 1",
+        "examine sidetable 2"
+      ],
+      "log_p": [
+        -5.531210616069812,
+        -0.8124607948837461,
+        -0.5937107948837461
+      ],
+      "log_q": [
+        [
+          -3.3595356359968798,
+          -1.1095356359968798,
+          -0.45328563599687977
+        ],
+        [
+          -0.291533030773278,
+          -4.572783239389535,
+          -1.4165330009709556
+        ],
+        [
+          -4.323297910887929,
+          -1.7920481493065077,
+          -0.19829808970186297
+        ]
+      ],
+      "scores": [
+        -2.6581221925526957,
+        -2.491455674897641,
+        -0.6893722422232328
+      ],
+      "chosen": 2,
+      "base_choice": 2,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The box has been located and taken, but the desklamp has not yet been found. The next step is to locate the desklamp in order to complete the goal of looking at the box under it.\",\n    \"next_objective\": \"Locate the desklamp to fulfill the task of looking at the box under it.\",\n    \"reasoning1\": \"Examining the box again might provide more information or clues about the location of the desklamp, which could help advance the goal.\",\n    \"option1\": \"examine box 1\",\n    \"confidence1\": 30,\n    \"reasoning2\": \"Exploring the sidetable 1 is a logical next step, as it is a similar object to the sidetable 2 where the agent is currently located, and might contain the desklamp or further clues.\",\n    \"option2\": \"go to sidetable 1\",\n    \"confidence2\": 50,\n    \"reasoning3\": \"Examining the sidetable 2 might reveal additional information or overlooked objects that could help in locating the desklamp.\",\n    \"option3\": \"examine sidetable 2\",\n    \"confidence3\": 20,\n    \"best_action\": 2\n}"
+    },
+    {
+      "index": 14,
+      "observation": "On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.",
+      "action": "go to sidetable 3",
+      "next_observation": "You arrive at sidetable 3. On the sidetable 3, you see a desklamp 1, and a houseplant 1.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "examine sidetable 2",
+        "move box 1 to sidetable 2",
+        "go to sidetable 3"
+      ],
+      "log_p": [
+        -0.7459442551601569,
+        -3.870944255160157,
+        -0.6834442551601569
+      ],
+      "log_q": [
+        [
+          -4.369959625946515,
+          -1.8699595067372254,
+          -0.18245955144070908
+        ],
+        [
+          -0.7374995365390712,
+          -1.4249995365390713,
+          -1.2687495365390713
+        ],
+        [
+          -5.693677911722175,
+          -5.881177911722175,
+          -0.006177724060676657
+        ]
+      ],
+      "scores": [
+        -3.600379024735921,
+        -3.058712318332824,
+        -0.48579560401348565
+      ],
+      "chosen": 2,
+      "base_choice": 2,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent has already located and taken the box from the diningtable, and has examined it twice without finding anything inside. The current objective is to find a box under the desklamp. The agent is currently at sidetable 2, which contains a desklamp. However, no box has been seen there yet. The challenge is to locate a box in a new unsearched location or under the desklamp itself.\",\n    \"next_objective\": \"Search for a box under the desklamp or in a new unsearched location.\",\n    \"reasoning1\": \"Examining sidetable 2 may reveal if the box is under the desklamp or if there are clues to where the box might be. This directly supports the objective of locating a box under the desklamp.\",\n    \"option1\": \"examine sidetable 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Moving the box to sidetable 2 could place it under the desklamp, fulfilling the task goal if the desklamp is located there. This action attempts to satisfy the task by placing the box under the desklamp.\",\n    \"option2\": \"move box 1 to sidetable 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to sidetable 3 may lead to a new location where the box could be found under the desklamp. This action explores a new location to continue the search.\",\n    \"option3\": \"go to sidetable 3\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 15,
+      "observation": "You arrive at sidetable 3. On the sidetable 3, you see a desklamp 1, and a houseplant 1.",
+      "action": "examine sidetable 3",
+      "next_observation": "On the sidetable 3, you see a desklamp 1, and a houseplant 1.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "HOLDING",
+      "candidates": [
+        "use desklamp 1",
+        "move box 1 to sidetable 3",
+        "examine sidetable 3"
+      ],
+      "log_p": [
+        -0.08210931579148177,
+        -7.113359181681031,
+        -2.55085942009961
+      ],
+      "log_q": [
+        [
+          -2.3380512865611145,
+          -0.6505512269564696,
+          -0.9630512269564696
+        ],
+        [
+          -0.34901222554841216,
+          -3.3490121957460897,
+          -1.3490121957460899
+        ],
+        [
+          -1.0388022530322047,
+          -2.1638022530322045,
+          -0.6325521934275599
+        ]
+      ],
+      "scores": [
+        -1.241955255047244,
+        -2.0544552252449213,
+        -0.9815385387100397
+      ],
+      "chosen": 2,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The box has already been located, taken, and examined, and it was found to be empty. The current objective is to look at the box under the desklamp, which is located on sidetable 3. Since the desklamp is now accessible, the next step is to place the box under the desklamp for inspection.\",\n    \"next_objective\": \"Place the box under the desklamp on sidetable 3 for inspection.\",\n    \"reasoning1\": \"Using the desklamp will allow for closer examination of the box, which aligns with the goal of looking at the box under the desklamp.\",\n    \"option1\": \"use desklamp 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Moving the box to sidetable 3 ensures it is directly under the desklamp, setting up the environment for the examination.\",\n    \"option2\": \"move box 1 to sidetable 3\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examining the sidetable confirms the location and context of the desklamp and the houseplant, ensuring the environment is understood before proceeding.\",\n    \"option3\": \"examine sidetable 3\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}"
+    },
+    {
+      "index": 16,
+      "observation": "On the sidetable 3, you see a desklamp 1, and a houseplant 1.",
+      "action": "use desklamp 1",
+      "next_observation": "You turn on the desklamp 1.",
+      "inventory": "You are carrying: a box 1.",
+      "phase": "TREATED",
+      "candidates": [
+        "use desklamp 1",
+        "examine sidetable 3",
+        "examine box 1"
+      ],
+      "log_p": [
+        -0.02036381151250528,
+        -4.020363805924569,
+        -6.114113805924569
+      ],
+      "log_q": [
+        [
+          -0.24799830168189832,
+          -1.685498271879576,
+          -3.3729983910888657
+        ],
+        [
+          -4.61317714169767,
+          -4.67567714169767,
+          -0.019426949845219938
+        ],
+        [
+          -0.22915751338446172,
+          -1.760407468680978,
+          -3.416657587890268
+        ]
+      ],
+      "scores": [
+        -1.6967776522546767,
+        -2.707194294086075,
+        -2.269694309608118
+      ],
+      "chosen": 0,
+      "base_choice": 0,
+      "proposal_raw": "{\n    \"progress_analysis\": \"The agent has successfully located and picked up the box (box 1) from the diningtable and examined it, finding it empty. The current objective is to find the box under the desklamp (desklamp 1) at sidetable 3. The desklamp is already on sidetable 3, and the agent has examined the sidetable but has not yet found the box under it.\",\n    \"next_objective\": \"Find and examine the box under the desklamp at sidetable 3.\",\n    \"reasoning1\": \"Using the desklamp will illuminate the area under it, potentially revealing the location of the box, which is the target of the task.\",\n    \"option1\": \"use desklamp 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Re-examining sidetable 3 may reveal the box under the desklamp if it wasn’t visible previously. This action ensures the environment is fully inspected.\",\n    \"option2\": \"examine sidetable 3\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examining the box again may provide further insights or clues about its location under the desklamp, though this is not the most direct action.\",\n    \"option3\": \"examine box 1\",\n    \"confidence3\": 10,\n    \"best_action\": 1\n}"
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "counters": {
+    "n_steps_with_retrieval": 0,
+    "n_advantage_overrides": 0,
+    "n_memory_actions_injected": 0,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0,
+    "n_label_floor": 0,
+    "n_teacher_changed": 6,
+    "n_scoring_failures": 0
+  },
+  "trajectory_text": "[0] OBSERVATION: -= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a diningtable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a ottoman 1, a sidetable 3, a sidetable 2, a sidetable 1, and a sofa 1.\n\nYour task is to: look at box under the desklamp.\n[1] ACTION: go to sidetable 1\n[1] OBSERVATION: You arrive at sidetable 1. On the sidetable 1, you see a statue 1.\n[2] ACTION: go to diningtable 1\n[2] OBSERVATION: You arrive at diningtable 1. On the diningtable 1, you see a box 1, a laptop 2, and a statue 3.\n[3] ACTION: take box 1 from diningtable 1\n[3] OBSERVATION: You pick up the box 1 from the diningtable 1.\n[4] ACTION: examine box 1\n[4] OBSERVATION: This is a normal box 1. In it, you see nothing.\n[5] ACTION: go to drawer 2\n[5] OBSERVATION: You arrive at drawer 2. The drawer 2 is closed.\n[6] ACTION: go to sidetable 2\n[6] OBSERVATION: You arrive at sidetable 2. On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.\n[7] ACTION: examine box 1\n[7] OBSERVATION: This is a normal box 1. In it, you see nothing.\n[8] ACTION: go to sidetable 3\n[8] OBSERVATION: You arrive at sidetable 3. On the sidetable 3, you see a desklamp 1, and a houseplant 1.\n[9] ACTION: examine box 1\n[9] OBSERVATION: This is a normal box 1. In it, you see nothing.\n[10] ACTION: go to ottoman 1\n[10] OBSERVATION: You arrive at ottoman 1. On the ottoman 1, you see nothing.\n[11] ACTION: go to dresser 1\n[11] OBSERVATION: You arrive at dresser 1. On the dresser 1, you see a television 1.\n[12] ACTION: go to sidetable 2\n[12] OBSERVATION: You arrive at sidetable 2. On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.\n[13] ACTION: examine sidetable 2\n[13] OBSERVATION: On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.\n[14] ACTION: examine sidetable 2\n[14] OBSERVATION: On the sidetable 2, you see a creditcard 3, a statue 2, and a watch 2.\n[15] ACTION: go to sidetable 3\n[15] OBSERVATION: You arrive at sidetable 3. On the sidetable 3, you see a desklamp 1, and a houseplant 1.\n[16] ACTION: examine sidetable 3\n[16] OBSERVATION: On the sidetable 3, you see a desklamp 1, and a houseplant 1.\n[17] ACTION: use desklamp 1\n[17] OBSERVATION: You turn on the desklamp 1.",
+  "feedbacks_used": [
+    "{\n  \"reasoning\": \"The agent's task was to 'look at box under the desklamp.' The box was found on the diningtable 1 (step 20), but the desklamp was located on sidetable 3 (step 5 and 17). The agent turned on the desklamp (steps 6 and 18), but there was no indication that the desklamp illuminated or revealed the box. The box was never observed under the desklamp, and the agent spent multiple steps examining and moving the box without achieving the task. The agent failed to recognize that the box was not under the desklamp and instead was on the diningtable. This suggests a misunderstanding of the spatial relationship between the box and the desklamp. No playbook was provided, so the agent likely relied on a default strategy of searching for objects and interacting with relevant items, but this led to redundant actions and a missed opportunity to conclude the task correctly.\",\n  \"error_identification\": \"The agent incorrectly assumed the box was under the desklamp and spent multiple steps examining and moving the box without confirming its location relative to the desklamp. The box was on the diningtable, not under the desklamp.\",\n  \"root_cause_analysis\": \"The agent did not verify the spatial relationship between the box and the desklamp. It assumed the box was under the desklamp based on the task instruction, but the observations showed the box was on the diningtable. This was a misinterpretation of the task instruction and the environment layout.\",\n  \"correct_approach\": \"After finding the box on the diningtable (step 20), the agent should have checked whether the box was under the desklamp by verifying if the desklamp was positioned over it. If not, the agent should have moved the box under the desklamp or adjusted the desklamp's position accordingly. Alternatively, the agent could have concluded that the box was not under the desklamp and reported this to the user.\",\n  \"key_insight\": \"When an object is mentioned as being 'under' another object, verify the spatial relationship by checking the location of both objects before assuming the condition is met.\"\n}",
+    "{\n  \"reasoning\": \"The agent's goal is to 'look at box under the desklamp.' The box is located on the diningtable 1 (observed in steps 4, 9, 11, 13, 15, 19, 21, 23, 26, 28, 30), but the desklamp is on sidetable 3. The agent repeatedly moves between sidetable 3 and diningtable 1, turns on the desklamp, and examines the diningtable, but never examines the box. The agent appears to misunderstand the task as simply interacting with the desklamp and diningtable, rather than examining the box. The agent also repeats the same actions (e.g., going to sidetable 3 and diningtable 1) without progressing toward the goal. Since the playbook is empty, no specific bullet can be cited, but the agent's behavior shows a lack of focus on the actual target object (box 1).\",\n  \"error_identification\": \"The agent failed to examine the box on the diningtable, which is the actual target of the task. It repeatedly interacted with the desklamp and diningtable without examining the box.\",\n  \"root_cause_analysis\": \"The agent misunderstood the task as being about the desklamp and the location of the box, rather than the box itself. It also failed to recognize that the box was already visible and accessible on the diningtable, and that the only required action was to examine it.\",\n  \"correct_approach\": \"After confirming the box is on the diningtable, the agent should examine the box directly. It should avoid unnecessary back-and-forth between locations and focus on the target object.\",\n  \"key_insight\": \"When the target object is already visible and accessible in the current location, the agent should examine it directly rather than moving between locations or interacting with unrelated objects.\"\n}",
+    "{\n  \"reasoning\": \"The agent's goal was to 'look at box under the desklamp.' The desklamp is located on sidetable 3, and the box is on diningtable 1. The agent correctly identified the location of the desklamp and the box. However, the agent repeatedly examined the diningtable without making progress until it eventually picked up the box and moved it to sidetable 1. The key issue is that the agent did not realize that the box was not under the desklamp—it was on the diningtable, and the desklamp was on a different object (sidetable 3). The agent also unnecessarily repeated the 'examine diningtable 1' action multiple times (steps 5–9, 13, 24), which produced no new information. The agent should have recognized that the box was not under the desklamp and that the desklamp was not illuminating the box. The final action of moving the box to sidetable 1 was unnecessary and did not fulfill the task of 'looking at the box under the desklamp.'\",\n  \"error_identification\": \"The agent failed to recognize that the box was not under the desklamp and unnecessarily repeated the same action multiple times. It also moved the box to sidetable 1, which was not required by the task.\",\n  \"root_cause_analysis\": \"The agent misunderstood the spatial relationship between the box and the desklamp. It assumed the box was under the desklamp, but the observations showed the box was on the diningtable and the desklamp was on sidetable 3. The repeated 'examine diningtable 1' actions suggest the agent was not learning from the observations and was not adapting its strategy.\",\n  \"correct_approach\": \"At step 4, after arriving at the diningtable and seeing the box, the agent should have realized the box was not under the desklamp. It should have returned to sidetable 3 and confirmed the desklamp's location. Then, it should have concluded that the box was not under the desklamp and either reported this or taken a different action (e.g., moving the box under the desklamp). The agent should avoid repeating the same action when no new information is gained.\",\n  \"key_insight\": \"When an object is not located under a light source, do not repeatedly examine the object's location expecting it to change. Instead, re-evaluate the spatial relationships and consider whether the object is in the correct location relative to the light source.\"\n}"
+  ],
+  "reflection": "{\n  \"reasoning\": \"The agent's task was to 'look at box under the desklamp.' The desklamp is located on sidetable 3 (step 1 and 8), but the box is on the diningtable 1 (step 12). The agent never looked at the box under the desklamp because the box is not under the desklamp—it is on the diningtable. The agent instead repeatedly examined the diningtable and moved the laptop back and forth, which had no bearing on the task. The agent failed to recognize that the box is not under the desklamp and wasted many steps on irrelevant actions. Since there is no playbook provided, this behavior is not guided by any specific bullet.\",\n  \"error_identification\": \"The agent did not look at the box under the desklamp because the box is not under the desklamp. The agent wasted steps examining the diningtable and moving the laptop unnecessarily.\",\n  \"root_cause_analysis\": \"The agent misunderstood the spatial relationship between the box and the desklamp. It assumed the box was under the desklamp, but the observations show the box is on the diningtable. This is a hypothesis, as the agent never explicitly checked for the box under the desklamp.\",\n  \"correct_approach\": \"After identifying the desklamp on sidetable 3 (step 1), the agent should have checked if the desklamp was on or under which object. If the desklamp was on a surface, the agent should have looked for the box under that surface. If the box was not under the desklamp, the agent should have stopped and concluded the task was not possible or re-evaluated the task instruction.\",\n  \"key_insight\": \"When an object is described as being 'under' another object, verify the spatial relationship by checking the location of the object in question before proceeding.\"\n}",
+  "actor_endpoint": "http://localhost:8000/v1",
+  "elapsed_seconds": 322.442,
+  "completed_utc": "2026-10-29T06:34:03.285308+00:00"
+}

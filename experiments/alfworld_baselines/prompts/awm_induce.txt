@@ -1,0 +1,19 @@
+Given household tasks solved by an agent in a text-based environment, your task is to extract the common workflows used to solve these tasks. Each given task contains a natural language instruction and a series of actions with their observations. You need to find the repetitive subsets of actions across tasks and extract each of them as a workflow. Each workflow should be a commonly reused sub-routine of the tasks (for example: finding an object, cleaning an object, heating or cooling an object, placing an object, using a lamp). Do not generate similar or overlapping workflows. Each workflow should have at least two steps. Represent the non-fixed elements (object names, receptacle names, numbers) with descriptive variable names such as {object}, {receptacle}, {destination}.
+
+Current workflows (may be empty):
+<<<WORKFLOWS_START>>>
+{{workflows}}
+<<<WORKFLOWS_END>>>
+
+New solved task:
+Task: {{task}}
+Trajectory:
+{{trajectory}}
+
+Output the complete updated set of workflows: keep the useful current workflows, refine them with the new task, and add new ones only if they are not covered. Use this format for each workflow and output nothing else:
+
+Workflow: <short name>
+When to use: <condition>
+Steps:
+1. <action pattern> (<why>)
+2. ...
