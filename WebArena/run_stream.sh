@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# 스트림 하나 = (사이트, arm) 조합. 태스크를 순서대로 돌되 태스크마다 L회 연속 반복한다
-# (논문 5.2.1 의 "each task receives L consecutive episode trials").
+# One stream = one (site, arm) pair. Tasks run in order, each repeated L consecutive times
+# (paper Sec. 5.2.1: "each task receives L consecutive episode trials").
 set -uo pipefail
 TASK_ID="$1"; TAG="$2"; L="${3:-2}"; STEPS="${4:-30}"
 set -a; . ./env_setup.txt; set +a

@@ -1,57 +1,59 @@
-# ALFWorld: ACE + self-distillation (β sweep) 결과
+# ALFWorld: ACE + self-distillation (β sweep)
 
-2026-10-23 00:26 UTC 완료. 5 β × 370 trial = 1,850회, recovery 0, Traceback 0. 코드: [`experiments/alfworld_ace_sd/`](../../experiments/alfworld_ace_sd/). run: `runs/20261022/beta_<β>/<room>/results/`.
+Completed 2026-10-23. 5 β values × 370 trials = 1,850 trials, no restarts or crashes. Code: [`experiments/alfworld_ace_sd/`](../../experiments/alfworld_ace_sd/). Runs: `experiments/alfworld_ace_sd/runs/20261022/beta_<β>/<room>/results/`.
 
-## 설정
+## Setup
 
-모든 역할에 같은 frozen Qwen3-32B-AWQ를 쓰고, judge·reward·성공 여부는 어떤 역할에도 주지 않는다.
+Every role uses the same frozen Qwen3-32B-AWQ. No judge score, reward or success signal is given to any role.
 
-- **Generator**: memory-free JitRL 프롬프트가 후보 3개를 제안한다(T = 0.7, 기존과 동일). base와 teacher는 같은 후보를 같은 순서로 놓고 1-token label logprob으로 채점한다. teacher는 같은 프롬프트에 전체 playbook 블록을 더한 것이다. 실행 행동은 argmax log p + β(log q − log p)다. playbook이 비어 있으면 q = p로 둔다.
-- **Reflector / Curator**: ACE AppWorld(commit 928e868)의 no-GT Reflector와 Curator 프롬프트를 ALFWorld 행동·관찰에 맞게 영어로 고쳤다. 필드명과 구조는 유지했고, 예시는 형식만 보여주는 placeholder다. 두 역할 모두 T = 0이고, trial이 끝날 때마다 한 번씩 호출한다. ADD만 하며, ID는 ACE의 `apply_curator_operations`가 붙인다(`shr`/`vc`/`misc`).
-- **프로토콜**: 기존 JitRL 표와 같다. valid_seen 74태스크(20/14/20/20), 원래 순서, 태스크당 5 trial, seed = 42 + index·101 + trial, 30 step. playbook은 방마다 빈 section 3개에서 시작해 trial과 태스크를 넘어 누적된다.
-- 주의: reward는 주지 않지만, Reflector가 trajectory가 일찍 끝난 것과 마지막 관찰을 보고 성공을 추론할 수 있다. 기존 judge-only JitRL과 같은 조건이다.
+- **Generator**: the memory-free JitRL prompt proposes 3 candidate actions (T = 0.7). The base policy p and the teacher q score the same candidates, in the same order, with 1-token label logprobs. The teacher prompt is the same prompt plus the full playbook block. The executed action is argmax log p + β(log q − log p). When the playbook is empty, q = p.
+- **Reflector / Curator**: the no-ground-truth Reflector and Curator prompts of ACE AppWorld (commit 928e868), rewritten for ALFWorld actions and observations. Field names and structure are kept; the examples are format-only placeholders. Both roles run at T = 0, once at the end of every trial. The Curator only ADDs bullets; IDs are assigned by ACE's `apply_curator_operations` (`shr` / `vc` / `misc`).
+- **Protocol**: ALFWorld valid_seen, 74 tasks (kitchen 20 / living room 14 / bathroom 20 / bedroom 20), original order, 5 consecutive trials per task, seed = 42 + index·101 + trial, 30 steps. The playbook starts from three empty sections per room and accumulates across trials and tasks of that room.
+- Caveat: no reward is given, but the Reflector can infer success from an early end of the trajectory and the last observation. This is the same condition as the judge-only JitRL baseline.
 
-## 결과
+## Results
 
-| Arm | Avg (방 평균) | Final | Kitchen | Living room | Bathroom | Bedroom | trial 1→5 |
+| Arm | Avg (room mean) | Final | Kitchen | Living room | Bathroom | Bedroom | trial 1→5 |
 |---|---:|---:|---:|---:|---:|---:|---|
 | ACE-SD β = 0.25 | 72.75 | 73.93 | 37.0 | 80.0 | 89.0 | 85.0 | 74 / 68 / 76 / 70 / 73 |
 | ACE-SD β = 0.5 | 73.32 | 76.61 | 54.0 | 74.3 | 84.0 | 81.0 | 68 / 73 / 76 / 73 / 77 |
 | ACE-SD β = 0.75 | 71.86 | 68.57 | 51.0 | 71.4 | 87.0 | 78.0 | 76 / 74 / 70 / 70 / 69 |
 | **ACE-SD β = 1.0** | **75.39** | **80.89** | 68.0 | 78.6 | 83.0 | 72.0 | 73 / 73 / 72 / 77 / 81 |
 | ACE-SD β = 1.5 | 73.11 | 73.39 | 66.0 | 71.4 | 85.0 | 70.0 | 73 / 77 / 72 / 72 / 73 |
-| JitRL (포팅 원본, prob) | 48.89 | 48.21 | 24.0 | 48.6 | 64.0 | 59.0 | 54 / 36 / 50 / 55 / 49 |
-| JitRL (Eq. 25 + logit) | 65.68 | 62.86 | 43.0 | 65.7 | 78.0 | 76.0 | 69 / 66 / 69 / 62 / 62 |
-| JitRL 메모리 끔 | 69.46 | 73.39 | 40.0 | 72.9 | 85.0 | 80.0 | 68 / 64 / 73 / 69 / 73 |
-| ReAct | 78.00 | 81.61 | 81.0 | 70.0 | 77.0 | 84.0 | 80 / 74 / 78 / 78 / 82 |
+| JitRL (initial port, prob update) * | 48.89 | 48.21 | 24.0 | 48.6 | 64.0 | 59.0 | 54 / 36 / 50 / 55 / 49 |
+| JitRL (Eq. 25 normalization + logit) * | 65.68 | 62.86 | 43.0 | 65.7 | 78.0 | 76.0 | 69 / 66 / 69 / 62 / 62 |
+| JitRL, memory off | 69.46 | 73.39 | 40.0 | 72.9 | 85.0 | 80.0 | 68 / 64 / 73 / 69 / 73 |
+| ReAct (2-shot) | 78.00 | 81.61 | 81.0 | 70.0 | 77.0 | 84.0 | 80 / 74 / 78 / 78 / 82 |
 
-방별 Average / Final(각 칸 "Average / Final", Final = 5번째 trial). 원래 JitRL 표와 같은 형식이다. ACE-SD에는 학습 환경이 없으므로 방마다 한 행이다.
+\* Reported for reference; these two runs are not included in this repository.
 
-| Test Env | 태스크 | β = 0.25 | β = 0.5 | β = 0.75 | β = 1.0 | β = 1.5 | JitRL | JitRL Eq. 25 + logit | 메모리 끔 | ReAct |
+Per room, Average / Final (each cell is "Average / Final", Final = 5th trial). ACE-SD has no training environment, so there is one row per room.
+
+| Test env | Tasks | β = 0.25 | β = 0.5 | β = 0.75 | β = 1.0 | β = 1.5 | JitRL * | JitRL Eq. 25 + logit * | Memory off | ReAct (2-shot) |
 |---|---:|---|---|---|---|---|---|---|---|---|
 | Kitchen | 20 | 37.00 / 30.00 | 54.00 / 65.00 | 51.00 / 55.00 | **68.00 / 80.00** | 66.00 / 70.00 | 24.00 / 25.00 | 43.00 / 25.00 | 40.00 / 35.00 | 81.00 / 90.00 |
 | Living room | 14 | 80.00 / 85.71 | 74.29 / 71.43 | 71.43 / 64.29 | 78.57 / 78.57 | 71.43 / 78.57 | 48.57 / 42.86 | 65.71 / 71.43 | 72.86 / 78.57 | 70.00 / 71.43 |
 | Bathroom | 20 | 89.00 / 90.00 | 84.00 / 90.00 | 87.00 / 80.00 | 83.00 / 80.00 | 85.00 / 80.00 | 64.00 / 65.00 | 78.00 / 85.00 | 85.00 / 95.00 | 77.00 / 75.00 |
 | Bedroom | 20 | 85.00 / 90.00 | 81.00 / 80.00 | 78.00 / 75.00 | 72.00 / 85.00 | 70.00 / 65.00 | 59.00 / 60.00 | 76.00 / 70.00 | 80.00 / 85.00 | 84.00 / 90.00 |
-| 평균 | - | 72.75 / 73.93 | 73.32 / 76.61 | 71.86 / 68.57 | **75.39 / 80.89** | 73.11 / 73.39 | 48.89 / 48.21 | 65.68 / 62.86 | 69.46 / 73.39 | 78.00 / 81.61 |
+| Mean | - | 72.75 / 73.93 | 73.32 / 76.61 | 71.86 / 68.57 | **75.39 / 80.89** | 73.11 / 73.39 | 48.89 / 48.21 | 65.68 / 62.86 | 69.46 / 73.39 | 78.00 / 81.61 |
 
-| β | teacher가 선택을 바꾼 step | 메모리 끔 대비 (태스크 paired) | 최종 bullet 수 (K / L / Ba / Be) |
+| β | Steps where the teacher changed the choice | vs memory off (task-paired) | Final bullets (K / L / Ba / Be) |
 |---|---:|---:|---|
-| 0.25 | 4.4% | +3.0 ± 2.5%p | 84 / 41 / 63 / 56 |
-| 0.5 | 10.4% | +4.1 ± 2.9%p | 81 / 55 / 61 / 69 |
-| 0.75 | 14.7% | +2.7 ± 3.0%p | 82 / 39 / 103 / 64 |
-| 1.0 | 25.6% | +5.9 ± 3.7%p | 73 / 36 / 52 / 73 |
-| 1.5 | 33.5% | +4.1 ± 3.7%p | 74 / 38 / 41 / 62 |
+| 0.25 | 4.4% | +3.0 ± 2.5 pp | 84 / 41 / 63 / 56 |
+| 0.5 | 10.4% | +4.1 ± 2.9 pp | 81 / 55 / 61 / 69 |
+| 0.75 | 14.7% | +2.7 ± 3.0 pp | 82 / 39 / 103 / 64 |
+| 1.0 | 25.6% | +5.9 ± 3.7 pp | 73 / 36 / 52 / 73 |
+| 1.5 | 33.5% | +4.1 ± 3.7 pp | 74 / 38 / 41 / 62 |
 
-label floor 사용 0회, Curator JSON 오류 0회.
+The label-logprob floor was never used, and the Curator produced no JSON errors.
 
-## 해석
+## Interpretation
 
-- **모든 β에서 JitRL 계열보다 높다.** 가장 좋은 JitRL(Eq. 25 + logit, 65.68)보다 6~10%p 높고, 메모리 끔보다도 3~6%p 높다. 다만 메모리 끔 대비 차이는 SE(2.5~3.7)와 비슷한 크기라, 하나씩 보면 유의하다고 말하기 어렵다.
-- **Kitchen은 β에 따라 뚜렷하게 오른다.** 37 → 54 → 51 → 68 → 66이고, 메모리 끔은 40이다. 기존 방법들이 가장 약했던 방에서 teacher 영향이 커질수록 좋아지므로, playbook이 실제로 도움을 주는 신호로 볼 수 있다. 반대로 Bedroom은 β가 커질수록 떨어진다(85 → 70).
-- **trial이 지날수록 오르는 경향**은 β = 1.0(73 → 81)과 β = 0.5(68 → 77)에서 보인다. JitRL 계열에서는 한 번도 보이지 않던 패턴이다.
-- **ReAct(78.00)에는 아직 못 미친다.** β = 1.0의 Final(80.89)은 ReAct Final(81.61)과 비슷하다.
+- **Every β beats the JitRL variants.** ACE-SD is 6–10 pp above the best JitRL variant (Eq. 25 + logit, 65.68) and 3–6 pp above memory off. The gain over memory off is about the size of its standard error (2.5–3.7), so no single β is clearly significant on its own.
+- **Kitchen improves clearly with β**: 37 → 54 → 51 → 68 → 66, against 40 for memory off. Kitchen was the weakest room for the earlier methods, and it improves as the teacher gets more weight, which suggests that the playbook really helps. Bedroom goes the other way (85 → 70).
+- **Success rises over trials** for β = 1.0 (73 → 81) and β = 0.5 (68 → 77), a pattern none of the JitRL variants showed.
+- **ACE-SD is still below 2-shot ReAct (78.00).** The Final of β = 1.0 (80.89) is close to the ReAct Final (81.61).
 
-## 주의: 비교에 섞인 요인
+## Caveat: a confound in the comparison
 
-β가 작아도 ACE-SD의 행동 선택은 메모리 끔 JitRL과 다르다. 메모리 끔은 제안 JSON의 `best_action`(T = 0.7 샘플)을 실행하고, ACE-SD는 같은 후보를 **다시 채점해 argmax**를 실행한다(β → 0이면 base 채점의 argmax). β = 0.25는 teacher가 선택을 바꾼 비율이 4.4%뿐인데도 +3.0%p이므로, 개선의 일부는 playbook이 아니라 **재채점 argmax 자체**에서 왔을 수 있다. 이를 나누려면 **β = 0 대조군**이 필요하다. β = 0이면 playbook이 쓰이지 않으므로 Reflector와 Curator 없이 370회를 돌리면 된다.
+Even at small β, ACE-SD selects actions differently from memory-off JitRL. Memory off executes the `best_action` field of the proposal JSON (sampled at T = 0.7). ACE-SD **rescores** the same candidates and takes the argmax (for β → 0, the argmax of the base scores). At β = 0.25 the teacher changes only 4.4% of the choices, yet the gain is +3.0 pp, so part of the gain may come from the **rescoring argmax itself** rather than the playbook. Separating the two needs a **β = 0 control**. Trial 1 of the iterative self-distillation run is exactly that control ([iterative.md](iterative.md)): it matches memory off (−0.2 ± 5.3 pp), so rescoring alone does not explain the gain.
