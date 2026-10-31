@@ -1,0 +1,88 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 12,
+  "game_id": "look_at_obj_in_light-Vase-None-DeskLamp-303/trial_T20190907_150418_457594",
+  "repeat": 5,
+  "seed": 1259,
+  "episode_index": 39,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "look at vase under the desklamp.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a shelf 12, a shelf 11, a shelf 10, a shelf 9, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: look at vase under the desklamp.",
+      "action": "go to desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"I have not yet started searching for the vase or the desklamp. The task is to look at the vase under the desklamp, so I need to locate both the desklamp and the vase. The current phase is SEARCHING, and I am at the room center with no inventory. I must navigate to a likely location for the desklamp or the vase.\",\n    \"next_objective\": \"Navigate to a receptacle that might contain the desklamp or the vase.\",\n    \"reasoning1\": \"Going to desk 1 is a logical first step because the desklamp is likely associated with the desk. If the desklamp is there, I can examine it for the vase or proceed to search under it.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to sidetable 1 is plausible since sidetables often hold lamps or items like vases. This action may directly lead to finding the desklamp or the vase.\",\n    \"option2\": \"go to sidetable 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Going to drawer 1 is a reasonable option because drawers can contain objects like vases. This action could yield progress in locating the vase early in the task.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at desk 1. On the desk 1, you see a desklamp 1, a laptop 1, a mug 3, a pencil 2, and a vase 4.",
+      "action": "take vase 4 from desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located the vase on the desk, which is a key step in the task. The next objective is to interact with the vase to look at it, which may require either taking it or using the desklamp to examine it more closely.\",\n    \"next_objective\": \"Interact with the vase to look at it under the desklamp.\",\n    \"reasoning1\": \"Taking the vase will allow the agent to move it to the desklamp or examine it directly under the light. This action aligns with the goal of looking at the vase.\",\n    \"option1\": \"take vase 4 from desk 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Using the desklamp might illuminate the vase for better examination, fulfilling the task goal of looking at it under the desklamp.\",\n    \"option2\": \"use desklamp 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examining the desk could reveal any additional details about the vase or the desklamp setup, which might assist in the task of viewing the vase under the light.\",\n    \"option3\": \"examine desk 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the vase 4 from the desk 1.",
+      "action": "use desklamp 1",
+      "inventory": "You are carrying: a vase 4.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the vase 4 from the desk 1. The next objective is to perform an action that aligns with the goal of 'looking at the vase under the desklamp.' Since the agent is already holding the vase, the focus should be on using the desklamp to achieve this goal.\",\n    \"next_objective\": \"Use the desklamp to look at the vase.\",\n    \"reasoning1\": \"Using the desklamp 1 will allow the agent to examine the vase under its light, directly fulfilling the task goal.\",\n    \"option1\": \"use desklamp 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"Examining the vase 4 while holding it will provide more information about it, which is a step toward the goal of looking at it closely. However, this does not fully align with the task of doing so under the desklamp.\",\n    \"option2\": \"examine vase 4\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Moving the vase to the desk may position it near the desklamp, but it does not directly fulfill the goal of looking at it under the desklamp's light and introduces unnecessary steps.\",\n    \"option3\": \"move vase 4 to desk 1\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 636,
+    "n_episodes": 39,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 639,
+    "n_episodes": 40,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 3,
+    "n_advantage_overrides": 0,
+    "n_memory_actions_injected": 5,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 58.08,
+  "completed_utc": "2026-10-22T03:20:21.514176+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

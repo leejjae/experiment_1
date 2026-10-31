@@ -1,0 +1,165 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_kitchen",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "kitchen",
+  "task_index": 107,
+  "game_id": "pick_heat_then_place_in_recep-Mug-None-SideTable-21/trial_T20190909_090729_088825",
+  "repeat": 4,
+  "seed": 10853,
+  "episode_index": 73,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put a hot mug in sidetable.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 1, a diningtable 3, a diningtable 2, a diningtable 1, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sidetable 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: put a hot mug in sidetable.",
+      "action": "go to coffeemachine 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made yet. The current phase is SEARCHING, and the objective is to find a hot mug. Since the mug must be hot, it is likely to be found near a heat source like a stoveburner or coffeemachine.\",\n    \"next_objective\": \"Search receptacles that might hold a hot mug, such as near a heat source.\",\n    \"reasoning1\": \"Stoveburners are likely locations where a mug could be heated and left to become hot. Going to stoveburner 3 would allow us to investigate this possibility.\",\n    \"option1\": \"go to stoveburner 3\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Coffeemachines are common places where mugs are used and can become hot. Going to coffeemachine 1 would allow us to check for a hot mug.\",\n    \"option2\": \"go to coffeemachine 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Stoveburner 1 is another potential source of heat. A mug placed there might be hot, so investigating it would align with the goal of finding a hot mug.\",\n    \"option3\": \"go to stoveburner 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at coffeemachine 1. On the coffeemachine 1, you see a mug 1.",
+      "action": "take mug 1 from coffeemachine 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the coffeemachine 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a mug on the coffeemachine 1 and is now at the coffeemachine. The next objective is to take the mug in order to proceed with heating it, as required for the goal of putting a hot mug in the sidetable.\",\n    \"next_objective\": \"Take the mug from the coffeemachine.\",\n    \"reasoning1\": \"Taking the mug from the coffeemachine will allow the agent to move to the next phase, which is to heat the mug to make it 'hot' before placing it in the sidetable.\",\n    \"option1\": \"take mug 1 from coffeemachine 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"While examining the coffeemachine may provide additional context, the agent already knows the mug is there and the next logical step is to take it. This action does not directly advance the current phase.\",\n    \"option2\": \"examine coffeemachine 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Moving to other receptacles like the sinkbasin or fridge is not helpful at this point, as the agent needs to first take the mug to proceed with heating it.\",\n    \"option3\": \"go to sinkbasin 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the mug 1 from the coffeemachine 1.",
+      "action": "examine mug 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the coffeemachine 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a mug from the coffeemachine. The current phase is [HOLDING], and the goal is to put a hot mug in the sidetable. The next step is to heat the mug to make it hot before proceeding to the destination.\",\n    \"next_objective\": \"Heat the mug to make it hot.\",\n    \"reasoning1\": \"Going to the microwave will allow the agent to heat the mug, which is necessary to fulfill the requirement of the goal (to put a hot mug in the sidetable).\",\n    \"option1\": \"go to microwave 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Going to the stoveburner could also be a viable option to heat the mug. However, it is less common to use a stoveburner for heating a mug unless it contains liquid.\",\n    \"option2\": \"go to stoveburner 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examining the mug could reveal more details about its state or condition, but it doesn't directly contribute to heating the mug. It is a less relevant action at this stage.\",\n    \"option3\": \"examine mug 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "This is a normal mug 1. In it, you see nothing.",
+      "action": "examine coffeemachine 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the coffeemachine 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the mug 1 from the coffeemachine 1. The current phase is HOLDING, and the next objective is to heat the mug to fulfill the task of putting a hot mug in the sidetable. The challenge is to find a valid heating device from the reference actions.\",\n    \"next_objective\": \"Heat the mug 1 using a suitable heating appliance.\",\n    \"reasoning1\": \"Microwaves are commonly used to heat mugs, and this action directly leads to treating the object as required by the task.\",\n    \"option1\": \"go to microwave 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Stove burners can also be used to heat mugs, and navigating to one of them is a plausible next step to achieve the required heating.\",\n    \"option2\": \"go to stoveburner 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examining the coffeemachine may provide further information, though it is unlikely to contribute directly to heating the mug. This is a fallback option.\",\n    \"option3\": \"examine coffeemachine 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "On the coffeemachine 1, you see nothing.",
+      "action": "go to stoveburner 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the coffeemachine 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a mug from the coffeemachine. The current goal is to put a hot mug in the sidetable, which means the mug must be heated before being placed there. The next step is to heat the mug, which can be done by using the coffeemachine again or another heat source.\",\n    \"next_objective\": \"Heat the mug to make it hot.\",\n    \"reasoning1\": \"Going to the coffeemachine might allow the agent to heat the mug if it can be used for that purpose. It is a plausible location to treat the mug.\",\n    \"option1\": \"go to coffeemachine 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"The microwave is a clear and effective way to heat the mug, which aligns directly with the task of making the mug hot.\",\n    \"option2\": \"go to microwave 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The stoveburner could be used to heat the mug if it is placed on it, making it a viable option to achieve the 'hot' condition.\",\n    \"option3\": \"go to stoveburner 1\",\n    \"confidence3\": 20,\n    \"best_action\": 2\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at stoveburner 1. On the stoveburner 1, you see nothing.",
+      "action": "go to microwave 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the stoveburner 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located and taken a mug 1 from the coffeemachine 1 and is currently holding it. The next objective is to heat the mug (to make it hot) as per the task goal of putting a hot mug in the sidetable. The current location, stoveburner 1, may be used to achieve this goal.\",\n    \"next_objective\": \"Heat the mug using the stoveburner.\",\n    \"reasoning1\": \"Examining the mug 1 in hand could provide more details about its current state and confirm whether it can be heated or if it already meets the 'hot' condition. This action is relevant to advancing the goal of heating the mug.\",\n    \"option1\": \"examine mug 1\",\n    \"confidence1\": 35,\n    \"reasoning2\": \"Going to sidetable 1 prematurely would not fulfill the task goal since the mug must be hot before being placed there. This action does not advance the current phase.\",\n    \"option2\": \"go to sidetable 1\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Going to the microwave 1 provides an alternative location for heating the mug. While not directly related to the stoveburner, it is a valid option to achieve the 'hot' requirement.\",\n    \"option3\": \"go to microwave 1\",\n    \"confidence3\": 55,\n    \"best_action\": 3\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You arrive at microwave 1. The microwave 1 is closed.",
+      "action": "examine microwave 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the microwave 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the mug from the coffeemachine and is now holding it. The current objective is to heat the mug to make it hot, which is a required condition for the task. The next logical step is to heat the mug using the microwave, which is the only means available in this environment to make the mug hot. The microwave is currently closed, so it must be opened first.\",\n    \"next_objective\": \"Heat the mug using the microwave, then put it in the sidetable.\",\n    \"reasoning1\": \"Opening the microwave is a necessary prerequisite to heating the mug inside it. This action enables the next step of heating the object, which is essential for the task.\",\n    \"option1\": \"open microwave 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Although heating the mug directly is not possible without opening the microwave, examining the microwave might provide clues or confirm that it is functional, but it does not advance the task forward in the current phase.\",\n    \"option2\": \"examine microwave 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Going to the sidetable at this point would be premature, as the mug is not yet hot. This action does not align with the current phase of heating the mug.\",\n    \"option3\": \"go to sidetable 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "The microwave 1 is closed.",
+      "action": "heat mug 1 with microwave 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the microwave 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a mug from the coffeemachine. The current objective is to heat the mug in the microwave to make it hot before placing it in the sidetable. The microwave is closed, so the next step should involve either opening it or using it to heat the mug.\",\n    \"next_objective\": \"Heat the mug in the microwave.\",\n    \"reasoning1\": \"Opening the microwave will allow the agent to access it and prepare it for heating the mug, which is necessary for the next step.\",\n    \"option1\": \"open microwave 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Heating the mug directly with the microwave will accomplish the task of making it hot, which is a key requirement for the goal.\",\n    \"option2\": \"heat mug 1 with microwave 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Examining the mug may provide additional details about its current state, but it is not the next most critical action for advancing the phase.\",\n    \"option3\": \"examine mug 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "You heat the mug 1 using the microwave 1.",
+      "action": "go to sidetable 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the microwave 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The mug has been located and taken from the coffeemachine, and it is currently being heated in the microwave. The treatment phase is in progress, and the next objective is to complete the treatment and move to the destination.\",\n    \"next_objective\": \"Finish heating the mug and navigate to the sidetable to place it there.\",\n    \"reasoning1\": \"Heating the mug in the microwave completes the treatment phase. This action ensures the mug is hot, meeting the task goal requirement.\",\n    \"option1\": \"heat mug 1 with microwave 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examining the mug ensures the treatment is completed and confirms the state of the object before proceeding to the destination.\",\n    \"option2\": \"examine mug 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to the sidetable will allow the next step of placing the hot mug there, advancing toward the final goal once the treatment is complete.\",\n    \"option3\": \"go to sidetable 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "You arrive at sidetable 1. On the sidetable 1, you see a knife 1, a soapbottle 1, a spoon 1, and a tomato 2.",
+      "action": "move mug 1 to sidetable 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a mug on the coffeemachine, picked it up, and heated it in the microwave. Now, the agent is at the sidetable and is carrying the hot mug. The next step is to place the mug in the sidetable to complete the task.\",\n    \"next_objective\": \"Place the hot mug in the sidetable.\",\n    \"reasoning1\": \"This action directly advances the current phase by placing the treated (hot) mug in the target receptacle, completing the task.\",\n    \"option1\": \"move mug 1 to sidetable 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the sidetable is unnecessary at this point since the agent is already at the target location and is carrying the required object. This does not advance the phase.\",\n    \"option2\": \"examine sidetable 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Going to another receptacle would delay the task and is not necessary since the agent is already at the correct location and has the object in hand.\",\n    \"option3\": \"go to diningtable 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 1674,
+    "n_episodes": 73,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/kitchen/jitrl_to_kitchen/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 1684,
+    "n_episodes": 74,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/kitchen/jitrl_to_kitchen/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 10,
+    "n_advantage_overrides": 7,
+    "n_memory_actions_injected": 8,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 76.216,
+  "completed_utc": "2026-10-22T05:56:22.657465+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

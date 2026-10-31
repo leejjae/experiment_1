@@ -1,0 +1,187 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_living_room",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "living_room",
+  "task_index": 15,
+  "game_id": "pick_and_place_simple-Bowl-None-CoffeeTable-201/trial_T20190907_171639_045329",
+  "repeat": 2,
+  "seed": 1559,
+  "episode_index": 11,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some bowl on coffeetable.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a coffeetable 1, a diningtable 2, a diningtable 1, a drawer 2, a drawer 1, a garbagecan 1, a sidetable 2, a sidetable 1, a sofa 1, and a tvstand 1.\n\nYour task is to: put some bowl on coffeetable.",
+      "action": "go to coffeetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"I have not yet found a bowl to take. The next step is to search for a bowl in one of the receptacles in the room.\",\n    \"next_objective\": \"Navigate to a receptacle that might contain a bowl.\",\n    \"reasoning1\": \"The coffeetable 1 is a plausible place to find a bowl as it is a common surface where bowls are placed, and navigating there will allow me to check its contents.\",\n    \"option1\": \"go to coffeetable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The sidetable 1 is a small table often used to store or display items, making it a possible location for a bowl. I should navigate there to investigate.\",\n    \"option2\": \"go to sidetable 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"The diningtable 1 is a likely location for placing or storing a bowl, especially if it's part of a dining area. I should go there to check for a bowl.\",\n    \"option3\": \"go to diningtable 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at coffeetable 1. On the coffeetable 1, you see a book 2, a book 1, a statue 2, and a watch 1.",
+      "action": "go to sidetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the coffeetable 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has arrived at the coffeetable 1 but has not found a bowl yet. The current phase is [SEARCHING], and the goal is to locate a bowl before moving it to the coffeetable. The coffeetable has already been searched, so the next step is to search other receptacles for a bowl.\",\n    \"next_objective\": \"Search for a bowl in unvisited receptacles\",\n    \"reasoning1\": \"This action advances the current phase by taking an item (statue 2) from the coffeetable, but the statue is not a bowl, so this action does not directly contribute to finding a bowl. However, it confirms the absence of the target object on the coffeetable.\",\n    \"option1\": \"take statue 2 from coffeetable 1\",\n    \"confidence1\": 20,\n    \"reasoning2\": \"This action advances the current phase by moving to a new unvisited receptacle (sidetable 1), which may contain the desired bowl. Searching a new receptacle is the most logical step in the [SEARCHING] phase.\",\n    \"option2\": \"go to sidetable 1\",\n    \"confidence2\": 50,\n    \"reasoning3\": \"This action also advances the phase by moving to another unvisited receptacle (drawer 1), which could potentially hold a bowl. Exploring new receptacles is the core objective of the [SEARCHING] phase.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 30,\n    \"best_action\": 2\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You arrive at sidetable 1. On the sidetable 1, you see a pen 1, a pencil 1, a plate 3, and a statue 1.",
+      "action": "go to garbagecan 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has not yet found a bowl. The task is to put some bowl on the coffeetable, so the current objective is to locate a bowl in the environment. The agent has searched the coffeetable and sidetable but did not find a bowl at the sidetable. The next step is to search other unvisited and unsearched receptacles in the environment.\",\n    \"next_objective\": \"Search for a bowl in an unvisited or unsearched receptacle.\",\n    \"reasoning1\": \"This action allows the agent to search a new receptacle that may contain a bowl, advancing the SEARCHING phase of the task.\",\n    \"option1\": \"go to garbagecan 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"This action allows the agent to search another new receptacle that may contain a bowl, advancing the SEARCHING phase of the task.\",\n    \"option2\": \"go to tvstand 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"This action allows the agent to search another new receptacle that may contain a bowl, advancing the SEARCHING phase of the task.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at garbagecan 1. On the garbagecan 1, you see nothing.",
+      "action": "go to drawer 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the garbagecan 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has searched the coffeetable 1, sidetable 1, and garbagecan 1, but has not yet found a bowl. The current objective is to locate a bowl in the environment before moving to the next phase.\",\n    \"next_objective\": \"Search for a bowl in an unvisited receptacle.\",\n    \"reasoning1\": \"Going to drawer 2 is a new location that has not been searched yet, increasing the chances of finding a bowl.\",\n    \"option1\": \"go to drawer 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to tvstand 1 is another unvisited location where a bowl could be stored, supporting the current search phase.\",\n    \"option2\": \"go to tvstand 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Going to diningtable 2 is an additional unvisited receptacle that could contain the desired bowl.\",\n    \"option3\": \"go to diningtable 2\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You arrive at drawer 2. The drawer 2 is closed.",
+      "action": "open drawer 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has searched several receptacles including coffeetable 1, sidetable 1, garbagecan 1, and has now arrived at drawer 2, which is closed. The current phase is SEARCHING, and the goal is to find a bowl to place on the coffeetable. The immediate challenge is to explore drawer 2, as it is closed and may contain a bowl.\",\n    \"next_objective\": \"Open drawer 2 to check if it contains a bowl.\",\n    \"reasoning1\": \"Opening drawer 2 will allow the agent to see if it contains a bowl, directly advancing the SEARCHING phase and potentially finding the target object.\",\n    \"option1\": \"open drawer 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examining drawer 2 may provide additional information about its state or contents, although the best course of action is to open it first before examining.\",\n    \"option2\": \"examine drawer 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to drawer 1 is a plausible alternative if drawer 2 does not contain a bowl, but it is not the immediate next step in the current phase of searching drawer 2.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You open the drawer 2. The drawer 2 is open. In it, you see nothing.",
+      "action": "go to diningtable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully searched several receptacles including coffeetable 1, sidetable 1, garbagecan 1, and drawer 2. None of these receptacles contained a bowl. The agent is currently at drawer 2, which is open and empty. The next objective is to continue searching for a bowl in unvisited or unsearched receptacles.\",\n    \"next_objective\": \"Continue searching for a bowl in unvisited or unsearched receptacles.\",\n    \"reasoning1\": \"Going to diningtable 1 allows the agent to search a new receptacle that has not yet been visited, which increases the likelihood of finding a bowl.\",\n    \"option1\": \"go to diningtable 1\",\n    \"confidence1\": 45,\n    \"reasoning2\": \"Going to tvstand 1 introduces another new receptacle into the search, which could potentially contain the desired bowl.\",\n    \"option2\": \"go to tvstand 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Going to diningtable 2 also provides an opportunity to search a new and potentially relevant receptacle for the bowl.\",\n    \"option3\": \"go to diningtable 2\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You arrive at diningtable 1. On the diningtable 1, you see a houseplant 1.",
+      "action": "go to armchair 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the diningtable 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No bowl has been found yet. The agent has searched several receptacles, including the diningtable, which only contained a houseplant. The next step is to continue searching for a bowl.\",\n    \"next_objective\": \"Search additional receptacles for the bowl.\",\n    \"reasoning1\": \"This action allows the agent to search another receptacle that has not been visited yet, which increases the chance of finding the bowl.\",\n    \"option1\": \"go to armchair 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"This action leads to a new, unsearched receptacle, which could potentially contain the bowl.\",\n    \"option2\": \"go to diningtable 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"This action allows the agent to search a new and unexplored receptacle, potentially containing the desired bowl.\",\n    \"option3\": \"go to tvstand 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You arrive at armchair 1. On the armchair 1, you see a remotecontrol 1.",
+      "action": "go to diningtable 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the armchair 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No bowl has been found yet, and the current phase is SEARCHING. The agent has already searched several locations (coffeetable 1, sidetable 1, garbagecan 1, drawer 2, diningtable 1, armchair 1), but the task requires finding a bowl to place on the coffeetable. The next step is to continue exploring other unvisited receptacles that might plausibly hold a bowl.\",\n    \"next_objective\": \"Continue searching for a bowl by exploring unvisited receptacles.\",\n    \"reasoning1\": \"Going to diningtable 2 is a valid and unvisited location that might contain a bowl. Since the task is in the SEARCHING phase, exploring a new receptacle is the logical next step.\",\n    \"option1\": \"go to diningtable 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to sidetable 2 is another unvisited receptacle that might plausibly hold a bowl. Exploring it would advance the SEARCHING phase and bring the agent closer to finding the target object.\",\n    \"option2\": \"go to sidetable 2\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Going to tvstand 1 is a new, unvisited receptacle that might contain a bowl. It is a reasonable place to search for the target object during the SEARCHING phase.\",\n    \"option3\": \"go to tvstand 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "You arrive at diningtable 2. On the diningtable 2, you see a bowl 1, a creditcard 1, a keychain 1, a newspaper 1, a plate 1, a statue 3, a tissuebox 1, and a vase 1.",
+      "action": "take bowl 1 from diningtable 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the diningtable 2. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has already located a bowl 1 on diningtable 2. The current [PHASE] is LOCATED, which means the next objective is to take the bowl and move it to the coffeetable.\",\n    \"next_objective\": \"Take the bowl 1 from diningtable 2.\",\n    \"reasoning1\": \"Taking the bowl 1 from diningtable 2 will allow the agent to move to the next phase and carry the bowl to the coffeetable.\",\n    \"option1\": \"take bowl 1 from diningtable 2\",\n    \"confidence1\": 70,\n    \"reasoning2\": \"Examining the diningtable 2 might provide additional details but will not directly advance the current phase of taking the bowl.\",\n    \"option2\": \"examine diningtable 2\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Going to another location (e.g., drawer 1) would divert from the current task and delay progress toward the goal.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 10,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "You pick up the bowl 1 from the diningtable 2.",
+      "action": "go to sidetable 1",
+      "inventory": "You are carrying: a bowl 1.",
+      "look": "You are facing the diningtable 2. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the bowl 1 from diningtable 2. The current phase is [TREATED], indicating the object is ready to be moved to its destination. The next objective is to place the bowl on the coffeetable.\",\n    \"next_objective\": \"Move the bowl 1 to the coffeetable 1.\",\n    \"reasoning1\": \"Moving directly to the coffeetable 1 will allow the agent to complete the task by placing the bowl there, fulfilling the goal of the phase.\",\n    \"option1\": \"go to coffeetable 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examining the diningtable 2 is not necessary at this point since the bowl is already taken, and it does not advance the task of placing it on the coffeetable.\",\n    \"option2\": \"examine diningtable 2\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Going to the sidetable 1 is not relevant for the current goal and may lead to unnecessary detours.\",\n    \"option3\": \"go to sidetable 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 10,
+      "observation": "You arrive at sidetable 1. On the sidetable 1, you see a pen 1, a pencil 1, a plate 3, and a statue 1.",
+      "action": "go to coffeetable 1",
+      "inventory": "You are carrying: a bowl 1.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The bowl has been located and picked up from diningtable 2. The current phase is 'TREATED', which means the next step is to navigate to the destination receptacle and place the bowl there. The destination is the coffeetable.\",\n    \"next_objective\": \"Navigate to the coffeetable and put the bowl on it.\",\n    \"reasoning1\": \"Going to coffeetable 1 directly moves the agent toward the destination to complete the task by placing the bowl there.\",\n    \"option1\": \"go to coffeetable 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examining sidetable 1 is unnecessary at this point and does not contribute to the objective of placing the bowl on the coffeetable.\",\n    \"option2\": \"examine sidetable 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Moving the bowl to sidetable 1 would not fulfill the task, as the goal is to put the bowl on the coffeetable, not the sidetable.\",\n    \"option3\": \"move bowl 1 to sidetable 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 11,
+      "observation": "You arrive at coffeetable 1. On the coffeetable 1, you see a book 2, a book 1, a statue 2, and a watch 1.",
+      "action": "move bowl 1 to coffeetable 1",
+      "inventory": "You are carrying: a bowl 1.",
+      "look": "You are facing the coffeetable 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a bowl 1 from diningtable 2. It is now at coffeetable 1 and carrying the bowl 1. The next step is to place the bowl on the coffeetable to complete the task.\",\n    \"next_objective\": \"Place the bowl on the coffeetable.\",\n    \"reasoning1\": \"This action directly places the bowl on the coffeetable and completes the task goal. It is the only valid action that achieves the objective at this stage.\",\n    \"option1\": \"move bowl 1 to coffeetable 1\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"N/A\",\n    \"option2\": \"\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"N/A\",\n    \"option3\": \"\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 218,
+    "n_episodes": 11,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/living_room/jitrl_to_living_room/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 230,
+    "n_episodes": 12,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/living_room/jitrl_to_living_room/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 8,
+    "n_advantage_overrides": 1,
+    "n_memory_actions_injected": 4,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 1,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 132.474,
+  "completed_utc": "2026-10-22T02:10:42.093109+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

@@ -1,0 +1,209 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bathroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bathroom",
+  "task_index": 36,
+  "game_id": "pick_and_place_simple-SoapBottle-None-CounterTop-417/trial_T20190910_112922_368384",
+  "repeat": 5,
+  "seed": 3683,
+  "episode_index": 24,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put a soapbottle in countertop.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a countertop 1, a garbagecan 1, a handtowelholder 1, a sinkbasin 2, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.\n\nYour task is to: put a soapbottle in countertop.",
+      "action": "go to cabinet 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The task is to put a soapbottle in a countertop. Currently, the agent is in the room and has not yet located the soapbottle. The next objective is to find the soapbottle by searching plausible receptacles.\",\n    \"next_objective\": \"Locate a soapbottle by navigating to likely receptacles in the room.\",\n    \"reasoning1\": \"Navigating to cabinet 3 is a logical first step as cabinets are common receptacles for holding items like soapbottles. This action advances the SEARCHING phase by exploring a potential location for the soapbottle.\",\n    \"option1\": \"go to cabinet 3\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigating to sinkbasin 1 is another reasonable option, as soapbottles are often found near or in sink basins. This action continues the SEARCHING phase by exploring a high-probability location.\",\n    \"option2\": \"go to sinkbasin 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to cabinet 4 is also a plausible action, as cabinets are common storage places for small objects like soapbottles. This action continues the SEARCHING phase by exploring another potential location.\",\n    \"option3\": \"go to cabinet 4\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at cabinet 3. The cabinet 3 is closed.",
+      "action": "open cabinet 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 4, and cabinet 3. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has arrived at cabinet 3, which is currently closed. No soapbottle has been found yet. The next step is to open cabinet 3 to search inside, as it is the most promising location based on proximity and relevance.\",\n    \"next_objective\": \"Open cabinet 3 to search for the soapbottle.\",\n    \"reasoning1\": \"Opening cabinet 3 will allow the agent to inspect its contents, which is the logical next step in the current phase of searching.\",\n    \"option1\": \"open cabinet 3\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining cabinet 3 would confirm whether it is openable and whether it contains the soapbottle, but since the agent is already at the location, opening is more direct.\",\n    \"option2\": \"examine cabinet 3\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"While 'go to countertop 1' is a destination in the task, the agent has not yet found the soapbottle and should not proceed to the destination until the object is located.\",\n    \"option3\": \"go to countertop 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You open the cabinet 3. The cabinet 3 is open. In it, you see a toiletpaper 1.",
+      "action": "go to cabinet 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 4, and cabinet 3. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has searched cabinet 3 and found only toiletpaper 1, but no soapbottle. The phase is still SEARCHING, so the next step is to locate a soapbottle by searching unvisited receptacles.\",\n    \"next_objective\": \"Search for a soapbottle by visiting or examining new unvisited receptacles.\",\n    \"reasoning1\": \"Examining cabinet 4 is a logical next step as it is a new unvisited receptacle that may contain the soapbottle. This action advances the SEARCHING phase by expanding the search area.\",\n    \"option1\": \"examine cabinet 4\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to sinkbasin 1 is a plausible action because soapbottles are often kept near or used with sinkbasins. This action may lead to discovering a soapbottle or a location where it could be found.\",\n    \"option2\": \"go to sinkbasin 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to cabinet 1 is a reasonable choice as it is an unvisited receptacle and may contain the soapbottle. This action advances the SEARCHING phase by exploring another likely storage location.\",\n    \"option3\": \"go to cabinet 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at cabinet 1. The cabinet 1 is closed.",
+      "action": "open cabinet 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The goal is to put a soapbottle on the countertop. So far, the agent has searched cabinet 3 and found toilet paper but no soapbottle. The agent is now at cabinet 1, which is closed. The next step is to determine if cabinet 1 contains the soapbottle.\",\n    \"next_objective\": \"Open and examine cabinet 1 to check if it contains a soapbottle.\",\n    \"reasoning1\": \"Opening cabinet 1 will allow the agent to see its contents and determine if it contains the soapbottle, which directly advances the [SEARCHING] phase.\",\n    \"option1\": \"open cabinet 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining cabinet 1 will provide a direct observation of its state and might hint at whether it contains the soapbottle, although it does not open it.\",\n    \"option2\": \"examine cabinet 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Going to cabinet 4 could be a next step if cabinet 1 does not contain the soapbottle, but this action does not directly advance the current phase unless cabinet 4 is known to hold the soapbottle.\",\n    \"option3\": \"go to cabinet 4\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You open the cabinet 1. The cabinet 1 is open. In it, you see a candle 1, a soapbar 2, and a spraybottle 2.",
+      "action": "go to cabinet 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent is searching for a soapbottle to put in the countertop. So far, it has searched cabinet 3 and cabinet 1, and found a soapbar and spraybottle in cabinet 1. It has not yet found the soapbottle. The next step is to search a new receptacle that might contain the soapbottle.\",\n    \"next_objective\": \"Search a new receptacle for the soapbottle.\",\n    \"reasoning1\": \"Going to cabinet 2 is a logical next step to continue searching for the soapbottle, as it has not been visited yet and could contain the target object.\",\n    \"option1\": \"go to cabinet 2\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Going to cabinet 4 is another logical next step to continue searching for the soapbottle, as it has not been visited yet and could contain the target object.\",\n    \"option2\": \"go to cabinet 4\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to the sinkbasin 1 may also be a plausible location for the soapbottle, as soap is often used with a sinkbasin. This action continues the search for the soapbottle in a potentially relevant receptacle.\",\n    \"option3\": \"go to sinkbasin 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at cabinet 2. The cabinet 2 is closed.",
+      "action": "open cabinet 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has searched multiple cabinets (cabinet 1, 2, and 3) and found objects such as a soapbar and spraybottle, but no soapbottle has been located. The current phase is SEARCHING, and the agent is at cabinet 2, which is closed. The next step is to inspect the contents of cabinet 2 to determine whether it contains the target object, the soapbottle.\",\n    \"next_objective\": \"Open cabinet 2 to search its contents for the soapbottle.\",\n    \"reasoning1\": \"Opening cabinet 2 allows the agent to see its contents, which may include the soapbottle. Since the goal is to find and place the soapbottle on the countertop, this action directly advances the current SEARCHING phase.\",\n    \"option1\": \"open cabinet 2\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining cabinet 2 is a less effective alternative to opening it, as it does not allow the agent to access the contents or identify the presence of the soapbottle. It provides limited insight compared to opening it.\",\n    \"option2\": \"examine cabinet 2\",\n    \"confidence2\": 25,\n    \"reasoning3\": \"Going to cabinet 4 is an irrelevant action at this point, as it does not align with the current objective of searching for the soapbottle in the nearby cabinet 2. It would delay progress.\",\n    \"option3\": \"go to cabinet 4\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You open the cabinet 2. The cabinet 2 is open. In it, you see a cloth 1, and a soapbar 1.",
+      "action": "go to cabinet 4",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No soapbottle has been found yet. The agent has opened several cabinets and searched their contents, but the target object is still missing. The next step is to continue searching in plausible receptacles that might contain the soapbottle.\",\n    \"next_objective\": \"Search for the soapbottle in a new receptacle that has not yet been searched.\",\n    \"reasoning1\": \"Going to cabinet 4 allows the agent to explore a new receptacle that hasn't been searched yet, increasing the chance of finding the soapbottle. This directly advances the [SEARCHING] phase.\",\n    \"option1\": \"go to cabinet 4\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examine cabinet 2 allows the agent to double-check the current location for the soapbottle, although it’s unlikely to yield new information. This could help confirm that the soapbottle is not here.\",\n    \"option2\": \"examine cabinet 2\",\n    \"confidence2\": 25,\n    \"reasoning3\": \"Going to countertop 1 is not likely to help during the [SEARCHING] phase since the countertop is the destination, not a likely source of the soapbottle. This action would delay progress.\",\n    \"option3\": \"go to countertop 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You arrive at cabinet 4. The cabinet 4 is closed.",
+      "action": "go to countertop 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 4, and cabinet 3. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has searched and opened cabinets 1, 2, and 3 but has not found the soapbottle. It has now arrived at cabinet 4, which is closed. The current challenge is to locate the soapbottle by opening and examining cabinet 4.\",\n    \"next_objective\": \"Open and examine cabinet 4 to determine if it contains the soapbottle.\",\n    \"reasoning1\": \"Opening cabinet 4 allows the agent to see its contents, which may include the soapbottle. This is the logical next step in the SEARCHING phase.\",\n    \"option1\": \"open cabinet 4\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining cabinet 4 while it is closed may provide clues or confirm it is not the correct receptacle, but this is less effective than opening it to see the contents.\",\n    \"option2\": \"examine cabinet 4\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to another receptacle like countertop or sinkbasin would deviate from the current search goal and could delay finding the soapbottle unless there is a strong reason to believe it is already found, which is not the case here.\",\n    \"option3\": \"go to countertop 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "You arrive at countertop 1. On the countertop 1, you see a spraybottle 1.",
+      "action": "go to sinkbasin 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the countertop 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has searched several cabinets and the countertop but has not found a soapbottle. The current location is countertop 1, where a spraybottle 1 is visible, but it is not the target object. The agent must continue searching for the soapbottle.\",\n    \"next_objective\": \"Locate the soapbottle by searching unexplored receptacles.\",\n    \"reasoning1\": \"Cabinet 4 has not yet been searched and may contain the soapbottle. Searching it aligns with the current phase of finding the target object.\",\n    \"option1\": \"go to cabinet 4\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The sinkbasin 1 is a plausible location for a soapbottle, as it is commonly used for storing such items. Visiting it could advance the search phase.\",\n    \"option2\": \"go to sinkbasin 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"The spraybottle 1 is visible on the countertop, and taking it might help confirm whether it is the target or if it can provide a clue to the location of the soapbottle.\",\n    \"option3\": \"take spraybottle 1 from countertop 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "You arrive at sinkbasin 1. On the sinkbasin 1, you see nothing.",
+      "action": "go to sinkbasin 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sinkbasin 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, I have searched several cabinets (3, 1, 2) and the countertop, but no soapbottle has been found. I have now arrived at sinkbasin 1, but it is empty. The next step is to continue searching for the soapbottle in unexplored locations.\",\n    \"next_objective\": \"Search for the soapbottle in an unexplored location.\",\n    \"reasoning1\": \"Going to sinkbasin 2 is a reasonable next step since sinkbasin 1 has already been checked and is empty. There is a chance that the soapbottle is located there.\",\n    \"option1\": \"go to sinkbasin 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to cabinet 4 is a logical step because it has not yet been searched and may contain the soapbottle.\",\n    \"option2\": \"go to cabinet 4\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to toilet 1 may seem less likely, but it is an unexplored location and could potentially hold the soapbottle, especially if it's used for cleaning purposes.\",\n    \"option3\": \"go to toilet 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 10,
+      "observation": "You arrive at sinkbasin 2. On the sinkbasin 2, you see nothing.",
+      "action": "go to toilet 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sinkbasin 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No soapbottle has been located yet, and the current location (sinkbasin 2) does not contain one. The agent is still in the SEARCHING phase, meaning it must locate a soapbottle before progressing. So far, the agent has searched cabinets 1, 2, 3, and 4, as well as the countertop and sinkbasin 1 and 2, but none of these have yielded a soapbottle.\",\n    \"next_objective\": \"Search additional receptacles not yet visited to locate a soapbottle.\",\n    \"reasoning1\": \"Going to toilet 1 is a logical next step to search for the soapbottle in a new receptacle that has not yet been visited. This advances the SEARCHING phase by expanding the search space.\",\n    \"option1\": \"go to toilet 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to toiletpaperhanger 1 is another logical choice to continue the search in an unvisited receptacle. This could potentially reveal the soapbottle if it is stored there.\",\n    \"option2\": \"go to toiletpaperhanger 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to countertop 1 is a less likely option since it was already searched earlier. However, it might still be considered if the soapbottle was added after the first search, though this is speculative.\",\n    \"option3\": \"go to countertop 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 11,
+      "observation": "You arrive at toilet 1. On the toilet 1, you see a soapbottle 3, and a toiletpaper 2.",
+      "action": "take soapbottle 3 from toilet 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the toilet 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a soapbottle 3 on the toilet 1. The next objective is to pick up the soapbottle and place it on the countertop 1, as specified in the task. The agent is not carrying anything and must first take the soapbottle.\",\n    \"next_objective\": \"Take the soapbottle 3 from the toilet 1 and place it on the countertop 1.\",\n    \"reasoning1\": \"Taking the soapbottle 3 from the toilet 1 directly addresses the goal of moving it to the countertop 1. It is the first step in completing the task and is the most direct action.\",\n    \"option1\": \"take soapbottle 3 from toilet 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Going to countertop 1 would allow the agent to prepare for the final placement of the soapbottle, but it is only useful after the soapbottle has been taken. This action is less immediate to the goal.\",\n    \"option2\": \"go to countertop 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Taking the toiletpaper 2 is irrelevant to the task and does not contribute to the objective of placing the soapbottle on the countertop. However, it is a possible action and included for completeness.\",\n    \"option3\": \"take toiletpaper 2 from toilet 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 12,
+      "observation": "You pick up the soapbottle 3 from the toilet 1.",
+      "action": "go to countertop 1",
+      "inventory": "You are carrying: a soapbottle 3.",
+      "look": "You are facing the toilet 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The soapbottle 3 has been successfully located and taken from the toilet 1. The current objective is to deliver it to the countertop 1, as the task goal is to put the soapbottle on the countertop. Since the soapbottle is already in inventory and the phase is 'TREATED,' the next objective is to navigate to the destination receptacle and place the object there.\",\n    \"next_objective\": \"Navigate to countertop 1 and put the soapbottle there.\",\n    \"reasoning1\": \"This action directly advances the current phase by moving to the designated destination receptacle where the soapbottle should be placed. Once at the countertop, the next step would be to put the soapbottle there.\",\n    \"option1\": \"go to countertop 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examining the soapbottle is not necessary since the goal is to place it on the countertop, not analyze its properties. This action does not advance the phase.\",\n    \"option2\": \"examine soapbottle 3\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Examining the toilet is also unnecessary at this point, as the soapbottle is already in inventory and the focus should be on delivering it to the countertop.\",\n    \"option3\": \"examine toilet 1\",\n    \"confidence3\": 40,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 13,
+      "observation": "You arrive at countertop 1. On the countertop 1, you see a spraybottle 1.",
+      "action": "move soapbottle 3 to countertop 1",
+      "inventory": "You are carrying: a soapbottle 3.",
+      "look": "You are facing the countertop 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The soapbottle 3 has been located and taken from toilet 1, and the agent is now at countertop 1 carrying it. The next objective is to place the soapbottle on the countertop, completing the task.\",\n    \"next_objective\": \"Put the soapbottle 3 on countertop 1.\",\n    \"reasoning1\": \"The action 'move soapbottle 3 to countertop 1' directly fulfills the current phase of placing the object at the destination receptacle. It is the most direct and appropriate action given the current inventory and location.\",\n    \"option1\": \"move soapbottle 3 to countertop 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"The action 'examine soapbottle 3' is unnecessary at this stage since the soapbottle is already in inventory and the task does not require examination. It does not advance the phase.\",\n    \"option2\": \"examine soapbottle 3\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"The action 'examine countertop 1' provides no benefit at this stage since the countertop is already visible and the task does not require further examination of the receptacle. It does not advance the phase.\",\n    \"option3\": \"examine countertop 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 355,
+    "n_episodes": 24,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 369,
+    "n_episodes": 25,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 14,
+    "n_advantage_overrides": 3,
+    "n_memory_actions_injected": 7,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 146.994,
+  "completed_utc": "2026-10-22T02:32:45.660391+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

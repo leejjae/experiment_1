@@ -1,0 +1,99 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 27,
+  "game_id": "pick_and_place_simple-Mug-None-SideTable-329/trial_T20190909_032318_169393",
+  "repeat": 1,
+  "seed": 2770,
+  "episode_index": 55,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some mug on sidetable.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a diningtable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put some mug on sidetable.",
+      "action": "go to diningtable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made yet. The current phase is 'SEARCHING' for a mug. The next step is to locate a receptacle that may contain a mug.\",\n    \"next_objective\": \"Navigate to a receptacle that may contain a mug to begin searching.\",\n    \"reasoning1\": \"Navigating to drawer 4 is a logical first step in the search phase as drawers are common storage locations for objects like mugs.\",\n    \"option1\": \"go to drawer 4\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Diningtable 1 is a plausible location for a mug, especially if it is left on the surface for use or display.\",\n    \"option2\": \"go to diningtable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Drawers are a common storage location for household items like mugs. Drawer 1 is a reasonable place to check next.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at diningtable 1. On the diningtable 1, you see a cd 2, a cellphone 3, a cellphone 1, a keychain 3, a mug 1, a pen 2, a pencil 3, and a pencil 2.",
+      "action": "take mug 1 from diningtable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the diningtable 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located a mug on the diningtable and is now at the phase of taking it. The next objective is to pick up the mug from the diningtable in order to proceed with placing it on a sidetable.\",\n    \"next_objective\": \"Take the mug from the diningtable.\",\n    \"reasoning1\": \"Taking the mug from the diningtable is the logical next step to advance the phase from 'LOCATED' to 'IN INVENTORY', which is necessary before the agent can proceed to place it on the sidetable.\",\n    \"option1\": \"take mug 1 from diningtable 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Although navigating to the sidetable is a future step, it is premature at this point as the mug is not yet in inventory, and the current phase is to obtain the object.\",\n    \"option2\": \"go to sidetable 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Taking other objects from the diningtable would delay the primary goal of retrieving the mug, which is the current priority.\",\n    \"option3\": \"take pen 2 from diningtable 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the mug 1 from the diningtable 1.",
+      "action": "go to sidetable 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the diningtable 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a mug 1 from the diningtable 1. The mug is now in the inventory, and the next step is to place it on the sidetable. The agent must now navigate to the sidetable and complete the task.\",\n    \"next_objective\": \"Navigate to the sidetable and place the mug there.\",\n    \"reasoning1\": \"This action directly advances the task by moving the agent to the destination receptacle where the mug will be placed.\",\n    \"option1\": \"go to sidetable 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"This action also navigates the agent to the destination receptacle, although it is a different instance of the sidetable. It is valid but less likely to be the correct destination unless multiple sidetables are relevant.\",\n    \"option2\": \"go to sidetable 2\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Examining the mug is unnecessary at this point since the task does not require treatment or examination, and it would delay progress toward the final objective.\",\n    \"option3\": \"examine mug 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at sidetable 1. On the sidetable 1, you see a creditcard 1, a keychain 1, and a pen 1.",
+      "action": "move mug 1 to sidetable 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a mug 1 from diningtable 1 and is now at sidetable 1, ready to place it there. The next objective is to place the mug on the sidetable.\",\n    \"next_objective\": \"Place the mug on the sidetable.\",\n    \"reasoning1\": \"The action 'move mug 1 to sidetable 1' directly fulfills the goal of placing the mug on the sidetable. Since the agent is already at the destination and carrying the mug, this action is the most efficient and logical next step.\",\n    \"option1\": \"move mug 1 to sidetable 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"The action 'examine sidetable 1' may provide more information about the sidetable's current contents, but it does not directly advance the phase of placing the mug on it. It is less efficient and not necessary at this point.\",\n    \"option2\": \"examine sidetable 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"The action 'examine mug 1' may confirm details about the mug but does not advance the phase. It is not necessary at this stage since the agent is already carrying the correct object and is at the destination.\",\n    \"option3\": \"examine mug 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 853,
+    "n_episodes": 55,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 857,
+    "n_episodes": 56,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 4,
+    "n_advantage_overrides": 1,
+    "n_memory_actions_injected": 0,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 52.606,
+  "completed_utc": "2026-10-22T03:53:27.993094+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

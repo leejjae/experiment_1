@@ -22,16 +22,18 @@ ARMS = {
     **{f'iter_sd_{r}_fixedfb_beta1': f'alfworld_ace_sd/runs/20261029_fixedfb/{r}/beta_1/{{room}}/results/*.json'
        for r in ('replace', 'mean', 'ema')},
     **{m: f'alfworld_baselines/runs/20261029/{m}/{{room}}/results/*.json' for m in ('reflexion', 'evotest', 'awm')},
+    'jitrl_eq25_logit_judge': 'alfworld_jitrl/runs/20261022_eq25_logit/results/jitrl_to_{room}/*.json',
 }
 
 
 def main():
+    task_type = {r['index']: r['task_type'] for r in json.loads((ROOT / 'data/alfworld_valid_seen_74.json').read_text())['splits']['valid_seen']}
     rows = []
     for arm, pattern in ARMS.items():
         for room in ROOMS:
             for f in glob.glob(str(EXP / pattern.format(room=room))):
                 d = json.loads(Path(f).read_text())
-                rows.append(dict(arm=arm, room=room, task_index=d['task_index'], task_type=d['task_type'],
+                rows.append(dict(arm=arm, room=room, task_index=d['task_index'], task_type=task_type[d['task_index']],
                                  trial=d['repeat'], success=int(bool(d['success'])), steps=len(d['steps'])))
     rows.sort(key=lambda r: (r['arm'], ROOMS.index(r['room']), r['task_index'], r['trial']))
     out = ROOT / 'results/alfworld_trials.csv'

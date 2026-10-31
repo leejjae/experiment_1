@@ -1,0 +1,143 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 8,
+  "game_id": "look_at_obj_in_light-Laptop-None-DeskLamp-328/trial_T20190908_201550_622420",
+  "repeat": 1,
+  "seed": 851,
+  "episode_index": 25,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "look at laptop under the desklamp.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 2, a drawer 1, a garbagecan 1, a shelf 1, and a sidetable 1.\n\nYour task is to: look at laptop under the desklamp.",
+      "action": "go to drawer 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The task goal is to look at the laptop under the desklamp. Since the [PHASE] is SEARCHING and the [AT] location is the room, the next objective is to locate the laptop. The [SEARCHED] list currently includes 'room', which is the starting point and not a receptacle, so no objects have been found yet. I need to search among the receptacles in the room to find where the laptop might be located.\",\n    \"next_objective\": \"Search a receptacle to locate the laptop.\",\n    \"reasoning1\": \"Going to 'desk 1' is a logical first step because laptops are often placed on desks. This action aligns with the SEARCHING phase and increases the chances of finding the laptop quickly.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 45,\n    \"reasoning2\": \"Going to 'drawer 1' is a reasonable alternative since it's common to store laptops in drawers when not in use. Searching it could help locate the laptop efficiently.\",\n    \"option2\": \"go to drawer 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Going to 'sidetable 1' is another plausible location where a laptop might be placed for use. It provides a good alternative if the laptop isn’t found on the desk or in the drawer.\",\n    \"option3\": \"go to sidetable 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at drawer 1. The drawer 1 is closed.",
+      "action": "open drawer 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has arrived at drawer 1, which is currently closed. The laptop has not yet been found. The main challenge is to locate the laptop, which may be inside drawer 1 or elsewhere in the room.\",\n    \"next_objective\": \"Open drawer 1 to check if the laptop is inside.\",\n    \"reasoning1\": \"Opening drawer 1 will allow the agent to see if the laptop is inside, directly advancing the current phase of searching for the laptop.\",\n    \"option1\": \"open drawer 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining drawer 1 before opening may provide visual or contextual clues about whether it contains the laptop, helping the agent make an informed decision about whether to open it.\",\n    \"option2\": \"examine drawer 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to desk 1 may lead to discovering the laptop if it is placed or stored there, and the desklamp is likely located near the desk, making it a relevant location to check.\",\n    \"option3\": \"go to desk 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You open the drawer 1. The drawer 1 is open. In it, you see a creditcard 1.",
+      "action": "go to sidetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"In the current [SEARCHING] phase, the agent has located and opened drawer 1, finding a credit card inside. However, the goal object (laptop) has not yet been found. The next objective is to locate the laptop, which likely resides in an unsearched receptacle.\",\n    \"next_objective\": \"Search a new receptacle for the laptop\",\n    \"reasoning1\": \"Navigating to sidetable 1 is a plausible action because unvisited receptacles may contain the laptop. Searching a new location is necessary to advance the [SEARCHING] phase.\",\n    \"option1\": \"go to sidetable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigating to desk 1 is a logical choice as the laptop is a likely item to be placed on or in a desk. It aligns with the phase goal of locating the laptop.\",\n    \"option2\": \"go to desk 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Navigating to shelf 1 could lead to finding the laptop, as shelves are common places to store or display items like laptops. This action is consistent with the current phase of searching for the laptop.\",\n    \"option3\": \"go to shelf 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at sidetable 1. On the sidetable 1, you see a alarmclock 1, a creditcard 2, and a pencil 2.",
+      "action": "examine sidetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has searched drawer 1 and is now at sidetable 1, but has not found the laptop or desklamp. The laptop and desklamp remain unseen, so the next objective is to locate them.\",\n    \"next_objective\": \"Locate the laptop and the desklamp.\",\n    \"reasoning1\": \"The laptop is the key object required for the task, and finding it would advance the phase by bringing the agent closer to the goal of looking at it under the desklamp. Taking the creditcard 2 could help if the laptop is in a more secure location, but this is speculative at this point.\",\n    \"option1\": \"take creditcard 2 from sidetable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The pencil 2 is on the sidetable 1 and might not be relevant, but taking it could potentially indicate another location or clue if it's used with the laptop later on, though this is a weaker hypothesis.\",\n    \"option2\": \"take pencil 2 from sidetable 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Examine sidetable 1 will provide more information about the contents of the sidetable, which could reveal the presence of the laptop or a clue about its location, making it a higher confidence action for advancing the phase.\",\n    \"option3\": \"examine sidetable 1\",\n    \"confidence3\": 40,\n    \"best_action\": 3\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "On the sidetable 1, you see a alarmclock 1, a creditcard 2, and a pencil 2.",
+      "action": "go to desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has searched drawer 1 and sidetable 1 but has not found the laptop or the desklamp. The current location is sidetable 1, and the observed items do not include either of the goal objects. The next step is to locate either the laptop or the desklamp by navigating to new receptacles.\",\n    \"next_objective\": \"Locate the laptop or the desklamp by navigating to a new receptacle.\",\n    \"reasoning1\": \"Going to desk 1 is a plausible next step, as the laptop is likely to be on or under a desk. This action advances the current PHASE by searching a new receptacle that may contain the laptop or desklamp.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Going to shelf 1 could lead to the desklamp or laptop, as shelves often hold electronics or lamps. This action is a reasonable next step to find one of the goal objects.\",\n    \"option2\": \"go to shelf 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to drawer 2 is another possibility, as it may contain the laptop. This action continues the search for the laptop in a new location.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at desk 1. On the desk 1, you see a cellphone 2, a cellphone 1, a desklamp 1, a keychain 1, a laptop 1, a pen 2, a pen 1, a pencil 1, a tissuebox 3, and a tissuebox 1.",
+      "action": "take laptop 1 from desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located the desk 1, which contains the laptop 1 and the desklamp 1. The goal is to look at the laptop under the desklamp, which implies the desklamp must be turned on to illuminate the laptop. So far, the desklamp 1 has not been used.\",\n    \"next_objective\": \"Turn on the desklamp to illuminate the laptop.\",\n    \"reasoning1\": \"Using the desklamp 1 is necessary to fulfill the goal of looking at the laptop under the desklamp. It directly advances the task by enabling the illumination condition.\",\n    \"option1\": \"use desklamp 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"While taking the laptop 1 from desk 1 may seem relevant, it does not fulfill the requirement of looking at it under the desklamp. This action does not advance the phase effectively.\",\n    \"option2\": \"take laptop 1 from desk 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Examining the desk 1 again would not yield new information at this point since the contents are already visible, and the desklamp 1 has not been activated. This action is redundant.\",\n    \"option3\": \"examine desk 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You pick up the laptop 1 from the desk 1.",
+      "action": "examine laptop 1",
+      "inventory": "You are carrying: a laptop 1.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the laptop 1 from the desk 1. Currently, the laptop is being held, and the next objective is to look at the laptop under the desklamp. The next step involves finding the desklamp and using it to illuminate or activate the setting for examining the laptop.\",\n    \"next_objective\": \"Navigate to the desklamp and use it to look at the laptop.\",\n    \"reasoning1\": \"Using the desklamp 1 will illuminate the area, which is necessary to fulfill the goal of looking at the laptop under it. This action directly addresses the task's requirement.\",\n    \"option1\": \"use desklamp 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining the laptop 1 is part of the task goal, and doing so now might help confirm its readiness for further interaction, such as looking at it under the desklamp.\",\n    \"option2\": \"examine laptop 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to a different location such as shelf 1 might not be directly relevant but could be considered in case the desklamp is located there, though this is speculative.\",\n    \"option3\": \"go to shelf 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "There's nothing special about laptop 1.",
+      "action": "use desklamp 1",
+      "inventory": "You are carrying: a laptop 1.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the laptop from the desk. The next objective in the [HOLDING] phase is to look at the laptop under the desklamp. This requires the desklamp to be used for illumination, as the goal explicitly states the laptop should be examined under it.\",\n    \"next_objective\": \"Use the desklamp to illuminate the laptop for examination.\",\n    \"reasoning1\": \"Using the desklamp directly fulfills the requirement to look at the laptop under its light, aligning with the task goal. This action advances the objective of the current phase.\",\n    \"option1\": \"use desklamp 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the laptop again might reveal additional details, but it doesn't fulfill the specific requirement of doing so under the desklamp. It could be a fallback action if the desklamp is not available.\",\n    \"option2\": \"examine laptop 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Moving the laptop to the desk might place it closer to the desklamp, but it doesn't directly achieve the goal of looking at it under the desklamp. It's a supporting action with lower priority.\",\n    \"option3\": \"move laptop 1 to desk 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 436,
+    "n_episodes": 25,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 444,
+    "n_episodes": 26,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 8,
+    "n_advantage_overrides": 3,
+    "n_memory_actions_injected": 5,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 68.401,
+  "completed_utc": "2026-10-22T02:48:58.078031+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

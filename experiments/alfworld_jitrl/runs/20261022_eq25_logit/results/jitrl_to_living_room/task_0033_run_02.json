@@ -1,0 +1,143 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_living_room",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "living_room",
+  "task_index": 33,
+  "game_id": "pick_and_place_simple-RemoteControl-None-Sofa-207/trial_T20190909_153609_373481",
+  "repeat": 2,
+  "seed": 3377,
+  "episode_index": 36,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some remotecontrol on sofa.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a coffeetable 2, a coffeetable 1, a garbagecan 1, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sofa 1, and a tvstand 1.\n\nYour task is to: put some remotecontrol on sofa.",
+      "action": "go to coffeetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"I have not yet found a remotecontrol. I need to search for a remotecontrol in the room by navigating to likely locations where it might be found.\",\n    \"next_objective\": \"Navigate to a receptacle that might contain a remotecontrol to continue the SEARCHING phase.\",\n    \"reasoning1\": \"The tvstand is a likely place to find a remotecontrol, as it is often used for storing and managing such items.\",\n    \"option1\": \"go to tvstand 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"A coffeetable is another plausible location for a remotecontrol, especially in a room setting where people commonly place such objects.\",\n    \"option2\": \"go to coffeetable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Shelves are often used to store objects like a remotecontrol, and searching one could help locate the object quickly.\",\n    \"option3\": \"go to shelf 5\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at coffeetable 1. On the coffeetable 1, you see a houseplant 1, a keychain 3, a remotecontrol 4, and a remotecontrol 3.",
+      "action": "go to sofa 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the coffeetable 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully navigated to the coffeetable 1 and identified two remote controls (remotecontrol 3 and remotecontrol 4) on it. The next step is to take one of the remote controls and move it to the sofa.\",\n    \"next_objective\": \"Take one of the remote controls from the coffeetable and carry it to the sofa.\",\n    \"reasoning1\": \"Taking remotecontrol 4 from the coffeetable directly advances the goal by securing the remote control needed for the task. It moves the agent forward in the 'LOCATED' phase by preparing the object for transport.\",\n    \"option1\": \"take remotecontrol 4 from coffeetable 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Taking remotecontrol 3 is also a valid action as it achieves the same objective of obtaining a remote control from the coffeetable. It is equally valid to option1 and does not add significant advantage over it.\",\n    \"option2\": \"take remotecontrol 3 from coffeetable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to the sofa would be premature without first taking a remote control from the coffeetable. It would not advance the current phase until the object is in inventory. However, it could be a next step after obtaining the remote control.\",\n    \"option3\": \"go to sofa 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You arrive at sofa 1. On the sofa 1, you see a box 1, a creditcard 2, and a pillow 1.",
+      "action": "examine sofa 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sofa 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The remote control has already been located on the coffee table and picked up. Now the agent is at the sofa, the destination receptacle, to complete the task. The next objective is to put the remote control on the sofa.\",\n    \"next_objective\": \"Put the remote control on the sofa.\",\n    \"reasoning1\": \"Since the agent is already at the sofa and the remote control is in their inventory, putting it on the sofa would directly complete the task.\",\n    \"option1\": \"put remotecontrol 1 on sofa 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"If the agent is unsure whether the remote control is still in their inventory, examining the sofa might help confirm its current location or provide clues.\",\n    \"option2\": \"examine sofa 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Taking another object from the sofa would not advance the task and could even complicate it by introducing unnecessary actions.\",\n    \"option3\": \"take box 1 from sofa 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "On the sofa 1, you see a box 1, a creditcard 2, and a pillow 1.",
+      "action": "go to coffeetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sofa 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located remote controls on coffeetable 1 but has not yet brought one to the sofa. Now that the agent is at the sofa, the next step is to pick up a remote control from the inventory or from the current location. However, the current inventory is empty, so the agent must return to the location where the remote control was found (coffeetable 1) to pick it up before returning to the sofa.\",\n    \"next_objective\": \"Return to the coffeetable where the remote control was located and take it.\",\n    \"reasoning1\": \"Returning to coffeetable 1 is necessary to retrieve the remote control before completing the task of placing it on the sofa.\",\n    \"option1\": \"go to coffeetable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examining the sofa again might reveal more details about the items currently on it, but the task is to place a remote control on the sofa, and the agent does not currently have one.\",\n    \"option2\": \"examine sofa 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Taking items from the sofa, like the pillow or credit card, does not advance the task of placing a remote control there and could be a distraction.\",\n    \"option3\": \"take pillow 1 from sofa 1\",\n    \"confidence3\": 40,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You arrive at coffeetable 1. On the coffeetable 1, you see a houseplant 1, a keychain 3, a remotecontrol 4, and a remotecontrol 3.",
+      "action": "examine coffeetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the coffeetable 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located a remote control on the coffee table and is currently at the coffee table. The next step is to take one of the remote controls from the coffee table to move toward the final objective of putting it on the sofa.\",\n    \"next_objective\": \"Take one of the remote controls from the coffee table\",\n    \"reasoning1\": \"Taking a remote control from the coffee table is the next logical step after locating it and before moving it to the sofa. This action directly advances the goal.\",\n    \"option1\": \"take remotecontrol 4 from coffeetable 1\",\n    \"confidence1\": 45,\n    \"reasoning2\": \"Taking a remote control from the coffee table is the next logical step after locating it and before moving it to the sofa. This action directly advances the goal.\",\n    \"option2\": \"take remotecontrol 3 from coffeetable 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Examining the coffee table is redundant since the agent is already at the location and has seen the remote control and other items. It does not advance the PHASE.\",\n    \"option3\": \"examine coffeetable 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "On the coffeetable 1, you see a houseplant 1, a keychain 3, a remotecontrol 4, and a remotecontrol 3.",
+      "action": "take remotecontrol 4 from coffeetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the coffeetable 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located a remote control (remotecontrol 4) on the coffee table (coffeetable 1) and is now at the same location. The next step is to take the remote control into inventory so it can be moved to the sofa.\",\n    \"next_objective\": \"Take the remotecontrol into inventory to progress to the next phase of the task.\",\n    \"reasoning1\": \"Taking remotecontrol 4 from coffeetable 1 directly advances the PHASE by acquiring the target object, which is required to complete the task.\",\n    \"option1\": \"take remotecontrol 4 from coffeetable 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Taking remotecontrol 3 from coffeetable 1 could also advance the task if remotecontrol 3 is a valid substitute for the goal, but it is not as directly aligned with the identified target remotecontrol 4.\",\n    \"option2\": \"take remotecontrol 3 from coffeetable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examine coffeetable 1 is redundant because the coffee table has already been examined and contains the remote control. This action does not advance the current phase.\",\n    \"option3\": \"examine coffeetable 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You pick up the remotecontrol 4 from the coffeetable 1.",
+      "action": "go to sofa 1",
+      "inventory": "You are carrying: a remotecontrol 4.",
+      "look": "You are facing the coffeetable 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The remote control (remotecontrol 4) has been successfully located and taken from the coffee table (coffeetable 1). The current objective is to place it on the sofa (sofa 1), which is part of the 'TREATED' phase. The agent is currently at the coffee table, so the next step is to navigate to the sofa to complete the task.\",\n    \"next_objective\": \"Navigate to the sofa and place the remote control there.\",\n    \"reasoning1\": \"Going to the sofa is the direct next step to complete the task, as the goal is to put the remote control on the sofa. Since the sofa is already visited and examined, there is no need to re-examine it.\",\n    \"option1\": \"go to sofa 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"Examining the remote control does not advance the task, as the agent already has it and the goal is to place it on the sofa. This action is unnecessary for the current phase.\",\n    \"option2\": \"examine remotecontrol 4\",\n    \"confidence2\": 5,\n    \"reasoning3\": \"Moving the remote control to the coffee table would contradict the task goal of putting it on the sofa. This would be a regression and not a step forward.\",\n    \"option3\": \"move remotecontrol 4 to coffeetable 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You arrive at sofa 1. On the sofa 1, you see a box 1, a creditcard 2, and a pillow 1.",
+      "action": "move remotecontrol 4 to sofa 1",
+      "inventory": "You are carrying: a remotecontrol 4.",
+      "look": "You are facing the sofa 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a remote control (remotecontrol 4) on coffeetable 1 and is now at the destination receptacle (sofa 1) to complete the task. The only remaining action is to place the remote control on the sofa.\",\n    \"next_objective\": \"Put the remote control on the sofa to complete the task.\",\n    \"reasoning1\": \"The action 'move remotecontrol 4 to sofa 1' directly fulfills the final step of the task by placing the carried object at the target location. This is the correct and most direct action to complete the goal.\",\n    \"option1\": \"move remotecontrol 4 to sofa 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"The action 'examine sofa 1' is unnecessary at this point since the agent is already at the sofa and the task is to place the remote control there, not to examine the sofa further.\",\n    \"option2\": \"examine sofa 1\",\n    \"confidence2\": 7,\n    \"reasoning3\": \"The action 'go to coffeetable 1' is irrelevant now since the agent is already in possession of the remote control and is at the correct destination. This would create an unnecessary detour.\",\n    \"option3\": \"go to coffeetable 1\",\n    \"confidence3\": 3,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 600,
+    "n_episodes": 36,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/living_room/jitrl_to_living_room/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 608,
+    "n_episodes": 37,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/living_room/jitrl_to_living_room/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 8,
+    "n_advantage_overrides": 3,
+    "n_memory_actions_injected": 1,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 1,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 93.934,
+  "completed_utc": "2026-10-22T03:10:50.294374+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

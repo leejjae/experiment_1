@@ -1,0 +1,165 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 27,
+  "game_id": "pick_and_place_simple-Mug-None-SideTable-329/trial_T20190909_032318_169393",
+  "repeat": 3,
+  "seed": 2772,
+  "episode_index": 57,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some mug on sidetable.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a diningtable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put some mug on sidetable.",
+      "action": "go to drawer 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made yet. The task is to find a mug and place it on a sidetable. Currently, the agent is in the middle of the room and needs to search for a mug. Since the [PHASE] is SEARCHING, the priority is to locate a receptacle that might contain a mug.\",\n    \"next_objective\": \"Navigate to a receptacle that is likely to contain a mug.\",\n    \"reasoning1\": \"Navigating to drawer 1 is a reasonable first step in the search for a mug. Drawers are common storage places for mugs, so this action directly advances the SEARCHING phase by exploring a plausible location.\",\n    \"option1\": \"go to drawer 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigating to diningtable 1 is a logical choice for searching for a mug, as mugs are often placed on dining tables. This action supports the SEARCHING phase by investigating a likely location.\",\n    \"option2\": \"go to diningtable 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Navigating to sidetable 1 is a valid action in the SEARCHING phase. While the goal is to place a mug on a sidetable, it is possible that a mug is already on or in one of them, and exploring sidetable 1 is a rational first step.\",\n    \"option3\": \"go to sidetable 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at drawer 1. The drawer 1 is closed.",
+      "action": "open drawer 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has gone to drawer 1, which is closed. No mug has been found yet, and the task is still in the [SEARCHING] phase. The main challenge is to locate a mug before proceeding to the next steps.\",\n    \"next_objective\": \"Open drawer 1 to check its contents for a mug\",\n    \"reasoning1\": \"Opening drawer 1 will allow the agent to see its contents and determine if a mug is inside, which is essential for advancing the [SEARCHING] phase.\",\n    \"option1\": \"open drawer 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Going to another drawer (e.g., drawer 2 or drawer 3) might lead to discovering a mug if drawer 1 does not contain one, providing an alternative search path.\",\n    \"option2\": \"go to drawer 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examining drawer 1 without opening it could provide indirect clues about its contents, such as identifying if it is a drawer type likely to hold a mug.\",\n    \"option3\": \"examine drawer 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You open the drawer 1. The drawer 1 is open. In it, you see nothing.",
+      "action": "go to drawer 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has searched drawer 1 and found no mug inside. The goal is still to locate a mug and put it on a sidetable. The agent must continue searching for the mug.\",\n    \"next_objective\": \"Search another receptacle for the mug.\",\n    \"reasoning1\": \"Going to drawer 2 could potentially lead to finding a mug. This action advances the search phase by checking a new receptacle.\",\n    \"option1\": \"go to drawer 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to diningtable 1 is a plausible location where a mug might be placed. This action expands the search space and aligns with common object placement.\",\n    \"option2\": \"go to diningtable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to sidetable 1 or 2 could either locate a mug or provide a destination for it later. This action is a strategic move to potentially find the mug while progressing toward the task goal.\",\n    \"option3\": \"go to sidetable 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at drawer 2. The drawer 2 is closed.",
+      "action": "examine drawer 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully navigated to drawer 2 and is in the SEARCHING phase for a mug. The current challenge is to open drawer 2 to determine if it contains the target object.\",\n    \"next_objective\": \"Open drawer 2 to check its contents for a mug.\",\n    \"reasoning1\": \"Opening drawer 2 is the next logical step in the SEARCHING phase. If a mug is found inside, the agent can then proceed to take it and continue with the task.\",\n    \"option1\": \"open drawer 2\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining drawer 2 could provide additional context about its contents without opening it, which might help in making an informed decision about whether to open it or move on to another receptacle.\",\n    \"option2\": \"examine drawer 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to drawer 3 could be a premature action unless there is a specific reason to believe it contains the target object. It may not advance the current SEARCHING phase efficiently.\",\n    \"option3\": \"go to drawer 3\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "The drawer 2 is closed.",
+      "action": "open drawer 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has searched drawer 1 and drawer 2 but found no mugs. The current phase is SEARCHING, and the objective is to find a mug. Since the agent is at drawer 2, which is closed, the next step should focus on opening or examining it to determine if a mug is inside.\",\n    \"next_objective\": \"Open or examine drawer 2 to search for a mug.\",\n    \"reasoning1\": \"Opening drawer 2 is necessary to see its contents and determine whether a mug is inside. This directly supports the SEARCHING phase.\",\n    \"option1\": \"open drawer 2\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining drawer 2 may reveal its contents without opening it, which could save time if the mug is visible through the drawer.\",\n    \"option2\": \"examine drawer 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Moving to drawer 3 or 4 is not advisable at this stage since the agent has not yet determined whether a mug is in drawer 2. Searching other receptacles would be premature.\",\n    \"option3\": \"go to drawer 3\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You open the drawer 2. The drawer 2 is open. In it, you see a keychain 2.",
+      "action": "go to diningtable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, I have searched drawers 1 and 2, finding a keychain in drawer 2. I have not yet found a mug, which is the target object for this phase. The challenge is to locate a mug before proceeding to the next phase.\",\n    \"next_objective\": \"Continue searching for a mug in unvisited receptacles\",\n    \"reasoning1\": \"Going to drawer 4 could potentially lead to finding a mug, as it is an unvisited receptacle that might hold the target object.\",\n    \"option1\": \"go to drawer 4\",\n    \"confidence1\": 45,\n    \"reasoning2\": \"Going to drawer 3 could also potentially lead to finding a mug, as it is another unvisited receptacle that might contain the target object.\",\n    \"option2\": \"go to drawer 3\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Going to the diningtable 1 is a reasonable next step to search for a mug, as mugs are commonly found on tables in a room.\",\n    \"option3\": \"go to diningtable 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You arrive at diningtable 1. On the diningtable 1, you see a cd 2, a cellphone 3, a cellphone 1, a keychain 3, a mug 1, a pen 2, a pencil 3, and a pencil 2.",
+      "action": "take mug 1 from diningtable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the diningtable 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located the target object, mug 1, on diningtable 1. The goal is to put the mug on a sidetable, so the next step is to pick it up and then move to the sidetable.\",\n    \"next_objective\": \"Take the mug from the diningtable to proceed with the goal.\",\n    \"reasoning1\": \"Taking the mug 1 from diningtable 1 is the next logical step in the [LOCATED] phase to advance toward completing the task goal of placing the mug on the sidetable.\",\n    \"option1\": \"take mug 1 from diningtable 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Moving to a sidetable is a valid option, but it's premature without first picking up the mug. However, it can be considered as an alternative if the mug is not immediately accessible.\",\n    \"option2\": \"go to sidetable 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Examining the diningtable 1 again is unnecessary at this point, as the contents have already been confirmed, and the mug is clearly visible and available for taking.\",\n    \"option3\": \"examine diningtable 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You pick up the mug 1 from the diningtable 1.",
+      "action": "examine mug 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the diningtable 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a mug 1 from the diningtable 1. The current inventory contains the mug 1, and the next step is to navigate to the destination receptacle (the sidetable) to complete the task of placing the mug there. The key challenge now is to reach the correct sidetable and place the mug on it.\",\n    \"next_objective\": \"Navigate to the sidetable and place the mug on it.\",\n    \"reasoning1\": \"The agent is currently carrying the mug 1 and is at the diningtable 1. The most direct and logical next step is to go to sidetable 1, as it is the target destination for placing the mug.\",\n    \"option1\": \"go to sidetable 1\",\n    \"confidence1\": 45,\n    \"reasoning2\": \"Alternatively, going to sidetable 2 is also a valid option since it may be the correct location for placing the mug. This action allows the agent to proceed directly to the destination.\",\n    \"option2\": \"go to sidetable 2\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Examine mug 1 is a valid action that might reveal any additional properties or requirements before placing it on the sidetable, but it is less efficient than moving to the destination.\",\n    \"option3\": \"examine mug 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "This is a normal mug 1. In it, you see nothing.",
+      "action": "go to sidetable 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the diningtable 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the mug 1 from diningtable 1. The current phase is [TREATED], and the next objective is to deliver the mug to the destination receptacle, which is the sidetable. The agent is now carrying the mug and must navigate to the sidetable to complete the task.\",\n    \"next_objective\": \"Navigate to the sidetable and place the mug on it.\",\n    \"reasoning1\": \"Going to sidetable 1 directly advances the TREATED phase by moving toward the final destination where the mug should be placed.\",\n    \"option1\": \"go to sidetable 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Going to sidetable 2 is a valid option and also represents a destination for the mug. However, since the goal simply states 'sidetable' without specifying which one, sidetable 1 is the more direct choice.\",\n    \"option2\": \"go to sidetable 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examine mug 1 is a redundant action at this point, as the mug has already been examined and contains no new information. It does not advance the TREATED phase and is not helpful for completing the task.\",\n    \"option3\": \"examine mug 1\",\n    \"confidence3\": 10,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "You arrive at sidetable 1. On the sidetable 1, you see a creditcard 1, a keychain 1, and a pen 1.",
+      "action": "move mug 1 to sidetable 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a mug 1 on the diningtable 1, picked it up, and arrived at the sidetable 1. The current phase is AT_DEST, and the next step is to place the mug on the sidetable. The sidetable is already in view, and the agent is carrying the mug, so the final step is to put the mug on the sidetable.\",\n    \"next_objective\": \"Put the mug 1 on sidetable 1.\",\n    \"reasoning1\": \"This action directly places the mug on the sidetable, completing the task goal. It is the correct and final step in the current phase.\",\n    \"option1\": \"move mug 1 to sidetable 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"Examining the sidetable confirms its contents and verifies it is the correct destination. While helpful, this is not necessary since the task is already clear and the sidetable is already visible.\",\n    \"option2\": \"examine sidetable 1\",\n    \"confidence2\": 7,\n    \"reasoning3\": \"Going to another sidetable or other receptacles is unnecessary since the agent is already at the correct destination and the task does not require interaction with other locations.\",\n    \"option3\": \"go to sidetable 2\",\n    \"confidence3\": 3,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 870,
+    "n_episodes": 57,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 880,
+    "n_episodes": 58,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 10,
+    "n_advantage_overrides": 3,
+    "n_memory_actions_injected": 2,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 88.443,
+  "completed_utc": "2026-10-22T03:56:46.009850+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

@@ -1,0 +1,176 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 13,
+  "game_id": "pick_and_place_simple-Book-None-SideTable-329/trial_T20190908_050633_745514",
+  "repeat": 1,
+  "seed": 1356,
+  "episode_index": 40,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some book on sidetable.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a diningtable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put some book on sidetable.",
+      "action": "go to drawer 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"I am at the start of the task and have not yet located a book. My current objective is to find a book, which requires searching receptacles that are likely to contain it.\",\n    \"next_objective\": \"Navigate to a receptacle that might contain a book.\",\n    \"reasoning1\": \"Navigating to drawer 3 is a reasonable action because drawers are commonly used to store books and similar items, and this drawer has not yet been searched.\",\n    \"option1\": \"go to drawer 3\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigating to diningtable 1 is another reasonable action because books are often placed on tables, and the diningtable is a likely place to find one.\",\n    \"option2\": \"go to diningtable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to drawer 4 is also a plausible action because drawers are commonly used to store books and similar items, and this drawer has not yet been searched.\",\n    \"option3\": \"go to drawer 4\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at drawer 3. On the drawer 3, you see a keychain 2.",
+      "action": "go to drawer 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 3. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has only visited drawer 3 and found a keychain 2, but no book has been located yet. The next objective is to find a book to fulfill the task of putting it on the sidetable.\",\n    \"next_objective\": \"Locate a book in the room.\",\n    \"reasoning1\": \"Taking the keychain does not help in locating a book, which is the primary goal of the [PHASE] SEARCHING. This action is not relevant.\",\n    \"option1\": \"take keychain 2 from drawer 3\",\n    \"confidence1\": 10,\n    \"reasoning2\": \"Moving to drawer 2 may reveal a book or other relevant objects. This is a logical next step to expand the search.\",\n    \"option2\": \"go to drawer 2\",\n    \"confidence2\": 50,\n    \"reasoning3\": \"Moving to drawer 4 is also a reasonable choice as it expands the search area to find the book, which is the goal of the current phase.\",\n    \"option3\": \"go to drawer 4\",\n    \"confidence3\": 40,\n    \"best_action\": 2\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You arrive at drawer 2. The drawer 2 is closed.",
+      "action": "open drawer 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No book has been found yet, and the agent is still in the SEARCHING phase. The current location is drawer 2, which is closed, and the agent has not examined its contents yet. The next step is to determine if drawer 2 contains a book.\",\n    \"next_objective\": \"Open drawer 2 to check if it contains a book.\",\n    \"reasoning1\": \"Opening drawer 2 is the logical next step to determine if it contains a book, which is the target object.\",\n    \"option1\": \"open drawer 2\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining drawer 2 could confirm its state and whether it contains a book, though it is likely the same as opening since the drawer is closed.\",\n    \"option2\": \"examine drawer 2\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Going to drawer 4 could potentially lead to finding a book if drawer 2 does not contain one, but this is less likely and skips the immediate opportunity to examine drawer 2.\",\n    \"option3\": \"go to drawer 4\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You open the drawer 2. The drawer 2 is open. In it, you see a creditcard 1.",
+      "action": "examine drawer 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, no book has been found. The agent has opened drawer 2 and found a creditcard 1, but that is irrelevant to the task. The next objective is to locate a book by visiting other unsearched receptacles or examining the current drawer more closely.\",\n    \"next_objective\": \"Search for a book in unvisited or unsearched receptacles.\",\n    \"reasoning1\": \"Examining drawer 2 may reveal additional objects that were not initially visible, potentially including a book.\",\n    \"option1\": \"examine drawer 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The agent should explore other possible locations where a book might be stored, such as diningtable 1, which is a plausible receptacle for a book.\",\n    \"option2\": \"go to diningtable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The sidetable is the destination for the book, but visiting the sidetable now would not advance the current phase of searching for the book. However, it is a valid receptacle to consider.\",\n    \"option3\": \"go to sidetable 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "The drawer 2 is open. In it, you see a creditcard 1.",
+      "action": "go to drawer 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No book has been found yet. The agent has searched drawer 2 and found only a credit card. The current challenge is to locate a book in unsearched receptacles.\",\n    \"next_objective\": \"Search for a book in an unsearched receptacle\",\n    \"reasoning1\": \"Going to drawer 1 will allow the agent to investigate a new receptacle that has not yet been searched, potentially containing the book.\",\n    \"option1\": \"go to drawer 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Going to diningtable 1 is a plausible location where books might be found, and it is an unvisited receptacle that could contain the target object.\",\n    \"option2\": \"go to diningtable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to drawer 4 is another unsearched receptacle that may contain the book, making it a reasonable place to continue the search.\",\n    \"option3\": \"go to drawer 4\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at drawer 1. The drawer 1 is closed.",
+      "action": "open drawer 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent is currently at drawer 1, which is closed, and is still in the [SEARCHING] phase. So far, no book has been found. The task is to locate a book before proceeding to the next phase. The agent has already searched drawer 2 and 3, but not drawer 1 yet.\",\n    \"next_objective\": \"Search drawer 1 for a book.\",\n    \"reasoning1\": \"Opening drawer 1 will allow access to its contents, potentially revealing a book. This directly advances the [SEARCHING] phase by expanding the inventory of receptacles examined.\",\n    \"option1\": \"open drawer 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examining drawer 1 will confirm whether it contains a book without opening it first, which could save time if the drawer is empty or already known to contain no book. This also supports the [SEARCHING] phase.\",\n    \"option2\": \"examine drawer 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Moving to another location like sidetable 2 or diningtable 1 is less relevant at this stage since the agent is still in the [SEARCHING] phase and has not yet located a book. However, it could be useful if the agent discovers the book is not in the current path and needs to explore elsewhere.\",\n    \"option3\": \"go to sidetable 2\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You open the drawer 1. The drawer 1 is open. In it, you see a cellphone 1.",
+      "action": "go to drawer 4",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No book has been found so far. The agent has searched all available drawers but only found a cellphone in drawer 1. The current challenge is to continue searching for a book in new receptacles that have not yet been visited or examined.\",\n    \"next_objective\": \"Search for a book in unvisited receptacles.\",\n    \"reasoning1\": \"Going to drawer 4 is a logical next step, as it has not yet been searched, and it might contain the book.\",\n    \"option1\": \"go to drawer 4\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to the bed is a reasonable option to explore a new location that may contain the book.\",\n    \"option2\": \"go to bed 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The garbagecan is a less likely location for a book, but it is still unvisited and could contain one.\",\n    \"option3\": \"go to garbagecan 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You arrive at drawer 4. On the drawer 4, you see a cd 2.",
+      "action": "go to diningtable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 4, and sidetable 2. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, no book has been found, and the agent has searched several drawers. The current challenge is to continue searching for a book while avoiding redundant actions and ensuring no previously searched locations are revisited unnecessarily.\",\n    \"next_objective\": \"Search for a book in unexplored receptacles.\",\n    \"reasoning1\": \"Examining drawer 4 could reveal if a book is present or if there are additional clues about where a book might be located.\",\n    \"option1\": \"examine drawer 4\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Moving to a new receptacle like the diningtable 1 could increase the chances of finding a book, as it is a plausible location where books might be placed.\",\n    \"option2\": \"go to diningtable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Moving to the sidetable 1 could reveal whether it already contains a book, which would simplify the task and eliminate the need for further searching.\",\n    \"option3\": \"go to sidetable 1\",\n    \"confidence3\": 30,\n    \"best_action\": 2\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "You arrive at diningtable 1. On the diningtable 1, you see a alarmclock 1, a book 3, a cd 3, a cd 1, a creditcard 2, a keychain 3, a keychain 1, a laptop 1, a mug 3, a mug 2, a mug 1, a pen 1, and a pencil 1.",
+      "action": "take book 3 from diningtable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the diningtable 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a book (book 3) on the diningtable 1, which is the target object for the task. The next objective is to take the book and move it to a sidetable.\",\n    \"next_objective\": \"Take book 3 from diningtable 1 and move it to a sidetable.\",\n    \"reasoning1\": \"Taking the book from the diningtable is the immediate next step to progress toward the goal of placing it on a sidetable. This action directly advances the task.\",\n    \"option1\": \"take book 3 from diningtable 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Navigating to a sidetable is necessary to complete the task after taking the book. This action prepares the destination for the book.\",\n    \"option2\": \"go to sidetable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examining the diningtable is unnecessary at this point, as the book has already been identified and is visible. This action does not advance the task directly.\",\n    \"option3\": \"examine diningtable 1\",\n    \"confidence3\": 10,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "You pick up the book 3 from the diningtable 1.",
+      "action": "go to sidetable 1",
+      "inventory": "You are carrying: a book 3.",
+      "look": "You are facing the diningtable 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The book has been successfully taken from the diningtable 1. The current phase is 'TREATED', meaning the next step is to deliver the book to the destination receptacle, which is the sidetable. The agent is currently carrying the book and needs to navigate to the sidetable to complete the task.\",\n    \"next_objective\": \"Navigate to the sidetable where the book will be placed.\",\n    \"reasoning1\": \"This action directly advances the TREATED phase by moving the agent to the destination where the book will be put. It is a direct and necessary step for task completion.\",\n    \"option1\": \"go to sidetable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"This action also moves the agent to a sidetable, which is the destination for the book. It is a valid alternative to option 1 and serves the same purpose.\",\n    \"option2\": \"go to sidetable 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examining the book is not necessary at this stage since the task requires delivering the book, not analyzing it. This action does not advance the current phase and is therefore less relevant.\",\n    \"option3\": \"examine book 3\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 10,
+      "observation": "You arrive at sidetable 1. On the sidetable 1, you see nothing.",
+      "action": "move book 3 to sidetable 1",
+      "inventory": "You are carrying: a book 3.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a book (book 3) from diningtable 1 and has now arrived at sidetable 1, which is the destination. The next objective is to place the book on the sidetable.\",\n    \"next_objective\": \"Put the book on the sidetable.\",\n    \"reasoning1\": \"This action directly fulfills the final step of the task, which is to place the book on the sidetable. It aligns perfectly with the current phase and progress.\",\n    \"option1\": \"move book 3 to sidetable 1\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"N/A (no second action is relevant or necessary for the current phase).\",\n    \"option2\": \"examine book 3\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"N/A (no third action is relevant or necessary for the current phase).\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 639,
+    "n_episodes": 40,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 650,
+    "n_episodes": 41,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 0,
+    "n_advantage_overrides": 0,
+    "n_memory_actions_injected": 0,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 87.762,
+  "completed_utc": "2026-10-22T03:21:49.294334+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

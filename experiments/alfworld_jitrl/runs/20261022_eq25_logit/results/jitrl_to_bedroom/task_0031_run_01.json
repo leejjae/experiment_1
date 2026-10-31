@@ -1,0 +1,110 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 31,
+  "game_id": "pick_and_place_simple-Pencil-None-Dresser-330/trial_T20190909_071128_012892",
+  "repeat": 1,
+  "seed": 3174,
+  "episode_index": 70,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some pencil on dresser.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put some pencil on dresser.",
+      "action": "go to sidetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made yet; I am in the initial [SEARCHING] phase. I need to locate a pencil by navigating to potential receptacles that might contain it.\",\n    \"next_objective\": \"Navigate to a receptacle likely to contain a pencil to begin the search.\",\n    \"reasoning1\": \"Navigating to drawer 13 is a logical first step as it is one of the many drawers in the room, and drawers are common places to store small objects like pencils.\",\n    \"option1\": \"go to drawer 13\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigating to sidetable 1 is a reasonable choice, as sidetables often hold writing instruments like pencils for convenience.\",\n    \"option2\": \"go to sidetable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to drawer 15 is another viable option, given the high number of drawers in the room and the likelihood one of them may contain a pencil.\",\n    \"option3\": \"go to drawer 15\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at sidetable 1. On the sidetable 1, you see a pencil 1, and a vase 1.",
+      "action": "take pencil 1 from sidetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located a pencil (pencil 1) on the sidetable 1 and is now in the 'HOLDING' phase, meaning the next objective is to take the pencil into inventory.\",\n    \"next_objective\": \"Take the pencil 1 from the sidetable 1 into inventory.\",\n    \"reasoning1\": \"Taking the pencil 1 from the sidetable 1 is the direct action that fulfills the current phase goal of acquiring the target object. This is the most logical and efficient step forward.\",\n    \"option1\": \"take pencil 1 from sidetable 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the sidetable 1 is unnecessary since it has already been searched and the pencil is visible. This action would delay progress.\",\n    \"option2\": \"examine sidetable 1\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Going to another receptacle at this point would deviate from the current objective of taking the pencil 1 into inventory and would not advance the task phase.\", \n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 10,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the pencil 1 from the sidetable 1.",
+      "action": "go to dresser 1",
+      "inventory": "You are carrying: a pencil 1.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the pencil 1 from the sidetable 1. The current objective is to place the pencil on a dresser, as per the task goal. The next step is to navigate to the dresser and then place the pencil there.\",\n    \"next_objective\": \"Navigate to the dresser and put the pencil on it.\",\n    \"reasoning1\": \"Going to the dresser 1 is the most direct way to reach the destination receptacle. Once there, the pencil can be placed on it to complete the task.\",\n    \"option1\": \"go to dresser 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Going to the dresser 2 is also a valid destination, though not the same as the first dresser. It still aligns with the task goal of putting the pencil on a dresser.\",\n    \"option2\": \"go to dresser 2\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Examining the pencil 1 might provide additional context, but it does not advance the current phase of placing the pencil on the dresser and is not necessary at this point.\",\n    \"option3\": \"examine pencil 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at dresser 1. On the dresser 1, you see nothing.",
+      "action": "examine dresser 1",
+      "inventory": "You are carrying: a pencil 1.",
+      "look": "You are facing the drawer 6, and dresser 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and picked up a pencil 1 from the sidetable 1. It is now at the dresser 1, carrying the pencil 1. The next step is to place the pencil on the dresser.\",\n    \"next_objective\": \"Put the pencil 1 on the dresser 1.\",\n    \"reasoning1\": \"The agent is at the dresser 1 and carrying the pencil 1. Directly placing the pencil on the dresser will complete the task goal and is the most direct action.\",\n    \"option1\": \"move pencil 1 to dresser 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the dresser 1 is not necessary because the agent already sees that it is empty and ready to receive the pencil. This action does not advance the goal.\",\n    \"option2\": \"examine dresser 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Moving to other locations or receptacles is unnecessary at this point since the agent is already at the target destination and does not need to open anything further to complete the task.\",\n    \"option3\": \"go to drawer 11\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "On the dresser 1, you see nothing.",
+      "action": "move pencil 1 to dresser 1",
+      "inventory": "You are carrying: a pencil 1.",
+      "look": "You are facing the drawer 6, and dresser 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The pencil has been successfully located and picked up from the sidetable. The agent has now arrived at the dresser and is ready to place the pencil there. The next objective is to complete the task by putting the pencil on the dresser.\",\n    \"next_objective\": \"Put the pencil on the dresser.\",\n    \"reasoning1\": \"This action directly completes the current phase by placing the pencil on the dresser, fulfilling the task goal.\",\n    \"option1\": \"move pencil 1 to dresser 1\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"N/A\",\n    \"option2\": \"\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"N/A\",\n    \"option3\": \"\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 981,
+    "n_episodes": 70,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 986,
+    "n_episodes": 71,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 3,
+    "n_advantage_overrides": 2,
+    "n_memory_actions_injected": 0,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 1,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 39.343,
+  "completed_utc": "2026-10-22T04:13:28.324624+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

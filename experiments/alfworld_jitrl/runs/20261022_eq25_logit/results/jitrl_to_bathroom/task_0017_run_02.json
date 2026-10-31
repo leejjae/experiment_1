@@ -1,0 +1,176 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bathroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bathroom",
+  "task_index": 17,
+  "game_id": "pick_and_place_simple-Candle-None-Cart-401/trial_T20190909_081908_677973",
+  "repeat": 2,
+  "seed": 1761,
+  "episode_index": 1,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put a candle in cart.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a cart 1, a garbagecan 1, a handtowelholder 2, a handtowelholder 1, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, a towelholder 2, and a towelholder 1.\n\nYour task is to: put a candle in cart.",
+      "action": "go to garbagecan 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The task is to put a candle in the cart. Currently, I am in the room and have not searched any receptacles yet. The [SEARCHED] list is empty, so I need to begin by navigating to a receptacle that may contain a candle.\",\n    \"next_objective\": \"Navigate to a receptacle that might contain a candle.\",\n    \"reasoning1\": \"The garbagecan is a common receptacle where objects like a candle could be stored, and it has not yet been searched. Navigating to it will help confirm if a candle is present.\",\n    \"option1\": \"go to garbagecan 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The shelf receptacles are plausible places for a candle to be placed, and none of them have been searched yet. Navigating to shelf 1 is a logical next step.\",\n    \"option2\": \"go to shelf 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The bathtubbasin is less likely to contain a candle, but it is still a valid receptacle to search, and it has not yet been visited.\",\n    \"option3\": \"go to bathtubbasin 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at garbagecan 1. On the garbagecan 1, you see a soapbottle 2.",
+      "action": "examine garbagecan 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the garbagecan 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent is currently at garbagecan 1, where a soapbottle 2 is visible, but no candle has been found. The phase is [SEARCHING], so the immediate objective is to locate a candle. The garbagecan has already been visited, and the search is not complete.\",\n    \"next_objective\": \"Locate a candle in an unvisited receptacle.\",\n    \"reasoning1\": \"Examine garbagecan 1 to check if the candle might be hidden or inside despite prior observation, which could reveal overlooked objects. This action supports the [SEARCHING] phase.\",\n    \"option1\": \"examine garbagecan 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigate to a new unvisited receptacle, like shelf 2, to search for the candle. This action directly advances the [SEARCHING] phase by expanding the search area.\",\n    \"option2\": \"go to shelf 2\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Navigate to another unvisited receptacle, such as sinkbasin 1, to search for the candle. This action aligns with the [SEARCHING] phase and increases the chances of finding the candle.\",\n    \"option3\": \"go to sinkbasin 1\",\n    \"confidence3\": 25,\n    \"best_action\": 2\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "On the garbagecan 1, you see a soapbottle 2.",
+      "action": "go to shelf 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the garbagecan 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has examined the garbagecan 1 but did not find a candle. The current phase is [SEARCHING], and the next objective is to locate a candle in a new receptacle.\",\n    \"next_objective\": \"Search for a candle in a new receptacle that hasn't been searched yet.\",\n    \"reasoning1\": \"The garbagecan 1 has already been examined, and the candle was not found there. The next logical step is to search new receptacles that may contain the candle.\",\n    \"option1\": \"go to shelf 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The shelf is a common receptacle for objects like candles, and it has not been searched yet. Visiting shelf 1 could reveal the candle.\",\n    \"option2\": \"go to shelf 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The cart is the target destination, but the candle has not been found yet. Going to the cart now would not further the current phase of searching for the candle.\",\n    \"option3\": \"go to cart 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at shelf 1. On the shelf 1, you see a cloth 1, and a toiletpaper 2.",
+      "action": "examine shelf 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the shelf 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has not yet found a candle. The current location (shelf 1) does not contain a candle. The next step is to explore new receptacles to locate the candle.\",\n    \"next_objective\": \"Search new receptacles to locate the candle.\",\n    \"reasoning1\": \"Examining shelf 1 will confirm its contents, ensuring no candle is present and helping eliminate it as a potential location.\",\n    \"option1\": \"examine shelf 1\",\n    \"confidence1\": 35,\n    \"reasoning2\": \"Moving to shelf 3 is a logical next step to search a new receptacle that might contain the candle.\",\n    \"option2\": \"go to shelf 3\",\n    \"confidence2\": 40,\n    \"reasoning3\": \"Going to cart 1 is a valid action, but since the goal is to put a candle in the cart, this is premature unless the candle is found first.\",\n    \"option3\": \"go to cart 1\",\n    \"confidence3\": 25,\n    \"best_action\": 2\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "On the shelf 1, you see a cloth 1, and a toiletpaper 2.",
+      "action": "go to bathtubbasin 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the shelf 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has searched the garbagecan 1 and shelf 1 but did not find a candle. The current objective is to locate a candle in the environment. The challenge is to efficiently search new locations without repeating previously searched ones.\",\n    \"next_objective\": \"Search a new receptacle for a candle.\",\n    \"reasoning1\": \"Moving to a new receptacle increases the chance of finding a candle without revisiting already searched locations. Shelf 3 has not been searched and is a plausible candidate.\",\n    \"option1\": \"go to shelf 3\",\n    \"confidence1\": 45,\n    \"reasoning2\": \"Another unsearched receptacle is shelf 2, and moving to it could potentially lead to discovering a candle without revisiting previous locations.\",\n    \"option2\": \"go to shelf 2\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"The bathtubbasin is another new receptacle that might contain a candle, and moving to it would continue the search phase efficiently.\",\n    \"option3\": \"go to bathtubbasin 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at bathtubbasin 1. On the bathtubbasin 1, you see a cloth 2, and a soapbar 1.",
+      "action": "go to sinkbasin 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the bathtubbasin 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has searched the garbagecan 1, shelf 1, and bathtubbasin 1, but has not found a candle. The current challenge is to locate a candle before proceeding to the next phase.\",\n    \"next_objective\": \"Search for a candle by exploring new receptacles.\",\n    \"reasoning1\": \"The bathtubbasin 1 was just examined, and no candle was observed. Re-examining it may reveal additional details or the presence of a candle.\",\n    \"option1\": \"examine bathtubbasin 1\",\n    \"confidence1\": 35,\n    \"reasoning2\": \"The sinkbasin 1 is a common place where a candle might be placed or stored. Navigating to it could help locate the target object.\",\n    \"option2\": \"go to sinkbasin 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"The cart 1 is the final destination, but since the agent has not yet found the candle, it is not yet time to navigate there. However, checking the cart may reveal if the candle is already there.\",\n    \"option3\": \"go to cart 1\",\n    \"confidence3\": 30,\n    \"best_action\": 2\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You arrive at sinkbasin 1. On the sinkbasin 1, you see a dishsponge 2.",
+      "action": "go to toilet 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sinkbasin 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has searched several receptacles including garbagecan 1, shelf 1, bathtubbasin 1, and sinkbasin 1, but has not yet found a candle. The current location is sinkbasin 1, and the only item visible is dishsponge 2. No candle has been found, and no progress toward the goal of putting a candle in the cart has been made.\",\n    \"next_objective\": \"Continue searching for a candle by navigating to unvisited receptacles.\",\n    \"reasoning1\": \"The current phase is [SEARCHING], so the next step is to continue searching for the candle. Going to cart 1 is a logical choice as it is an unvisited receptacle and may contain the candle.\",\n    \"option1\": \"go to cart 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Another unvisited receptacle is toiletpaperhanger 1, and it might hold the candle. Moving there would continue the search phase efficiently.\",\n    \"option2\": \"go to toiletpaperhanger 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Toilet 1 is another unvisited receptacle that might contain the candle. Navigating there would further the search without revisiting already searched locations.\",\n    \"option3\": \"go to toilet 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You arrive at toilet 1. On the toilet 1, you see a candle 1, and a spraybottle 1.",
+      "action": "examine toilet 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the toilet 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located a candle on the toilet 1 and is now in possession of the target object. The next objective is to take the candle and move to the cart to complete the task. The main challenge is to pick up the candle and proceed to the cart.\",\n    \"next_objective\": \"Take the candle 1 from the toilet 1 and proceed to the cart 1.\",\n    \"reasoning1\": \"Taking the candle 1 from the toilet 1 is necessary to advance to the next phase of carrying and placing it in the cart. This action aligns directly with the task goal.\",\n    \"option1\": \"take candle 1 from toilet 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigating to the cart 1 is the next logical step after taking the candle, but it should only be attempted after the candle is in the inventory. This is a secondary priority at this point.\",\n    \"option2\": \"go to cart 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"While examining the toilet 1 is valid, it is unnecessary at this point since the agent has already seen the candle and does not add value for the current phase. This action is less useful now.\",\n    \"option3\": \"examine toilet 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "On the toilet 1, you see a candle 1, and a spraybottle 1.",
+      "action": "take candle 1 from toilet 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the toilet 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The candle has been successfully located on the toilet 1, and it is visible in the current observation. The next objective is to take the candle and move it to the cart. The challenge now is to pick up the candle from the toilet.\",\n    \"next_objective\": \"Take the candle 1 from the toilet 1.\",\n    \"reasoning1\": \"Taking the candle 1 from the toilet 1 is the next logical step in the PHASE to prepare for transporting it to the cart. This action directly advances the task by moving the target object into the agent's inventory.\",\n    \"option1\": \"take candle 1 from toilet 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"Examine toilet 1 could confirm the presence of the candle, but since it has already been confirmed in the observation, this action is redundant and delays progress.\",\n    \"option2\": \"examine toilet 1\",\n    \"confidence2\": 8,\n    \"reasoning3\": \"Going to any other receptacle at this stage would deviate from the current objective of taking the candle. This is unnecessary and would delay task completion.\",\n    \"option3\": \"go to shelf 1\",\n    \"confidence3\": 2,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "You pick up the candle 1 from the toilet 1.",
+      "action": "go to cart 1",
+      "inventory": "You are carrying: a candle 1.",
+      "look": "You are facing the toilet 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The candle has been successfully located on the toilet and picked up. The next objective is to move to the cart and place the candle there, completing the task. The current challenge is to navigate to the cart without revisiting previously searched or irrelevant locations.\",\n    \"next_objective\": \"Navigate to the cart and place the candle there.\",\n    \"reasoning1\": \"This action directly advances the current phase by moving to the destination receptacle (the cart) where the candle will be placed, as required by the task.\",\n    \"option1\": \"go to cart 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"Examining the candle in inventory is unnecessary and does not contribute to the task progress. It diverts attention from the main objective of placing the candle in the cart.\",\n    \"option2\": \"examine candle 1\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Moving the candle to the toilet would be a regression in progress and would not fulfill the task goal of placing the candle in the cart. It is not a valid action for the current phase.\",\n    \"option3\": \"move candle 1 to toilet 1\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 10,
+      "observation": "You arrive at cart 1. On the cart 1, you see a dishsponge 1, a spraybottle 3, and a spraybottle 2.",
+      "action": "move candle 1 to cart 1",
+      "inventory": "You are carrying: a candle 1.",
+      "look": "You are facing the cart 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located and taken a candle 1 from toilet 1. It is now at the destination, cart 1, with the candle in inventory. The next step is to place the candle into the cart.\",\n    \"next_objective\": \"Put the candle 1 into cart 1.\",\n    \"reasoning1\": \"This action directly places the candle 1 into the destination cart 1, completing the final step of the task.\",\n    \"option1\": \"move candle 1 to cart 1\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"N/A\",\n    \"option2\": \"go to handtowelholder 1\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"N/A\",\n    \"option3\": \"go to shelf 1\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 26,
+    "n_episodes": 1,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 37,
+    "n_episodes": 2,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 11,
+    "n_advantage_overrides": 5,
+    "n_memory_actions_injected": 4,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 100.478,
+  "completed_utc": "2026-10-22T01:39:58.814013+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

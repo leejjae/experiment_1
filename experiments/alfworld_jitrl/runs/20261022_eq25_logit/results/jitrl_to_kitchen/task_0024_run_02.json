@@ -1,0 +1,143 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_kitchen",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "kitchen",
+  "task_index": 24,
+  "game_id": "pick_and_place_simple-Egg-None-Microwave-4/trial_T20190906_234406_356490",
+  "repeat": 2,
+  "seed": 2468,
+  "episode_index": 1,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some egg on microwave.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a diningtable 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: put some egg on microwave.",
+      "action": "go to fridge 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made yet; the agent is still in the initial phase of searching for the egg. The task requires finding an egg and placing it on the microwave.\",\n    \"next_objective\": \"Locate the egg by navigating to a receptacle that might hold it.\",\n    \"reasoning1\": \"Navigating to the fridge is a logical first step, as eggs are commonly stored in the fridge. This action advances the SEARCHING phase by exploring a likely location for the egg.\",\n    \"option1\": \"go to fridge 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Navigating to countertop 1 is another reasonable choice, as eggs could be left on a countertop. This action helps advance the SEARCHING phase by exploring a surface where the egg might be placed.\",\n    \"option2\": \"go to countertop 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to drawer 1 could also yield progress, as drawers might hold eggs or other small items. This action contributes to the SEARCHING phase by exploring a potential hiding place for the egg.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at fridge 1. The fridge 1 is closed.",
+      "action": "open fridge 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the fridge 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully navigated to the fridge 1 and is now at the beginning of the SEARCHING phase. The next objective is to find an egg, which is likely to be inside the fridge 1. Since the fridge is closed, the contents are not visible, and opening it is necessary to proceed.\",\n    \"next_objective\": \"Open the fridge to search for an egg inside.\",\n    \"reasoning1\": \"Opening the fridge will allow the agent to see its contents, which is a necessary step to locate the egg. This advances the SEARCHING phase by enabling further progress.\",\n    \"option1\": \"open fridge 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the fridge may provide information about its state or contents without opening it, which could be useful for determining whether an egg is present or not.\",\n    \"option2\": \"examine fridge 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Navigating to another receptacle at this point would be premature since the fridge is a plausible location for an egg and must be opened first to continue the search.\",\n    \"option3\": \"go to countertop 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You open the fridge 1. The fridge 1 is open. In it, you see a bowl 2, a bowl 1, a lettuce 1, a mug 2, a mug 1, and a pot 1.",
+      "action": "go to sinkbasin 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the fridge 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The fridge has been opened and examined, but no egg has been found. The task remains in the SEARCHING phase with the goal of locating an egg.\",\n    \"next_objective\": \"Continue searching for an egg in the room.\",\n    \"reasoning1\": \"Going to the sinkbasin is a reasonable next step, as it is a common place to find eggs in a kitchen setting. This action advances the SEARCHING phase by exploring a plausible new location.\",\n    \"option1\": \"go to sinkbasin 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to the countertop 1 is another logical next step. Countertops are often used for placing and storing items like eggs, and it is a common location to search in the kitchen. This action supports the current objective of locating an egg.\",\n    \"option2\": \"go to countertop 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to the diningtable 1 could also be a valid location where an egg might be placed. It is a plausible place to find food items, making it a reasonable next step for the SEARCHING phase.\",\n    \"option3\": \"go to diningtable 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at sinkbasin 1. On the sinkbasin 1, you see a apple 2, a egg 2, a knife 1, a mug 3, a potato 1, and a spatula 1.",
+      "action": "take egg 2 from sinkbasin 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sinkbasin 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located the egg on the sinkbasin and is now at the sinkbasin. The egg is visible and available for taking. The next step is to take the egg in order to proceed with the goal of putting it on the microwave.\",\n    \"next_objective\": \"Take the egg from the sinkbasin to continue with the goal.\",\n    \"reasoning1\": \"Taking the egg from the sinkbasin directly advances the current phase of taking the target object, which is necessary to move to the microwave and complete the task.\",\n    \"option1\": \"take egg 2 from sinkbasin 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Going to the microwave would only be relevant after the egg has been taken. This action does not advance the current phase of taking the object.\",\n    \"option2\": \"go to microwave 1\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Going to another receptacle at this point would be premature since the egg has not yet been taken. This action would not help in progressing with the current objective.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 10,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You pick up the egg 2 from the sinkbasin 1.",
+      "action": "go to microwave 1",
+      "inventory": "You are carrying: a egg 2.",
+      "look": "You are facing the sinkbasin 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the egg 2 from the sinkbasin 1. The current phase is TREATED, meaning the next step is to heat the egg using the microwave. The egg is now in inventory and needs to be placed in the microwave.\",\n    \"next_objective\": \"Navigate to the microwave and prepare to put the egg in it.\",\n    \"reasoning1\": \"Going to the microwave 1 is necessary to complete the task of putting the egg in it for treatment (heating). This directly advances the current phase.\",\n    \"option1\": \"go to microwave 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examining the egg 2 could help confirm its readiness or state, but this is not directly advancing the current phase of putting it in the microwave.\",\n    \"option2\": \"examine egg 2\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Moving the egg to the sinkbasin would contradict the task and is not relevant to the TREATED phase. This action is not helpful.\",\n    \"option3\": \"move egg 2 to sinkbasin 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at microwave 1. The microwave 1 is closed.",
+      "action": "examine microwave 1",
+      "inventory": "You are carrying: a egg 2.",
+      "look": "You are facing the microwave 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located and taken an egg from the sinkbasin and has now arrived at the microwave. The egg is in the inventory, and the microwave is closed. The next step is to place the egg in the microwave to achieve the task goal.\",\n    \"next_objective\": \"Open the microwave to access its interior and then place the egg inside it.\",\n    \"reasoning1\": \"Opening the microwave is necessary to access its interior, which is the destination for the egg. This action directly supports the goal of placing the egg in the microwave.\",\n    \"option1\": \"open microwave 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining the microwave may provide additional information about its state or functionality, but it does not directly advance the goal of placing the egg inside it.\",\n    \"option2\": \"examine microwave 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Heating the egg with the microwave is not the immediate goal at this stage, as the egg must first be placed inside the microwave. This action would be appropriate after the egg is inside the microwave.\",\n    \"option3\": \"heat egg 2 with microwave 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "The microwave 1 is closed.",
+      "action": "open microwave 1",
+      "inventory": "You are carrying: a egg 2.",
+      "look": "You are facing the microwave 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The egg has been successfully located and taken from the sinkbasin, and the agent is now at the microwave. The current challenge is to place the egg on the microwave, which is closed and requires opening before the egg can be placed on it.\",\n    \"next_objective\": \"Open the microwave to place the egg on it.\",\n    \"reasoning1\": \"The microwave is closed, and it must be opened before the egg can be placed on it. Opening the microwave is the logical next step to complete the task.\",\n    \"option1\": \"open microwave 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the microwave might reveal additional details about its state, but it does not directly advance the task of placing the egg on it. This action is less likely to contribute to the goal.\",\n    \"option2\": \"examine microwave 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Heating the egg with the microwave is not the current objective; the task is to place the egg on the microwave, not to heat it. This action is premature for the current phase.\",\n    \"option3\": \"heat egg 2 with microwave 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You open the microwave 1. The microwave 1 is open. In it, you see nothing.",
+      "action": "move egg 2 to microwave 1",
+      "inventory": "You are carrying: a egg 2.",
+      "look": "You are facing the microwave 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The egg has been located and taken from the sinkbasin, and the agent has arrived at the microwave, which has been opened and is ready to accept the egg. The next step is to place the egg into the microwave.\",\n    \"next_objective\": \"Put the egg into the microwave.\",\n    \"reasoning1\": \"The 'move egg 2 to microwave 1' action directly places the egg into the microwave, which is the final step needed to complete the task goal.\",\n    \"option1\": \"move egg 2 to microwave 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"The 'heat egg 2 with microwave 1' action implies placing the egg into the microwave to perform the heating action, which aligns with the task of putting the egg on the microwave.\",\n    \"option2\": \"heat egg 2 with microwave 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The 'close microwave 1' action is unnecessary at this point because the goal is to place the egg into the microwave, not to close it.\",\n    \"option3\": \"close microwave 1\",\n    \"confidence3\": 10,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 30,
+    "n_episodes": 1,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/kitchen/jitrl_to_kitchen/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 38,
+    "n_episodes": 2,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/kitchen/jitrl_to_kitchen/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 6,
+    "n_advantage_overrides": 1,
+    "n_memory_actions_injected": 3,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 81.034,
+  "completed_utc": "2026-10-22T01:39:39.353791+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

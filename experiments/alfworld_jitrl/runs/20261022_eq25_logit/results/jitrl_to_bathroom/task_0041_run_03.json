@@ -1,0 +1,99 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bathroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bathroom",
+  "task_index": 41,
+  "game_id": "pick_and_place_simple-TissueBox-None-Toilet-426/trial_T20190910_155319_795672",
+  "repeat": 3,
+  "seed": 4186,
+  "episode_index": 37,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some tissuebox on toilet.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a countertop 1, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a handtowelholder 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, a towelholder 2, and a towelholder 1.\n\nYour task is to: put some tissuebox on toilet.",
+      "action": "go to countertop 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"I have not yet located the tissuebox, so the current phase of searching is still in progress. The next step is to find a likely receptacle where the tissuebox may be stored or placed.\",\n    \"next_objective\": \"Locate a receptacle that plausibly contains or holds the tissuebox.\",\n    \"reasoning1\": \"Toiletpaperhanger is a receptacle often associated with tissue-related items, and it is a reasonable place to look for a tissuebox in this phase.\",\n    \"option1\": \"go to toiletpaperhanger 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Countertop is a common surface where objects like a tissuebox might be placed openly and is a logical place to search for visible items.\",\n    \"option2\": \"go to countertop 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Drawers are often used to store small household objects, and the tissuebox might be inside one of them.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at countertop 1. On the countertop 1, you see a candle 3, a candle 2, a cloth 2, a soapbar 2, a soapbottle 1, and a tissuebox 3.",
+      "action": "take tissuebox 3 from countertop 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the countertop 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located the tissuebox 3 on countertop 1. The next step is to pick it up to begin carrying it to the toilet.\",\n    \"next_objective\": \"Pick up the tissuebox 3 from countertop 1.\",\n    \"reasoning1\": \"This action directly advances the current phase by taking the tissuebox, which is required to move it to the toilet.\",\n    \"option1\": \"take tissuebox 3 from countertop 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"While picking up a different object might be useful in a different task, it is irrelevant to the current goal of putting the tissuebox on the toilet.\",\n    \"option2\": \"take soapbar 2 from countertop 1\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Examine is unnecessary here since the contents of the countertop are already visible and the desired object is present.\",\n    \"option3\": \"examine countertop 1\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the tissuebox 3 from the countertop 1.",
+      "action": "go to toilet 1",
+      "inventory": "You are carrying: a tissuebox 3.",
+      "look": "You are facing the countertop 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The tissuebox 3 has been successfully located and taken from the countertop 1. The current phase is TREATED, which means the object is ready to be placed at the destination. The next objective is to place the tissuebox on the toilet.\",\n    \"next_objective\": \"Navigate to the toilet and place the tissuebox there.\",\n    \"reasoning1\": \"Going to the toilet 1 is the most direct way to reach the destination where the tissuebox needs to be placed. This action directly advances the TREATED phase toward completion.\",\n    \"option1\": \"go to toilet 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the tissuebox 3 could provide additional information about its condition or state, but this is not necessary since the goal is to place it, not inspect it further. It is a lower priority in this phase.\",\n    \"option2\": \"examine tissuebox 3\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Examining the countertop 1 is not helpful at this stage since it was already searched and the tissuebox has already been taken from it. This action does not advance the current objective.\",\n    \"option3\": \"examine countertop 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at toilet 1. On the toilet 1, you see a spraybottle 1, and a toiletpaper 1.",
+      "action": "move tissuebox 3 to toilet 1",
+      "inventory": "You are carrying: a tissuebox 3.",
+      "look": "You are facing the toilet 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the tissuebox 3 from countertop 1. It is now at toilet 1 and carrying the tissuebox 3. The next objective is to place the tissuebox on the toilet.\",\n    \"next_objective\": \"Put the tissuebox on the toilet.\",\n    \"reasoning1\": \"The 'move tissuebox 3 to toilet 1' action directly fulfills the task objective by placing the tissuebox on the toilet, which is the final step in this phase.\",\n    \"option1\": \"move tissuebox 3 to toilet 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"The 'examine toilet 1' action could provide additional information about the toilet's state, which might be useful if the move action fails or if there are unexpected obstacles. However, it does not directly advance the task completion.\",\n    \"option2\": \"examine toilet 1\",\n    \"confidence2\": 25,\n    \"reasoning3\": \"The 'examine tissuebox 3' action provides information about the carried object, but since the goal is to move it, this is not directly useful at this stage and only indirectly supports the current objective.\",\n    \"option3\": \"examine tissuebox 3\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 494,
+    "n_episodes": 37,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 498,
+    "n_episodes": 38,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 4,
+    "n_advantage_overrides": 1,
+    "n_memory_actions_injected": 0,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 51.167,
+  "completed_utc": "2026-10-22T02:53:28.451658+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

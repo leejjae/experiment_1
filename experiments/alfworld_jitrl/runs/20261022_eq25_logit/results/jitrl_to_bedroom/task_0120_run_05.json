@@ -1,0 +1,154 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 120,
+  "game_id": "pick_two_obj_and_place-CD-None-Drawer-304/trial_T20190907_230232_832893",
+  "repeat": 5,
+  "seed": 12167,
+  "episode_index": 94,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put two cd in drawer.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 2, a bed 1, a desk 1, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a laundryhamper 1, and a shelf 1.\n\nYour task is to: put two cd in drawer.",
+      "action": "go to shelf 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made yet since the task has just begun. The next objective is to locate two 'cd' objects in the room by navigating to relevant receptacles.\",\n    \"next_objective\": \"Navigate to a receptacle that may contain a cd to begin the SEARCHING phase.\",\n    \"reasoning1\": \"The desk is a common place to find a cd, so navigating to it increases the chances of locating one.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The bed could contain a cd if someone left it there, making it a plausible location for the first cd.\",\n    \"option2\": \"go to bed 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The shelf might also contain a cd as it is used for storage, so searching it is a reasonable next step.\",\n    \"option3\": \"go to shelf 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at shelf 1. On the shelf 1, you see a alarmclock 2, a bowl 2, a cd 3, a desklamp 1, a pen 2, and a statue 1.",
+      "action": "take cd 3 from shelf 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the shelf 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has found one CD (cd 3) on shelf 1 but still needs to find a second CD. The current phase is 'LOCATED,' meaning the next objective is to locate and take the second CD.\",\n    \"next_objective\": \"Find and take the second CD.\",\n    \"reasoning1\": \"Taking the CD from the shelf directly fulfills the goal of collecting the second CD needed for the task. This is the most direct and certain action.\",\n    \"option1\": \"take cd 3 from shelf 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Going to a drawer might lead to the discovery of another CD, but this is speculative and not based on current observations. However, it is a possible location where CDs may be stored.\",\n    \"option2\": \"go to drawer 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Going to another drawer (e.g., drawer 2 or drawer 3) is also speculative and less likely than taking the CD from the current shelf. These actions could delay progress if the CD is not there.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the cd 3 from the shelf 1.",
+      "action": "go to drawer 2",
+      "inventory": "You are carrying: a cd 3.",
+      "look": "You are facing the shelf 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully taken one cd (cd 3) from the shelf and is now holding it. The next objective is to find a second cd and then treat it by putting both in a drawer.\",\n    \"next_objective\": \"Find a second cd and navigate to a drawer to complete the goal.\",\n    \"reasoning1\": \"Navigating to drawer 2 will allow the agent to eventually put the cd in a drawer as required by the task goal. This is a direct path toward completing the goal.\",\n    \"option1\": \"go to drawer 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigating to drawer 1 is also a valid destination for placing the cd. This aligns with the task goal and enables the next step of the process.\",\n    \"option2\": \"go to drawer 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Navigating to drawer 3 is another plausible drawer where the cd can be placed. While it is not the most direct path, it still supports the overall goal.\",\n    \"option3\": \"go to drawer 3\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at drawer 2. On the drawer 2, you see a book 2, and a pen 1.",
+      "action": "examine drawer 2",
+      "inventory": "You are carrying: a cd 3.",
+      "look": "You are facing the desk 1, drawer 3, drawer 2, and drawer 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken one cd (cd 3) from shelf 1 and is now at drawer 2, where it will place it. However, the task requires two CDs to be placed in the drawer, so a second CD still needs to be located and taken.\",\n    \"next_objective\": \"Place the cd in drawer 2 and continue to locate a second cd.\",\n    \"reasoning1\": \"This action advances the current phase by completing the first part of the task, which is to place the cd in the drawer. It directly fulfills the immediate objective.\",\n    \"option1\": \"move cd 3 to drawer 2\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining the drawer is a low-priority action at this phase, as the contents of the drawer are already visible and the placement of the cd is the immediate objective.\",\n    \"option2\": \"examine drawer 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"This action would prematurely attempt to move the cd to a different drawer before completing the current subgoal of placing it in drawer 2. It does not directly advance the current phase.\",\n    \"option3\": \"move cd 3 to drawer 3\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "On the drawer 2, you see a book 2, and a pen 1.",
+      "action": "move cd 3 to drawer 2",
+      "inventory": "You are carrying: a cd 3.",
+      "look": "You are facing the desk 1, drawer 3, drawer 2, and drawer 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken one CD (cd 3) from shelf 1 and has now arrived at drawer 2, the destination receptacle. The next objective is to place this CD in drawer 2 and find a second CD to complete the task of putting two CDs in the drawer. The current contents of drawer 2 do not include a second CD, so the agent must find one.\",\n    \"next_objective\": \"Put cd 3 in drawer 2 and locate a second cd.\",\n    \"reasoning1\": \"This action directly advances the current phase by placing the cd 3 into the destination receptacle (drawer 2), completing the first half of the task of putting two CDs into the drawer.\",\n    \"option1\": \"move cd 3 to drawer 2\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examine cd 3 provides more information about its properties or condition, though it doesn't directly advance the phase. It might reveal if the cd 3 is usable or relevant, but this is not a high-priority action in the current phase.\",\n    \"option2\": \"examine cd 3\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Moving cd 3 to drawer 3 is a valid action but does not align with the current goal of placing the CD in drawer 2. It may even complicate the task, but it is still a valid reference action.\",\n    \"option3\": \"move cd 3 to drawer 3\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You move the cd 3 to the drawer 2.",
+      "action": "examine desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the desk 1, drawer 3, drawer 2, and drawer 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and placed one cd (cd 3) into drawer 2. The next step is to locate and acquire a second cd to complete the goal of putting two cds in the drawer. The agent is not currently carrying any items.\",\n    \"next_objective\": \"Locate and take a second cd to add to drawer 2.\",\n    \"reasoning1\": \"This action directly addresses the next objective by taking a cd from a new location that has not been searched yet, potentially fulfilling the second half of the task.\",\n    \"option1\": \"take cd 2 from desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"This action allows the agent to explore a new receptacle (desk 1) for the presence of a second cd, increasing the chances of finding the missing item without revisiting already searched locations.\",\n    \"option2\": \"examine desk 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"This action enables the agent to search another unvisited location (shelf 1) which might contain a second cd, aligning with the objective of finding a second cd for the drawer.\",\n    \"option3\": \"go to shelf 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "On the desk 1, you see a alarmclock 1, a bowl 1, a cd 2, a cd 1, a cellphone 2, a cellphone 1, a mug 1, a pen 3, and a pencil 1.",
+      "action": "take cd 1 from desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the desk 1, drawer 3, drawer 2, and drawer 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"One CD (cd 3) has been successfully placed in drawer 2. The agent is currently at desk 1 and has identified two CDs (cd 1 and cd 2) available to complete the goal. The next objective is to take one of these CDs and advance the task.\",\n    \"next_objective\": \"Take one of the CDs (cd 1 or cd 2) from the desk to continue with the goal of placing two CDs in the drawer.\",\n    \"reasoning1\": \"Taking cd 1 from the desk directly advances the [LOCATED] phase by acquiring one of the target objects needed to complete the goal of putting two CDs in the drawer.\",\n    \"option1\": \"take cd 1 from desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Taking cd 2 from the desk is another direct way to advance the [LOCATED] phase by obtaining one of the two required CDs to complete the goal.\",\n    \"option2\": \"take cd 2 from desk 1\",\n    \"confidence2\": 40,\n    \"reasoning3\": \"Examine desk 1 is not necessary at this point since the CDs are already visible on the desk. This action would not contribute to advancing the goal of taking the CDs.\",\n    \"option3\": \"examine desk 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You pick up the cd 1 from the desk 1.",
+      "action": "examine drawer 2",
+      "inventory": "You are carrying: a cd 1.",
+      "look": "You are facing the desk 1, drawer 3, drawer 2, and drawer 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"One CD (cd 3) has already been placed into drawer 2. The agent is currently carrying cd 1, which was taken from desk 1. The next objective is to place cd 1 into drawer 2 to fulfill the requirement of putting two CDs in the drawer.\",\n    \"next_objective\": \"Place cd 1 into drawer 2.\",\n    \"reasoning1\": \"This action directly completes the current phase by moving the CD the agent is carrying into the correct destination receptacle, drawer 2.\",\n    \"option1\": \"move cd 1 to drawer 2\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining drawer 2 would confirm its state, but the agent has already placed an object there, and the drawer is likely open. This action does not advance the phase directly and could be redundant.\",\n    \"option2\": \"examine drawer 2\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Moving cd 1 to a different drawer (e.g., drawer 1 or drawer 3) is not part of the task goal, which specifies drawer 2. This action would be a deviation and is not optimal for completing the phase.\",\n    \"option3\": \"move cd 1 to drawer 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "On the drawer 2, you see a book 2, a cd 3, and a pen 1.",
+      "action": "move cd 1 to drawer 2",
+      "inventory": "You are carrying: a cd 1.",
+      "look": "You are facing the desk 1, drawer 3, drawer 2, and drawer 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"One CD (cd 3) has already been placed in drawer 2, and the second CD (cd 1) is currently being carried. The agent is at drawer 2 and needs to place the second CD in the drawer to complete the task.\",\n    \"next_objective\": \"Place the second CD (cd 1) in drawer 2 to complete the task of putting two CDs in the drawer.\",\n    \"reasoning1\": \"This action directly fulfills the current phase of placing the carried object (cd 1) into the destination receptacle (drawer 2), completing the task.\",\n    \"option1\": \"move cd 1 to drawer 2\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"\",\n    \"option2\": \"\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"\",\n    \"option3\": \"\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 1495,
+    "n_episodes": 94,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 1504,
+    "n_episodes": 95,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 9,
+    "n_advantage_overrides": 4,
+    "n_memory_actions_injected": 6,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 1,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 80.145,
+  "completed_utc": "2026-10-22T05:31:09.973435+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

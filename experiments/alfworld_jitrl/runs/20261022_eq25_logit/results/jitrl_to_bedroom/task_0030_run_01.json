@@ -1,0 +1,143 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 30,
+  "game_id": "pick_and_place_simple-Pencil-None-Desk-310/trial_T20190909_113054_894334",
+  "repeat": 1,
+  "seed": 3073,
+  "episode_index": 65,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some pencil on desk.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a desk 1, a drawer 2, a drawer 1, a garbagecan 1, a shelf 1, and a sidetable 1.\n\nYour task is to: put some pencil on desk.",
+      "action": "go to cabinet 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The task is to put some pencil on desk. I am currently in the room and have not searched any receptacles yet. The first step is to locate a pencil, which requires searching through plausible receptacles that may contain it.\",\n    \"next_objective\": \"Locate a pencil by searching a likely receptacle.\",\n    \"reasoning1\": \"Cabinets are common storage places for writing instruments like pencils. Searching cabinet 3 increases the chance of finding a pencil and advances the task goal.\",\n    \"option1\": \"go to cabinet 3\",\n    \"confidence1\": 35,\n    \"reasoning2\": \"Cabinets are common storage places for writing instruments like pencils. Searching cabinet 2 increases the chance of finding a pencil and advances the task goal.\",\n    \"option2\": \"go to cabinet 2\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Cabinets are common storage places for writing instruments like pencils. Searching cabinet 1 increases the chance of finding a pencil and advances the task goal.\",\n    \"option3\": \"go to cabinet 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at cabinet 3. The cabinet 3 is closed.",
+      "action": "open cabinet 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 3, and shelf 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent is currently at cabinet 3, which is closed, and has not yet found a pencil. The goal is to locate and put a pencil on the desk. The immediate challenge is to find a pencil, which requires exploring further receptacles or opening cabinet 3 to see if it contains one.\",\n    \"next_objective\": \"Locate a pencil by either opening cabinet 3 or navigating to other plausible receptacles.\",\n    \"reasoning1\": \"Opening cabinet 3 will allow us to see its contents, which may include the target object, the pencil. Since it is the current location and closed, this is a logical first step.\",\n    \"option1\": \"open cabinet 3\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigating to cabinet 4 is a reasonable next step to continue the search for the pencil. It's a new, unvisited receptacle, and pencils are often stored in cabinets.\",\n    \"option2\": \"go to cabinet 4\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Examine cabinet 3 allows us to inspect it more closely for clues or external features that might suggest whether it contains a pencil. It is a safer alternative to opening it if we suspect it might not contain the target object.\",\n    \"option3\": \"examine cabinet 3\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You open the cabinet 3. The cabinet 3 is open. In it, you see nothing.",
+      "action": "go to drawer 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 3, and shelf 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No pencils have been found so far. The agent searched and opened cabinet 3 but found nothing. The current challenge is to locate a pencil before being able to place it on the desk.\",\n    \"next_objective\": \"Find a pencil by searching unvisited receptacles.\",\n    \"reasoning1\": \"Going to drawer 1 is a plausible next step as it is a common place to store small objects like a pencil. This action advances the SEARCHING phase by exploring a new receptacle.\",\n    \"option1\": \"go to drawer 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to cabinet 1 is another viable next step, as cabinets are commonly used to store stationery. This action aligns with the SEARCHING phase by exploring a new potential location for the pencil.\",\n    \"option2\": \"go to cabinet 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to desk 1 is a reasonable action since the goal is to place a pencil there. Even if it is unlikely to already contain a pencil, this action moves the agent toward the eventual destination and might reveal a pencil on the desk.\",\n    \"option3\": \"go to desk 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at drawer 1. The drawer 1 is closed.",
+      "action": "open drawer 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has searched cabinet 3 and found nothing. The next receptacle in the path is drawer 1, which is currently closed. The goal remains to find a pencil and place it on the desk.\",\n    \"next_objective\": \"Open drawer 1 to search for a pencil inside.\",\n    \"reasoning1\": \"Opening drawer 1 is the next logical step to inspect its contents and potentially find the pencil, advancing the SEARCHING phase.\",\n    \"option1\": \"open drawer 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examine drawer 1 may provide more information about its state or contents without opening, which could guide further action.\",\n    \"option2\": \"examine drawer 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to desk 1 is premature at this phase, as the pencil has not yet been found. However, it could be a fallback if no pencil is found in the current path.\",\n    \"option3\": \"go to desk 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You open the drawer 1. The drawer 1 is open. In it, you see a creditcard 2, and a pencil 1.",
+      "action": "take pencil 1 from drawer 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has found a pencil in drawer 1 and is now at the stage of retrieving it. The next step is to take the pencil in order to progress toward placing it on the desk.\",\n    \"next_objective\": \"Take the pencil from drawer 1\",\n    \"reasoning1\": \"Taking the pencil from drawer 1 is the next logical action to advance the task of placing it on the desk. The pencil is visible and accessible.\",\n    \"option1\": \"take pencil 1 from drawer 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Going to another location such as cabinet 2 or sidetable 1 would delay the retrieval of the pencil and is not necessary at this point.\",\n    \"option2\": \"go to sidetable 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Examine drawer 1 is redundant since the drawer is already open and the pencil is visible. This action does not move the task forward.\",\n    \"option3\": \"examine drawer 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You pick up the pencil 1 from the drawer 1.",
+      "action": "examine pencil 1",
+      "inventory": "You are carrying: a pencil 1.",
+      "look": "You are facing the drawer 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The pencil has been located and taken from drawer 1. The current phase is 'TREATED', which means the next objective is to place the pencil on a desk. The challenge is to navigate to a desk and complete the task.\",\n    \"next_objective\": \"Navigate to a desk and put the pencil on it.\",\n    \"reasoning1\": \"Going to desk 1 is the most direct way to complete the task, as the goal is to put the pencil on a desk. This action advances the current phase by moving toward the final destination.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examining the pencil is not helpful at this stage, as it does not progress the task of placing it on a desk. It is a minor action that delays the main objective.\",\n    \"option2\": \"examine pencil 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Moving the pencil back to drawer 1 would be counterproductive, as the pencil was just taken from there and the goal is to put it on a desk. It would hinder progress toward the task completion.\",\n    \"option3\": \"move pencil 1 to drawer 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "There's nothing special about pencil 1.",
+      "action": "go to desk 1",
+      "inventory": "You are carrying: a pencil 1.",
+      "look": "You are facing the drawer 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The pencil has been located and examined. The next objective is to move it to the desk. The current location is drawer 1, and the agent is carrying pencil 1. The next logical step is to navigate to the destination receptacle (desk) and place the pencil there.\",\n    \"next_objective\": \"Navigate to desk 1 and put the pencil on it.\",\n    \"reasoning1\": \"This action directly moves the agent toward the final destination (desk 1) to complete the task of placing the pencil.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Moving the pencil to drawer 1 is irrelevant to the task goal, which is to place the pencil on the desk. This action would not advance the phase.\",\n    \"option2\": \"move pencil 1 to drawer 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Examining the pencil is unnecessary since it has already been examined. This would not advance the TREATED phase toward completion.\",\n    \"option3\": \"examine pencil 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You arrive at desk 1. On the desk 1, you see a alarmclock 3, a alarmclock 2, a book 3, a box 1, a cd 1, a creditcard 3, a keychain 1, a laptop 2, and a pen 1.",
+      "action": "move pencil 1 to desk 1",
+      "inventory": "You are carrying: a pencil 1.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and picked up a pencil 1 from drawer 1. The agent is now at desk 1 and is carrying the pencil 1, ready to place it on the desk. The next objective is to complete the task by putting the pencil on the desk.\",\n    \"next_objective\": \"Put the pencil on the desk.\",\n    \"reasoning1\": \"This action directly advances the [PHASE] AT_DEST by placing the pencil on the desk, completing the task goal.\",\n    \"option1\": \"move pencil 1 to desk 1\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"NA\",\n    \"option2\": \"NA\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"NA\",\n    \"option3\": \"NA\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 949,
+    "n_episodes": 65,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 957,
+    "n_episodes": 66,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 6,
+    "n_advantage_overrides": 1,
+    "n_memory_actions_injected": 9,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 70.825,
+  "completed_utc": "2026-10-22T04:08:44.483793+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

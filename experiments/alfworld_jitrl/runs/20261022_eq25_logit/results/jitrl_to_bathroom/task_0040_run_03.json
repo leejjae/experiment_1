@@ -1,0 +1,176 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bathroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bathroom",
+  "task_index": 40,
+  "game_id": "pick_and_place_simple-SprayBottle-None-Toilet-418/trial_T20190906_190942_706186",
+  "repeat": 3,
+  "seed": 4085,
+  "episode_index": 32,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some spraybottle on toilet.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 3, a cabinet 2, a cabinet 1, a countertop 1, a garbagecan 1, a handtowelholder 2, a handtowelholder 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.\n\nYour task is to: put some spraybottle on toilet.",
+      "action": "go to cabinet 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made yet. The task is to find and take a spraybottle and put it on the toilet. Currently, I need to locate a receptacle that may contain a spraybottle.\",\n    \"next_objective\": \"Navigate to a receptacle that might contain a spraybottle.\",\n    \"reasoning1\": \"Cabinets are common storage locations for bottles, including spraybottles. Navigating to cabinet 1 increases the likelihood of finding the target object.\",\n    \"option1\": \"go to cabinet 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Countertops are also plausible places to find objects like spraybottles. Navigating to countertop 1 could help identify the spraybottle.\",\n    \"option2\": \"go to countertop 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Cabinet 2 is another potential location for storing spraybottles. Navigating to cabinet 2 is a reasonable next step to locate the object.\",\n    \"option3\": \"go to cabinet 2\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at cabinet 1. The cabinet 1 is closed.",
+      "action": "open cabinet 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 2, and cabinet 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has arrived at cabinet 1, which is closed. Since the spraybottle may be inside, the next step is to open it and search for the object. The goal remains to locate the spraybottle and eventually place it on the toilet.\",\n    \"next_objective\": \"Open cabinet 1 to check if it contains the spraybottle.\",\n    \"reasoning1\": \"Opening cabinet 1 will allow the agent to see its contents and determine if the spraybottle is inside, which directly advances the goal of locating the object.\",\n    \"option1\": \"open cabinet 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining cabinet 1 could provide additional details about its contents before opening, potentially saving time if it is confirmed to contain the spraybottle.\",\n    \"option2\": \"examine cabinet 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to a different cabinet (cabinet 3) might be an alternative if cabinet 1 is found to not contain the spraybottle, but this would be speculative at this stage.\",\n    \"option3\": \"go to cabinet 3\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You open the cabinet 1. The cabinet 1 is open. In it, you see a soapbottle 1, and a toiletpaper 3.",
+      "action": "go to cabinet 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 2, and cabinet 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has searched cabinet 1 and found a soapbottle and toiletpaper, but no spraybottle. The task phase is still SEARCHING, so the goal is to locate a spraybottle. The next step is to search other unvisited receptacles that might contain the spraybottle.\",\n    \"next_objective\": \"Search other unvisited receptacles for a spraybottle.\",\n    \"reasoning1\": \"Cabinet 2 is an unsearched receptacle, and it is plausible that it may contain a spraybottle. Opening it will allow us to inspect its contents and potentially find the target object.\",\n    \"option1\": \"open cabinet 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Cabinet 3 is an unvisited receptacle, and it is plausible that it may contain a spraybottle. Going to it will allow us to inspect its contents in the next step.\",\n    \"option2\": \"go to cabinet 3\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The countertop is a common surface where items like a spraybottle might be placed. Going to the countertop allows us to look there for the spraybottle.\",\n    \"option3\": \"go to countertop 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at cabinet 3. The cabinet 3 is closed.",
+      "action": "open cabinet 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 3. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has already searched cabinet 1 and found a soapbottle and toilet paper, but no spraybottle. The next objective is to continue searching for a spraybottle in this phase, and the current location is cabinet 3, which is closed and has not yet been searched.\",\n    \"next_objective\": \"Search for the spraybottle by opening and inspecting cabinet 3.\",\n    \"reasoning1\": \"Opening cabinet 3 is necessary to determine if a spraybottle is inside, directly advancing the goal of finding a spraybottle to put on the toilet.\",\n    \"option1\": \"open cabinet 3\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examining cabinet 3 may provide visual or contextual clues about its contents without opening it, which could confirm or rule out the presence of a spraybottle.\",\n    \"option2\": \"examine cabinet 3\",\n    \"confidence2\": 25,\n    \"reasoning3\": \"Navigating to other locations such as cabinet 2 is less relevant in this phase since the current focus is to search unexplored receptacles like cabinet 3 for the spraybottle.\",\n    \"option3\": \"go to cabinet 2\",\n    \"confidence3\": 15,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You open the cabinet 3. The cabinet 3 is open. In it, you see a toiletpaper 2.",
+      "action": "go to cabinet 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 3. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The spraybottle has not yet been found, and the current phase is still SEARCHING. The agent has searched cabinet 1 and cabinet 3 but found only toiletpaper 2. The next step is to locate a receptacle that might contain the spraybottle.\",\n    \"next_objective\": \"Search new receptacles to find the spraybottle\",\n    \"reasoning1\": \"Going to cabinet 2 could reveal the spraybottle, as it has not yet been searched and might contain the target object.\",\n    \"option1\": \"go to cabinet 2\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Going to countertop 1 is a plausible location for the spraybottle, as it is a common surface where such items might be placed.\",\n    \"option2\": \"go to countertop 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to sinkbasin 1 is a reasonable possibility, as the spraybottle could be used for cleaning and might be near the sink.\",\n    \"option3\": \"go to sinkbasin 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at cabinet 2. The cabinet 2 is closed.",
+      "action": "examine cabinet 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 2, and cabinet 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has visited and searched cabinet 1 and cabinet 3 but did not find a spraybottle. The next step is to search cabinet 2, which is currently closed and has not yet been searched. The agent is still in the [SEARCHING] phase and must locate a spraybottle to proceed with the task.\",\n    \"next_objective\": \"Search cabinet 2 to find a spraybottle.\",\n    \"reasoning1\": \"Opening cabinet 2 will allow the agent to search for the spraybottle inside, which is the immediate next step to advance the [SEARCHING] phase.\",\n    \"option1\": \"open cabinet 2\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examining cabinet 2 may reveal whether it is openable or if the spraybottle is visible, though this is less likely to advance the phase as effectively as opening it directly.\",\n    \"option2\": \"examine cabinet 2\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Going to another location such as the toilet or garbagecan does not advance the [SEARCHING] phase and may delay finding the spraybottle.\",\n    \"option3\": \"go to toilet 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "The cabinet 2 is closed.",
+      "action": "open cabinet 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 2, and cabinet 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has searched cabinet 1 and cabinet 3 and found no spraybottle. Cabinet 2 is closed, but the agent has examined it and needs to open it to check its contents. The next step is to open cabinet 2 to determine if the spraybottle is inside.\",\n    \"next_objective\": \"Open cabinet 2 to check for the spraybottle.\",\n    \"reasoning1\": \"Opening cabinet 2 is the logical next step to determine if the spraybottle is inside. This action directly advances the SEARCHING phase.\",\n    \"option1\": \"open cabinet 2\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examine cabinet 2 is redundant, as the agent has already examined it and found it closed. It does not advance the phase significantly.\",\n    \"option2\": \"examine cabinet 2\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Going to toilet 1 is not helpful at this point, as the agent has not yet found the spraybottle. It does not advance the SEARCHING phase.\",\n    \"option3\": \"go to toilet 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You open the cabinet 2. The cabinet 2 is open. In it, you see a candle 2, a cloth 2, and a spraybottle 1.",
+      "action": "take spraybottle 1 from cabinet 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the cabinet 2, and cabinet 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The spraybottle 1 has been located in cabinet 2, which is already open. The next objective is to take the spraybottle to advance the task toward placing it on the toilet.\",\n    \"next_objective\": \"Take the spraybottle from cabinet 2\",\n    \"reasoning1\": \"Taking the spraybottle 1 from cabinet 2 is the direct next step in the task and aligns with the goal of putting the spraybottle on the toilet.\",\n    \"option1\": \"take spraybottle 1 from cabinet 2\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Closing cabinet 2 is not relevant to the current phase and does not advance the objective of retrieving the spraybottle.\",\n    \"option2\": \"close cabinet 2\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Taking cloth 2 is not relevant to the task, which is focused on the spraybottle. It would delay progress and introduce unnecessary actions.\",\n    \"option3\": \"take cloth 2 from cabinet 2\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "You pick up the spraybottle 1 from the cabinet 2.",
+      "action": "examine spraybottle 1",
+      "inventory": "You are carrying: a spraybottle 1.",
+      "look": "You are facing the cabinet 2, and cabinet 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken spraybottle 1 from cabinet 2. The current inventory contains the spraybottle, and the next step is to navigate to the toilet and place it there.\",\n    \"next_objective\": \"Navigate to the toilet and place the spraybottle on it.\",\n    \"reasoning1\": \"Going to toilet 1 directly advances the objective of placing the spraybottle there, as the destination is clearly identified in the task.\",\n    \"option1\": \"go to toilet 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examine spraybottle 1 is not necessary for completing the task and does not advance the current phase of placing it on the toilet.\",\n    \"option2\": \"examine spraybottle 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Moving the spraybottle to cabinet 1 or 2 would not fulfill the task goal and is not a valid action for the current phase of placing the object on the toilet.\",\n    \"option3\": \"move spraybottle 1 to cabinet 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "There's nothing special about spraybottle 1.",
+      "action": "go to toilet 1",
+      "inventory": "You are carrying: a spraybottle 1.",
+      "look": "You are facing the cabinet 2, and cabinet 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The spraybottle 1 has been located and taken from cabinet 2. The current phase is [TREATED], and the next objective is to navigate to the toilet to place the spraybottle on it. The challenge is to correctly move to the toilet and complete the task.\",\n    \"next_objective\": \"Go to the toilet and place the spraybottle on it.\",\n    \"reasoning1\": \"Going to the toilet 1 is the direct action needed to complete the task of placing the spraybottle on it. This aligns with the [TREATED] phase by advancing the object to its destination.\",\n    \"option1\": \"go to toilet 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"Examine spraybottle 1 is not a helpful action at this point, as it does not advance the task. It would delay progress toward the destination and does not serve the current phase's goal.\",\n    \"option2\": \"examine spraybottle 1\",\n    \"confidence2\": 5,\n    \"reasoning3\": \"Go to countertop 1 is unrelated to the task goal and does not bring the agent closer to the toilet. It is inefficient and unnecessary for completing the goal.\",\n    \"option3\": \"go to countertop 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 10,
+      "observation": "You arrive at toilet 1. On the toilet 1, you see a soapbottle 3.",
+      "action": "move spraybottle 1 to toilet 1",
+      "inventory": "You are carrying: a spraybottle 1.",
+      "look": "You are facing the toilet 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the spraybottle from cabinet 2. It is now at the toilet and carrying the spraybottle. The next step is to place the spraybottle on the toilet as per the task goal.\",\n    \"next_objective\": \"Place the spraybottle on the toilet.\",\n    \"reasoning1\": \"The action 'move spraybottle 1 to toilet 1' directly fulfills the current phase objective of placing the spraybottle on the toilet. It is the most direct and appropriate action available.\",\n    \"option1\": \"move spraybottle 1 to toilet 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"The action 'examine toilet 1' is unnecessary at this point because the agent is already at the toilet and the goal is to place the spraybottle there, not examine the toilet.\",\n    \"option2\": \"examine toilet 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"The action 'go to sinkbasin 1' would take the agent away from the toilet and is irrelevant to the current phase goal of placing the spraybottle on the toilet.\",\n    \"option3\": \"go to sinkbasin 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 454,
+    "n_episodes": 32,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 465,
+    "n_episodes": 33,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 11,
+    "n_advantage_overrides": 3,
+    "n_memory_actions_injected": 7,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 97.707,
+  "completed_utc": "2026-10-22T02:47:31.692197+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

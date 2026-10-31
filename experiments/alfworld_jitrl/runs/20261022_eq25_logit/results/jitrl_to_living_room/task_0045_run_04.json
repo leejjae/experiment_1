@@ -1,0 +1,132 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_living_room",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "living_room",
+  "task_index": 45,
+  "game_id": "pick_and_place_simple-Vase-None-CoffeeTable-207/trial_T20190909_091246_807206",
+  "repeat": 4,
+  "seed": 4591,
+  "episode_index": 43,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put a vase in coffeetable.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a coffeetable 2, a coffeetable 1, a garbagecan 1, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sofa 1, and a tvstand 1.\n\nYour task is to: put a vase in coffeetable.",
+      "action": "go to shelf 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"I have just started the task and have not yet found a vase. The next step is to search a receptacle that might contain a vase. Since I am in the [SEARCHING] phase, I need to navigate to a suitable receptacle to locate the vase.\",\n    \"next_objective\": \"Navigate to a receptacle that might contain a vase.\",\n    \"reasoning1\": \"Shelves are common places where vases might be kept for display. Searching a shelf increases the chance of finding the target object.\",\n    \"option1\": \"go to shelf 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Armchairs are less likely to hold a vase, but exploring them could potentially yield the object if it is placed on or under the seat cushion.\",\n    \"option2\": \"go to armchair 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"TV stands are often used to hold decorative items like vases. Checking the TV stand is a logical step in this phase.\",\n    \"option3\": \"go to tvstand 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at shelf 1. On the shelf 1, you see a watch 1.",
+      "action": "go to shelf 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the shelf 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made in this phase. The agent is still searching for a vase. The current location, shelf 1, does not contain a vase.\",\n    \"next_objective\": \"Continue searching for a vase in unvisited and unsearched receptacles.\",\n    \"reasoning1\": \"Moving to an unvisited shelf increases the likelihood of finding a vase, as this phase aims to locate the target object.\",\n    \"option1\": \"go to shelf 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Moving to an unvisited receptacle like the coffeetable may provide more context or lead to finding a vase if it contains or points to it.\",\n    \"option2\": \"go to coffeetable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Moving to another unvisited shelf (e.g., shelf 3) is a reasonable next step to continue the search for a vase without revisiting already searched or unvisited areas unnecessarily.\",\n    \"option3\": \"go to shelf 3\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You arrive at shelf 2. On the shelf 2, you see nothing.",
+      "action": "go to shelf 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the shelf 2, and tvstand 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent is currently searching for a vase to place on the coffeetable. It has already examined shelf 1 and shelf 2 without success. Since the vase has not yet been found, the main challenge is locating it within the room.\",\n    \"next_objective\": \"Search unvisited receptacles for the vase.\",\n    \"reasoning1\": \"This action allows the agent to inspect a new location, potentially revealing the vase. Since the vase has not been found yet, inspecting new areas is critical for progress.\",\n    \"option1\": \"go to shelf 3\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"This action also allows the agent to explore an unvisited receptacle, increasing the chances of finding the vase in a new location.\",\n    \"option2\": \"go to shelf 4\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"This action directs the agent to a new location, which could hold the vase. It is a logical continuation of the current phase of exploration.\",\n    \"option3\": \"go to shelf 5\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at shelf 3. On the shelf 3, you see nothing.",
+      "action": "go to shelf 8",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the shelf 3. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has only found a watch on shelf 1 and has not yet discovered a vase. The task is still in the [SEARCHING] phase, and the agent is yet to locate the target object, the vase.\",\n    \"next_objective\": \"Continue searching for the vase on unvisited and unsearched receptacles.\",\n    \"reasoning1\": \"Going to shelf 8 allows the agent to search a new, unvisited receptacle, which increases the chances of finding the vase.\",\n    \"option1\": \"go to shelf 8\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to shelf 5 is another unvisited receptacle that may potentially hold the vase, advancing the search phase effectively.\",\n    \"option2\": \"go to shelf 5\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to shelf 4 is another unvisited location that could contain the vase, continuing the search in a logical and systematic way.\",\n    \"option3\": \"go to shelf 4\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You arrive at shelf 8. On the shelf 8, you see a vase 3.",
+      "action": "take vase 3 from shelf 8",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the shelf 8. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a vase 3 on shelf 8. The next step is to take the vase and navigate to the coffeetable to complete the task. The current challenge is to pick up the vase and then reach the coffeetable.\",\n    \"next_objective\": \"Pick up the vase from shelf 8 and navigate to the coffeetable.\",\n    \"reasoning1\": \"Taking the vase 3 from shelf 8 is the immediate next step in the task to move it to the coffeetable. This action is essential to progress to the next phase of the task.\",\n    \"option1\": \"take vase 3 from shelf 8\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Navigating to coffeetable 2 is a valid destination for the vase, and it aligns with the task goal. Once the vase is taken, this action will help complete the task.\",\n    \"option2\": \"go to coffeetable 2\",\n    \"confidence2\": 25,\n    \"reasoning3\": \"Navigating to coffeetable 1 is also a valid receptacle for the vase, but since the vase is not yet in inventory, this action is secondary in priority.\",\n    \"option3\": \"go to coffeetable 1\",\n    \"confidence3\": 15,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You pick up the vase 3 from the shelf 8.",
+      "action": "go to coffeetable 1",
+      "inventory": "You are carrying: a vase 3.",
+      "look": "You are facing the shelf 8. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a vase 3 from shelf 8. The current phase is 'TREATED', which means the next objective is to deliver the vase to the destination receptacle (coffeetable). The next step is to navigate to the coffeetable and place the vase there.\",\n    \"next_objective\": \"Navigate to the coffeetable and put the vase there.\",\n    \"reasoning1\": \"This action directly advances the current phase by moving the agent to the destination receptacle, where the vase can be placed to complete the task.\",\n    \"option1\": \"go to coffeetable 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"This action also advances the current phase by navigating to the coffeetable, the final destination for the vase, ensuring the task is completed efficiently.\",\n    \"option2\": \"go to coffeetable 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"This action is less optimal as it is unrelated to the destination and would not directly contribute to completing the task at hand.\",\n    \"option3\": \"examine vase 3\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You arrive at coffeetable 1. On the coffeetable 1, you see a creditcard 1, a houseplant 1, and a keychain 2.",
+      "action": "move vase 3 to coffeetable 1",
+      "inventory": "You are carrying: a vase 3.",
+      "look": "You are facing the coffeetable 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a vase 3 on shelf 8, taken it, and navigated to the coffeetable 1. The current phase is AT_DEST, meaning the destination has been reached and the next step is to place the vase on the coffeetable.\",\n    \"next_objective\": \"Place the vase 3 on the coffeetable 1.\",\n    \"reasoning1\": \"This action directly fulfills the objective of the current phase by placing the vase in the correct destination receptacle, completing the task.\",\n    \"option1\": \"move vase 3 to coffeetable 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the coffeetable 1 may provide additional context or verify its suitability for the vase, but it is not necessary since the vase is already in hand and the destination is confirmed.\",\n    \"option2\": \"examine coffeetable 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Examining the vase may provide more detail about its condition or suitability, but the vase is already suitable for the task and the immediate objective is to place it on the coffeetable.\",\n    \"option3\": \"examine vase 3\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 659,
+    "n_episodes": 43,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/living_room/jitrl_to_living_room/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 666,
+    "n_episodes": 44,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/living_room/jitrl_to_living_room/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 7,
+    "n_advantage_overrides": 0,
+    "n_memory_actions_injected": 1,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 80.722,
+  "completed_utc": "2026-10-22T03:20:33.742175+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

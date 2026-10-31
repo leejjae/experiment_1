@@ -1,0 +1,99 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_living_room",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "living_room",
+  "task_index": 33,
+  "game_id": "pick_and_place_simple-RemoteControl-None-Sofa-207/trial_T20190909_153609_373481",
+  "repeat": 5,
+  "seed": 3380,
+  "episode_index": 39,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some remotecontrol on sofa.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a coffeetable 2, a coffeetable 1, a garbagecan 1, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sofa 1, and a tvstand 1.\n\nYour task is to: put some remotecontrol on sofa.",
+      "action": "go to tvstand 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The task is to find and put a remotecontrol on the sofa. Currently, I'm in the room and have not yet searched any receptacles for the remotecontrol. The next step is to locate the remotecontrol by searching likely receptacles.\",\n    \"next_objective\": \"Search a receptacle that may contain the remotecontrol.\",\n    \"reasoning1\": \"The tvstand is a common place to find a remotecontrol, and it has not yet been searched. Going to tvstand 1 increases the likelihood of finding the remotecontrol early.\",\n    \"option1\": \"go to tvstand 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Coffeetables are often used to place objects like a remotecontrol. Going to coffeetable 1 is a plausible location to find the remotecontrol.\",\n    \"option2\": \"go to coffeetable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Shelves can sometimes hold remotecontrols, and shelf 1 is an unsearched receptacle. Going to shelf 1 is a reasonable next step.\",\n    \"option3\": \"go to shelf 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at tvstand 1. On the tvstand 1, you see a keychain 1, a remotecontrol 1, a statue 1, a television 1, a vase 2, and a vase 1.",
+      "action": "take remotecontrol 1 from tvstand 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the shelf 2, and tvstand 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a remote control on the tvstand. The next objective is to pick up the remote control and move it to the sofa. Since the agent is currently at the tvstand, the next logical step is to interact with the remote control.\",\n    \"next_objective\": \"Pick up the remote control from the tvstand.\",\n    \"reasoning1\": \"Taking the remote control from the tvstand is necessary to proceed with the task of moving it to the sofa. This action directly advances the phase from locating to carrying the object.\",\n    \"option1\": \"take remotecontrol 1 from tvstand 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"While examining the tvstand might seem useful, the tvstand has already been searched and contains the remote control. Re-examining it would not contribute meaningfully to the current phase of the task.\",\n    \"option2\": \"examine tvstand 1\",\n    \"confidence2\": 8,\n    \"reasoning3\": \"Taking other objects from the tvstand (like the vases or keychain) is irrelevant to the current task, which specifically requires moving the remote control to the sofa. These actions would not advance the goal and could complicate the inventory.\",\n    \"option3\": \"take vase 1 from tvstand 1\",\n    \"confidence3\": 2,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the remotecontrol 1 from the tvstand 1.",
+      "action": "go to sofa 1",
+      "inventory": "You are carrying: a remotecontrol 1.",
+      "look": "You are facing the shelf 2, and tvstand 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The remote control has been successfully taken from the tv stand. The agent is currently in the TREATED phase and needs to deliver the remote control to the destination, which is the sofa.\",\n    \"next_objective\": \"Navigate to the sofa and put the remote control there.\",\n    \"reasoning1\": \"Navigating to the sofa will allow the agent to complete the task by placing the remote control in the correct location.\",\n    \"option1\": \"go to sofa 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"While moving the remote control to a shelf is an option, it does not align with the task goal of placing it on the sofa and would be a detour.\",\n    \"option2\": \"move remotecontrol 1 to shelf 2\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Examining the remote control would not advance the current phase since the object is already in hand and the task involves placement, not inspection.\",\n    \"option3\": \"examine remotecontrol 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at sofa 1. On the sofa 1, you see a box 1, a creditcard 2, and a pillow 1.",
+      "action": "move remotecontrol 1 to sofa 1",
+      "inventory": "You are carrying: a remotecontrol 1.",
+      "look": "You are facing the sofa 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The remote control (remotecontrol 1) has been successfully located on the tvstand 1 and picked up. The agent has now arrived at the destination receptacle, sofa 1. The next objective is to place the remote control on the sofa to complete the task.\",\n    \"next_objective\": \"Put the remote control on the sofa.\",\n    \"reasoning1\": \"This action directly fulfills the goal of placing the remote control on the sofa, which is the final step in the current phase.\",\n    \"option1\": \"move remotecontrol 1 to sofa 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the sofa could reveal additional information about its contents, but it does not advance the current phase of placing the remote control there.\",\n    \"option2\": \"examine sofa 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Moving to another receptacle like a shelf or armchair would take the agent away from the destination and delay the task completion.\",\n    \"option3\": \"go to shelf 2\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 637,
+    "n_episodes": 39,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/living_room/jitrl_to_living_room/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 641,
+    "n_episodes": 40,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/living_room/jitrl_to_living_room/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 4,
+    "n_advantage_overrides": 0,
+    "n_memory_actions_injected": 1,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 50.186,
+  "completed_utc": "2026-10-22T03:16:21.708896+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

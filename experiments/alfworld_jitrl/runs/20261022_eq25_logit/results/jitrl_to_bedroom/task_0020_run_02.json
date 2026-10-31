@@ -1,0 +1,176 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 20,
+  "game_id": "pick_and_place_simple-CellPhone-None-ArmChair-318/trial_T20190909_120047_968274",
+  "repeat": 2,
+  "seed": 2064,
+  "episode_index": 46,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put a cellphone in armchair.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 2, a bed 1, a cabinet 1, a desk 2, a desk 1, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, and a garbagecan 1.\n\nYour task is to: put a cellphone in armchair.",
+      "action": "go to dresser 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"I have not yet found or taken the cellphone. The next step is to search for it by navigating to a receptacle that might contain it.\",\n    \"next_objective\": \"Find the cellphone by searching a receptacle that might contain it.\",\n    \"reasoning1\": \"Dressers are common places to store personal items like cellphones, so navigating to dresser 1 increases the chance of finding the cellphone.\",\n    \"option1\": \"go to dresser 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Drawers are also plausible locations for storing small objects like a cellphone, and drawer 3 is one of the candidates to explore.\",\n    \"option2\": \"go to drawer 3\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Desks are often used to place or store devices such as cellphones, so navigating to desk 1 could lead to finding the cellphone.\",\n    \"option3\": \"go to desk 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at dresser 1. On the dresser 1, you see a alarmclock 3.",
+      "action": "go to drawer 5",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 9, and dresser 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The cellphone has not yet been found, and the dresser 1 has already been searched and contains only an alarm clock. The current phase is 'SEARCHING' and the task is to locate the cellphone. The next step is to search other receptacles that might contain it.\",\n    \"next_objective\": \"Search a new receptacle for the cellphone.\",\n    \"reasoning1\": \"The dresser 1 does not contain the cellphone. Moving to another receptacle, such as bed 1, could lead to discovering where the cellphone is located, which directly advances the SEARCHING phase.\",\n    \"option1\": \"go to bed 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examining the dresser 1 again might reveal new information or objects, but since it has already been visited and the only object there is the alarm clock, this is unlikely to advance the current phase effectively.\",\n    \"option2\": \"examine dresser 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Moving to drawer 5 is a plausible next step for searching for the cellphone. It is a new receptacle that hasn't been searched yet and could potentially contain the target object.\",\n    \"option3\": \"go to drawer 5\",\n    \"confidence3\": 40,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You arrive at drawer 5. The drawer 5 is closed.",
+      "action": "open drawer 5",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 5. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent is currently searching for the cellphone and is at drawer 5, which is closed. The cellphone has not yet been found, and the agent has not searched any additional receptacles since the last step. The challenge is to continue the search efficiently without repeating previously searched locations.\",\n    \"next_objective\": \"Continue the search for the cellphone by exploring additional receptacles or opening drawer 5 to see its contents.\",\n    \"reasoning1\": \"Opening drawer 5 allows the agent to inspect its contents directly. Since the drawer is closed, it may contain the cellphone, and this action advances the current search phase by potentially revealing the object.\",\n    \"option1\": \"open drawer 5\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examining drawer 5 provides information about its state and may offer visual clues about its contents without opening it. This is a safer alternative if the drawer might be locked or contain irrelevant items.\",\n    \"option2\": \"examine drawer 5\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to drawer 12 provides a new location to search for the cellphone. Since it hasn't been visited yet, it may contain the object and aligns with the search phase objective.\",\n    \"option3\": \"go to drawer 12\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You open the drawer 5. The drawer 5 is open. In it, you see a pencil 2.",
+      "action": "go to drawer 9",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 5. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The cellphone has not yet been found. The drawer 5 was opened and found to contain only a pencil 2. The task is still in the [SEARCHING] phase, meaning the next objective is to locate the cellphone by visiting other unsearched receptacles.\",\n    \"next_objective\": \"Search for the cellphone in other unvisited receptacles.\",\n    \"reasoning1\": \"Going to dresser 2 is a logical next step as it is an unsearched receptacle that could plausibly contain the cellphone. Searching it aligns with the [SEARCHING] phase.\",\n    \"option1\": \"go to dresser 2\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to desk 2 is another plausible receptacle to search for the cellphone. It is unvisited and could be a likely location for the object.\",\n    \"option2\": \"go to desk 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to drawer 9 is a reasonable next step, as it is an unvisited drawer and might contain the cellphone.\",\n    \"option3\": \"go to drawer 9\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You arrive at drawer 9. On the drawer 9, you see nothing.",
+      "action": "go to drawer 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 9, and dresser 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has already searched several receptacles, including dresser 1, drawer 5, and drawer 9, but has not yet found the cellphone. The current phase is 'SEARCHING,' so the next step is to continue exploring unvisited receptacles that may contain the cellphone.\",\n    \"next_objective\": \"Search additional unvisited receptacles for the cellphone.\",\n    \"reasoning1\": \"Going to desk 1 is a logical next step in the search. Desks often hold electronic devices like cellphones, and it has not yet been explored in this phase.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to drawer 3 is another reasonable choice. Since drawers are common storage locations for small items like a cellphone, this action would continue the search efficiently.\",\n    \"option2\": \"go to drawer 3\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Going to desk 2 is also a valid receptacle to check. Like desk 1, it may be a plausible location for the cellphone and has not yet been searched.\",\n    \"option3\": \"go to desk 2\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at drawer 3. The drawer 3 is closed.",
+      "action": "open drawer 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 3. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent is currently at drawer 3, which is closed. The cellphone has not yet been found, and the phase remains [SEARCHING]. The agent has already visited several drawers and a dresser but has not successfully located the cellphone. The next step should focus on either opening drawer 3 or exploring other unsearched receptacles.\",\n    \"next_objective\": \"Open or search a new receptacle to find the cellphone.\",\n    \"reasoning1\": \"Opening drawer 3 would allow the agent to see its contents and potentially locate the cellphone, directly advancing the [SEARCHING] phase.\",\n    \"option1\": \"open drawer 3\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining drawer 3 could reveal visual clues or hints about its contents without opening it, which might guide the agent's next move.\",\n    \"option2\": \"examine drawer 3\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to drawer 12 would allow the agent to search another receptacle that has not yet been explored, continuing the search for the cellphone.\",\n    \"option3\": \"go to drawer 12\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You open the drawer 3. The drawer 3 is open. In it, you see nothing.",
+      "action": "go to dresser 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 3. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has searched multiple drawers (5, 9, and 3) and found nothing. The cellphone has not yet been located. The current objective is to continue searching for the cellphone by exploring new receptacles.\",\n    \"next_objective\": \"Search a new receptacle that has not yet been visited or opened to locate the cellphone.\",\n    \"reasoning1\": \"This action continues the search phase by visiting a new drawer, which is a likely location for a cellphone. It ensures progress toward finding the target object.\",\n    \"option1\": \"go to drawer 6\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"This action explores another potential location (a different dresser) where the cellphone could be stored. It expands the search beyond drawers and avoids repetition.\",\n    \"option2\": \"go to dresser 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"This action investigates another drawer that has not been visited yet, maintaining the momentum of the search phase.\",\n    \"option3\": \"go to drawer 8\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You arrive at dresser 2. On the dresser 2, you see a alarmclock 2, a alarmclock 1, a cd 3, a cellphone 3, and a pencil 3.",
+      "action": "take cellphone 3 from dresser 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the dresser 2. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The cellphone 3 has been located on dresser 2. The next step is to pick it up and then place it in the armchair.\",\n    \"next_objective\": \"Pick up the cellphone 3 from dresser 2 to proceed with the task.\",\n    \"reasoning1\": \"Taking the cellphone 3 from dresser 2 is the immediate next step to move it toward the armchair, aligning with the task goal.\",\n    \"option1\": \"take cellphone 3 from dresser 2\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"Irrelevant to the current objective as navigating to other drawers or cabinets does not advance the task of picking up the cellphone.\",\n    \"option2\": \"go to drawer 4\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"Irrelevant to the current objective as navigating to another location does not advance the task of picking up the cellphone.\",\n    \"option3\": \"go to armchair 1\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "You pick up the cellphone 3 from the dresser 2.",
+      "action": "examine cellphone 3",
+      "inventory": "You are carrying: a cellphone 3.",
+      "look": "You are facing the dresser 2. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The cellphone 3 has been successfully located and taken from dresser 2. The current phase is 'TREATED,' which means the object has already been treated if necessary, and the next step is to deliver it to the destination receptacle, which is the armchair.\",\n    \"next_objective\": \"Navigate to the armchair 1 to place the cellphone there.\",\n    \"reasoning1\": \"Going to the armchair 1 directly moves the agent toward the final goal of placing the cellphone in the armchair.\",\n    \"option1\": \"go to armchair 1\",\n    \"confidence1\": 70,\n    \"reasoning2\": \"Examining the cellphone 3 is unnecessary at this point since the objective is to place it in the armchair, not to inspect it.\",\n    \"option2\": \"examine cellphone 3\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Moving the cellphone 3 to dresser 2 would not advance the task since the goal is to place it in the armchair, not return it to the dresser.\",\n    \"option3\": \"move cellphone 3 to dresser 2\",\n    \"confidence3\": 10,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "There's nothing special about cellphone 3.",
+      "action": "go to armchair 1",
+      "inventory": "You are carrying: a cellphone 3.",
+      "look": "You are facing the dresser 2. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The cellphone (cellphone 3) has been located and taken from dresser 2. It is currently in the inventory, and the current phase is [TREATED], meaning the treatment step is complete. The next objective is to navigate to the destination receptacle, which is the armchair.\",\n    \"next_objective\": \"Navigate to the armchair to complete the task of placing the cellphone there.\",\n    \"reasoning1\": \"Going to the armchair is the logical next step to fulfill the goal of placing the cellphone in it. This action advances the phase from [TREATED] to [PLACING].\",\n    \"option1\": \"go to armchair 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"While going to other locations like drawer 12 or bed 1 is possible, these are not relevant to the task goal and would delay progress. However, it might help to verify if the armchair is accessible.\",\n    \"option2\": \"go to bed 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Examining the cellphone would not advance the current phase since the treatment is complete. However, it could provide additional context about the object.\",\n    \"option3\": \"examine cellphone 3\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 10,
+      "observation": "You arrive at armchair 1. On the armchair 1, you see a cd 2, a creditcard 3, and a creditcard 1.",
+      "action": "move cellphone 3 to armchair 1",
+      "inventory": "You are carrying: a cellphone 3.",
+      "look": "You are facing the armchair 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The cellphone 3 has been located and is now in the inventory. The agent is currently at the armchair 1, and the next step is to place the cellphone in the armchair.\",\n    \"next_objective\": \"Put the cellphone in the armchair.\",\n    \"reasoning1\": \"Moving the cellphone to the armchair fulfills the task goal and completes the current phase (AT_DEST).\",\n    \"option1\": \"move cellphone 3 to armchair 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the armchair is unnecessary since the goal is to place the cellphone in it, not to find something else on it.\",\n    \"option2\": \"examine armchair 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Going to other receptacles at this stage would delay task completion and is not necessary since the destination is already reached.\",\n    \"option3\": \"go to desk 2\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 718,
+    "n_episodes": 46,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 729,
+    "n_episodes": 47,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 11,
+    "n_advantage_overrides": 5,
+    "n_memory_actions_injected": 6,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 113.177,
+  "completed_utc": "2026-10-22T03:34:39.397435+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

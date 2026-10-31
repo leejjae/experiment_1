@@ -1,0 +1,99 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bathroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bathroom",
+  "task_index": 19,
+  "game_id": "pick_and_place_simple-Candle-None-Toilet-429/trial_T20190908_052232_887934",
+  "repeat": 4,
+  "seed": 1965,
+  "episode_index": 13,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put some candle on toilet.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a garbagecan 1, a handtowelholder 1, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.\n\nYour task is to: put some candle on toilet.",
+      "action": "go to shelf 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made yet. The task is to find a candle and put it on the toilet. Currently, the candle has not been located or picked up. The next objective is to search for a candle.\",\n    \"next_objective\": \"Search for a candle in the room.\",\n    \"reasoning1\": \"This action allows the agent to look at the contents of shelf 3, which may contain a candle. Since the agent is in the SEARCHING phase, it makes sense to investigate possible locations where the candle could be.\",\n    \"option1\": \"go to shelf 3\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"This action allows the agent to look at the contents of shelf 2, which may contain a candle. Since the agent is in the SEARCHING phase, it makes sense to investigate possible locations where the candle could be.\",\n    \"option2\": \"go to shelf 2\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"This action allows the agent to look at the contents of shelf 1, which may contain a candle. Since the agent is in the SEARCHING phase, it makes sense to investigate possible locations where the candle could be.\",\n    \"option3\": \"go to shelf 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at shelf 3. On the shelf 3, you see a candle 2, a soapbottle 1, a spraybottle 3, a spraybottle 2, and a tissuebox 3.",
+      "action": "take candle 2 from shelf 3",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the shelf 3. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located a candle 2 on shelf 3. The next objective is to take the candle and proceed to the toilet to complete the task of placing it there. The challenge is to ensure the candle is picked up and moved efficiently.\",\n    \"next_objective\": \"Take the candle 2 and proceed to the toilet.\",\n    \"reasoning1\": \"Taking the candle 2 from shelf 3 directly advances the task by acquiring the target object, which is required to complete the goal.\",\n    \"option1\": \"take candle 2 from shelf 3\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigating to the toilet 1 is the next logical step after taking the candle, as it is the destination for the task. However, the candle must be picked up first.\",\n    \"option2\": \"go to toilet 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examining shelf 3 again would not provide new information, as the candle has already been identified and is accessible. This action is unnecessary at this stage.\",\n    \"option3\": \"examine shelf 3\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the candle 2 from the shelf 3.",
+      "action": "go to toilet 1",
+      "inventory": "You are carrying: a candle 2.",
+      "look": "You are facing the shelf 3. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located and taken the candle 2 from shelf 3. The current phase is 'TREATED,' but no treatment is required for the goal. The next objective is to navigate to the toilet and put the candle there.\",\n    \"next_objective\": \"Navigate to toilet 1 and place the candle on it.\",\n    \"reasoning1\": \"This action directly moves the agent to the destination receptacle, which is the final step before completing the task.\",\n    \"option1\": \"go to toilet 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the candle is irrelevant at this stage, as the task does not require treatment and the candle is already in inventory. It does not advance the current phase.\",\n    \"option2\": \"examine candle 2\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Moving the candle to shelf 3 is counterproductive since the task requires placing it on the toilet, not returning it to its original location.\",\n    \"option3\": \"move candle 2 to shelf 3\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at toilet 1. On the toilet 1, you see a soapbottle 2.",
+      "action": "move candle 2 to toilet 1",
+      "inventory": "You are carrying: a candle 2.",
+      "look": "You are facing the toilet 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken candle 2 from shelf 3, and has now arrived at the toilet 1. The current inventory includes the candle 2, and the next step is to place it on the toilet.\",\n    \"next_objective\": \"Place the candle on the toilet.\",\n    \"reasoning1\": \"This action directly places the candle on the toilet, completing the task goal. It is the most direct action for the current phase.\",\n    \"option1\": \"move candle 2 to toilet 1\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"N/A\",\n    \"option2\": \"\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"N/A\",\n    \"option3\": \"\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 168,
+    "n_episodes": 13,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 172,
+    "n_episodes": 14,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 4,
+    "n_advantage_overrides": 0,
+    "n_memory_actions_injected": 3,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 1,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 53.64,
+  "completed_utc": "2026-10-22T02:00:48.762614+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

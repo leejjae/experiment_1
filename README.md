@@ -4,9 +4,11 @@ This repository ports [JitRL (Just-in-Time Reinforcement Learning)](https://gith
 
 - **ACE + self-distillation (ACE-SD)**: a room-level ACE playbook serves as teacher context; candidate actions are scored as `log p + β(log q − log p)` with 1-token label logprobs.
 - **Iterative self-distillation**: per task, the reflection f_k written after trial k defines a teacher q_k = π₁(a|s, f_k), and actions are chosen by `log π_k = log π₁ + β·R_k`. We compare four ways to combine the log-ratios into R_k: sum, replace, mean and EMA.
-- **Baselines**: Reflexion, EvoTest, AWM (online), ReAct (0-shot and 2-shot), and JitRL with memory off.
+- **Baselines**: Reflexion, EvoTest, AWM (online), ReAct (0-shot and 2-shot), JitRL with memory off, and memory-on JitRL with judge-only rewards (Eq. 25 normalization + logit update, the best memory-on JitRL variant).
 
-**No condition gives the environment reward or success signal to any role.** Baselines that need a success decision ask the same LLM to judge the trajectory.
+**No condition gives the environment reward or success signal to any role.** Baselines that need a success decision ask the same LLM to judge the trajectory; memory-on JitRL takes its rewards from a step-level LLM judge (gpt-oss-20b).
+
+> The standalone entry point `ALFWorld/main.py` is the plain JitRL port and **does** feed the environment reward and `won` flag to the memory. It is not used for any reported result. For memory-on JitRL under this repository's protocol, use `experiments/alfworld_jitrl/`.
 
 The repository also contains the WebArena JitRL code (a modified version of upstream).
 
@@ -18,6 +20,7 @@ Success rate per room, **Average / Final** (Final = 5th trial). The actor is Qwe
 |---|---|---|---|---|---|
 | ReAct (0-shot) | 44.00 / 50.00 | 67.14 / 64.29 | 50.00 / 60.00 | 70.00 / 55.00 | 57.79 / 57.32 |
 | JitRL, memory off | 40.00 / 35.00 | 72.86 / 78.57 | 85.00 / 95.00 | 80.00 / 85.00 | 69.46 / 73.39 |
+| JitRL, memory on (Eq. 25 + logit, judge-only) | 43.00 / 25.00 | 65.71 / 71.43 | 78.00 / 85.00 | 76.00 / 70.00 | 65.68 / 62.86 |
 | Reflexion | 60.00 / 70.00 | 70.00 / 78.57 | 83.00 / 80.00 | 84.00 / 90.00 | 74.25 / 79.64 |
 | EvoTest | 56.00 / 65.00 | 75.71 / 71.43 | 89.00 / 95.00 | 89.00 / 95.00 | 77.43 / 81.61 |
 | AWM (online) | 43.00 / 55.00 | 61.43 / 57.14 | 85.00 / 80.00 | 78.00 / 85.00 | 66.86 / 69.29 |
@@ -35,6 +38,7 @@ Success rate per room, **Average / Final** (Final = 5th trial). The actor is Qwe
 - [ACE-SD β sweep](docs/alfworld_ace_sd/results.md)
 - [Iterative SD, combination rules, over-accumulation analysis](docs/alfworld_ace_sd/iterative.md)
 - [Reflexion / EvoTest / AWM](docs/alfworld_baselines/results.md)
+- [Memory-on JitRL (Eq. 25 + logit, judge-only)](docs/alfworld_jitrl/results.md)
 
 ## Layout
 
@@ -46,6 +50,8 @@ experiments/
   alfworld_ace_sd/        ACE-SD (run.py, launch.py), iterative SD (run_iter.py, launch_iter.py),
                           fixed-feedback rule comparison (launch_fixedfb.py), playbook viewer (show_playbook.py)
   alfworld_baselines/     Reflexion / EvoTest / AWM (methods.py, run_baseline.py, launch.py)
+  alfworld_jitrl/         memory-on JitRL, judge-only rewards: Eq. 25 + logit (agent.py), upstream retrieval k=3,
+                          step judge (judge.py), one stream per room (run.py, launch.py)
   alfworld_no_feedback/   helper that strips the environment outcome from the policy input (without_outcome)
   */runs/                 per-trial JSON of the reported runs (trajectories, scores, playbooks, reflections)
 analysis/                 tables and analyses (read the stored runs only; no GPU needed except judge_acc.py)
@@ -73,8 +79,12 @@ pip install vllm==0.25.1
 |---|---|---|
 | 2 × ≥ 32 GB (e.g. 2 × RTX 5090, used for the reported runs) | `scripts/serve_vllm.sh split` (one server per GPU, :8000 / :8002) | default |
 | 2 × 24 GB (e.g. 2 × RTX 4090) | `scripts/serve_vllm.sh tp` (one tensor-parallel server, :8000) | `VLLM_PORTS=8000` |
+| memory-on JitRL, 2 × ≥ 32 GB | `scripts/serve_vllm.sh jitrl` (actor :8000 on GPU 0, judge gpt-oss-20b :8001 on GPU 1; the reported setup) | default |
+| memory-on JitRL, 2 × 24 GB | `scripts/serve_vllm.sh jitrl-tp` (both models tensor-parallel over both GPUs, actor :8000, judge :8001) | default |
 
-On a single 24 GB GPU the weights (about 19 GB) leave almost no room for the KV cache, so use `tp`. The protocol (prompts, seeds, temperatures) is identical in both setups. Generations are not bit-identical across GPUs and batching, so reproduction is statistical.
+On a single 24 GB GPU the weights (about 19 GB) leave almost no room for the KV cache, so use `tp`. The `jitrl-tp` memory split (actor 0.56, judge 0.36 of each GPU) has not been run on RTX 4090s. Check that both servers start and that their logs report a KV cache larger than the max model length; actor requests stay under 2.5k tokens and judge requests under about 20k.
+
+The protocol (prompts, seeds, temperatures) is identical in all setups. Generations are not bit-identical across GPUs and batching, so reproduction is statistical.
 
 ## Reproducing the experiments
 
@@ -97,6 +107,10 @@ RUN_DIR=runs_new/fixedfb FEEDBACK_DIR=runs_new/iter/beta_1 python experiments/al
 
 # Reflexion / EvoTest / AWM
 RUN_DIR=runs_new/baselines python experiments/alfworld_baselines/launch.py
+
+# Memory-on JitRL, Eq. 25 + logit, judge-only (needs the judge server: serve_vllm.sh jitrl | jitrl-tp)
+RUN_DIR=runs_new/jitrl python experiments/alfworld_jitrl/launch.py
+python experiments/alfworld_jitrl/run.py --room kitchen --out runs_new/jitrl_pilot --limit_tasks 1 --repeats 2   # pilot
 
 # One method, one room (pilot)
 python experiments/alfworld_baselines/run_baseline.py --method evotest --room kitchen --limit_tasks 2 --trials 3 --out runs_new/pilot

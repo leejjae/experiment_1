@@ -1,0 +1,187 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 116,
+  "game_id": "pick_two_obj_and_place-AlarmClock-None-Dresser-305/trial_T20190907_165826_194855",
+  "repeat": 5,
+  "seed": 11763,
+  "episode_index": 79,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put two alarmclock in dresser.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a laundryhamper 1, and a shelf 1.\n\nYour task is to: put two alarmclock in dresser.",
+      "action": "go to desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"I have not yet found any alarmclocks, so the next objective is to locate two of them by searching through unopened and unsearched receptacles in the room.\",\n    \"next_objective\": \"Search for alarmclocks by navigating to likely receptacles.\",\n    \"reasoning1\": \"The desk is a common place for small objects like alarmclocks. Navigating to the desk increases the chance of locating one.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Drawers are often used for storing small items, making them plausible locations for alarmclocks. Drawer 1 is the first drawer to explore.\",\n    \"option2\": \"go to drawer 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Shelves are also common storage spots for items like alarmclocks. Exploring the shelf might yield one or more alarmclocks.\",\n    \"option3\": \"go to shelf 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at desk 1. On the desk 1, you see a alarmclock 3, a alarmclock 2, a alarmclock 1, a book 1, a bowl 2, a bowl 1, a cd 2, a creditcard 1, and a pen 2.",
+      "action": "take alarmclock 1 from desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located three alarmclocks on desk 1. The task requires two alarmclocks to be placed in the dresser, and the agent is currently in the [LOCATED] phase, which means the focus is on acquiring and preparing the objects.\",\n    \"next_objective\": \"Pick up two alarmclocks from desk 1 and proceed to the dresser to place them.\",\n    \"reasoning1\": \"Taking alarmclock 1 from desk 1 is a direct step toward acquiring one of the two required alarmclocks for the task.\",\n    \"option1\": \"take alarmclock 1 from desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Taking alarmclock 2 from desk 1 is another direct step toward acquiring a second alarmclock for the task.\",\n    \"option2\": \"take alarmclock 2 from desk 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Taking alarmclock 3 from desk 1 is also a valid option for acquiring the second alarmclock, as the task does not specify which two alarmclocks to use.\",\n    \"option3\": \"take alarmclock 3 from desk 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the alarmclock 1 from the desk 1.",
+      "action": "go to dresser 1",
+      "inventory": "You are carrying: a alarmclock 1.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"One alarmclock (alarmclock 1) has been successfully located and taken from the desk. The current phase is 'TREATED', meaning the next step is to place the object in the destination receptacle, the dresser. The challenge now is to navigate to the dresser to put the alarmclock there before seeking the second one.\",\n    \"next_objective\": \"Go to the dresser to put the first alarmclock there before moving on to find a second one.\",\n    \"reasoning1\": \"Navigating to the dresser 1 is the correct step to begin fulfilling the task goal by placing the first alarmclock in the correct receptacle.\",\n    \"option1\": \"go to dresser 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examining the alarmclock 1 does not advance the task goal at this phase, as the object has already been taken and is ready to be placed.\",\n    \"option2\": \"examine alarmclock 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Navigating to the bed is unrelated to the task and will not help in completing the goal of placing the alarmclock in the dresser.\",\n    \"option3\": \"go to bed 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at dresser 1. On the dresser 1, you see a cd 3, a cellphone 1, and a desklamp 1.",
+      "action": "move alarmclock 1 to dresser 1",
+      "inventory": "You are carrying: a alarmclock 1.",
+      "look": "You are facing the dresser 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken one alarmclock (alarmclock 1) from the desk and is now at the dresser. The next objective is to place this alarmclock in the dresser to fulfill part of the task. However, the dresser is closed and needs to be opened before the alarmclock can be placed inside.\",\n    \"next_objective\": \"Open the dresser to place the alarmclock inside.\",\n    \"reasoning1\": \"The dresser must be opened before the alarmclock can be placed inside. This action directly addresses the requirement to place the alarmclock in the dresser.\",\n    \"option1\": \"open dresser 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Moving the alarmclock to the dresser would fulfill the goal of placing it there, but the dresser must be open first. This action is only valid once the dresser is open.\",\n    \"option2\": \"move alarmclock 1 to dresser 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examining the alarmclock is not relevant at this phase, as the focus is on placing it in the dresser.\",\n    \"option3\": \"examine alarmclock 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You move the alarmclock 1 to the dresser 1.",
+      "action": "go to drawer 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the dresser 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"One alarmclock has been successfully placed in the dresser. The next objective is to locate and take a second alarmclock to complete the task. The agent is currently at the dresser and not carrying anything.\",\n    \"next_objective\": \"Locate and take the second alarmclock\",\n    \"reasoning1\": \"Returning to the desk where the alarmclocks were previously found is the most direct and logical step to obtain the second alarmclock. The desk was not previously searched for a second alarmclock in this context.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examining the dresser again could potentially reveal if a second alarmclock is already inside, though this is unlikely since the dresser was already searched and only one alarmclock was found earlier. This action may not be efficient.\",\n    \"option2\": \"examine dresser 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Going to drawer 2 may lead to discovering a second alarmclock if it exists inside. This action explores an unvisited location which could hold the second alarmclock.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 40,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You arrive at drawer 2. The drawer 2 is closed.",
+      "action": "open drawer 2",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"One alarmclock has already been placed in the dresser. The next objective is to find a second alarmclock to complete the task. The agent is at drawer 2, which is closed and may potentially contain the second alarmclock.\",\n    \"next_objective\": \"Open drawer 2 to check if it contains the second alarmclock.\",\n    \"reasoning1\": \"Opening drawer 2 will allow visibility into its contents, potentially revealing the second alarmclock needed for the task. This directly advances the current [LOCATED] phase by searching a plausible receptacle.\",\n    \"option1\": \"open drawer 2\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examining drawer 2 could provide additional clues about its contents or state, but it may not be necessary if the drawer is already closed and requires opening to see inside. This action is less likely to advance the phase directly.\",\n    \"option2\": \"examine drawer 2\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Navigating to drawer 3 would be premature unless drawer 2 has already been opened and found empty. This could lead to unnecessary searching of new receptacles and is not the most efficient action at this point.\",\n    \"option3\": \"go to drawer 3\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You open the drawer 2. The drawer 2 is open. In it, you see a pen 3.",
+      "action": "go to desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"One alarmclock has already been placed in the dresser. The next objective is to find a second alarmclock. Currently, the agent is in drawer 2, which only contains a pen and no alarmclock. The agent must continue searching for the second alarmclock.\",\n    \"next_objective\": \"Search for the second alarmclock in unvisited or unsearched receptacles.\",\n    \"reasoning1\": \"Searching other drawers (e.g., drawer 3, 4, or 5) is the most direct way to locate the second alarmclock. These drawers have not been searched yet and may contain the target object.\",\n    \"option1\": \"go to drawer 3\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Searching other unexplored receptacles such as the desk or shelf might reveal the second alarmclock. These are plausible locations for the object.\",\n    \"option2\": \"go to desk 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Exploring other furniture like the bed or laundry hamper may also yield the second alarmclock, though these are less likely than drawers or desks.\",\n    \"option3\": \"go to bed 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You arrive at desk 1. On the desk 1, you see a alarmclock 3, a alarmclock 2, a book 1, a bowl 2, a bowl 1, a cd 2, a creditcard 1, and a pen 2.",
+      "action": "examine desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has already retrieved and placed one alarmclock in the dresser. Currently, the agent is at desk 1 and has observed that there are two alarmclocks on the desk (alarmclock 2 and alarmclock 3). The next objective is to take one of these alarmclocks to fulfill the goal of putting two alarmclocks in the dresser.\",\n    \"next_objective\": \"Take one of the alarmclocks from the desk to bring it to the dresser.\",\n    \"reasoning1\": \"Taking alarmclock 2 from desk 1 directly advances the current phase, as it is one of the alarmclocks needed to achieve the goal of placing two alarmclocks in the dresser.\",\n    \"option1\": \"take alarmclock 2 from desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Taking alarmclock 3 from desk 1 is also a valid action that advances the current phase, as it is another alarmclock available to fulfill the goal.\",\n    \"option2\": \"take alarmclock 3 from desk 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Examining the desk 1 is a preparatory step but does not directly advance the phase since the alarmclocks are already visible and accessible.\",\n    \"option3\": \"examine desk 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "On the desk 1, you see a alarmclock 3, a alarmclock 2, a book 1, a bowl 2, a bowl 1, a cd 2, a creditcard 1, and a pen 2.",
+      "action": "take alarmclock 2 from desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"One alarmclock has been successfully placed in the dresser. The current challenge is to find and take a second alarmclock. The desk 1 currently contains two alarmclocks, alarmclock 2 and alarmclock 3, which are viable candidates for fulfilling the task.\",\n    \"next_objective\": \"Take the second alarmclock from the desk and proceed to the dresser to place it there.\",\n    \"reasoning1\": \"Taking alarmclock 2 from desk 1 directly addresses the need to acquire a second alarmclock for the dresser. This is the most direct and logical action.\",\n    \"option1\": \"take alarmclock 2 from desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Taking alarmclock 3 from desk 1 is also a valid action to fulfill the requirement of obtaining a second alarmclock. It is an equally viable option.\",\n    \"option2\": \"take alarmclock 3 from desk 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Examine desk 1 is not necessary at this point since the contents of the desk are already visible. This action would not contribute to the task progress.\",\n    \"option3\": \"examine desk 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "You pick up the alarmclock 2 from the desk 1.",
+      "action": "examine alarmclock 2",
+      "inventory": "You are carrying: a alarmclock 2.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and picked up the second alarmclock (alarmclock 2) from the desk 1. The first alarmclock (alarmclock 1) has already been placed in the dresser 1. The next objective is to complete the task by putting the second alarmclock into the dresser.\",\n    \"next_objective\": \"Put alarmclock 2 into the dresser 1.\",\n    \"reasoning1\": \"Going to the dresser 1 is necessary to put the alarmclock 2 into it. The dresser is the final destination for the second alarmclock.\",\n    \"option1\": \"go to dresser 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining the alarmclock 2 is not relevant to the current phase, as the object is already in the inventory and the next step is to place it in the dresser.\",\n    \"option2\": \"examine alarmclock 2\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Moving alarmclock 2 to the desk 1 would not advance the current phase, as the goal is to put it in the dresser, not to move it elsewhere.\",\n    \"option3\": \"move alarmclock 2 to desk 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 10,
+      "observation": "There's nothing special about alarmclock 2.",
+      "action": "go to dresser 1",
+      "inventory": "You are carrying: a alarmclock 2.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken one alarmclock (alarmclock 1) and placed it in the dresser. It is currently holding alarmclock 2, which needs to be moved to the dresser as well. The challenge is to complete the goal by placing the second alarmclock in the dresser.\",\n    \"next_objective\": \"Move alarmclock 2 to the dresser to complete the goal of placing both alarmclocks there.\",\n    \"reasoning1\": \"Going to the dresser is necessary to complete the goal of placing the second alarmclock there. The agent is already holding alarmclock 2, so the next step is to move it to the dresser.\",\n    \"option1\": \"go to dresser 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining alarmclock 2 again would not advance the current phase and is unnecessary since the observation is already known. This action is not useful for the current objective.\",\n    \"option2\": \"examine alarmclock 2\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Going to drawer 2 is irrelevant to the goal of placing the alarmclock in the dresser. It would not advance the task and may lead to unnecessary exploration.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 35,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 11,
+      "observation": "You arrive at dresser 1. On the dresser 1, you see a alarmclock 1, a cd 3, a cellphone 1, and a desklamp 1.",
+      "action": "move alarmclock 2 to dresser 1",
+      "inventory": "You are carrying: a alarmclock 2.",
+      "look": "You are facing the dresser 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"We have successfully placed one alarmclock (alarmclock 1) in the dresser. The second alarmclock (alarmclock 2) is currently in the inventory and we are at the dresser. The next step is to place the second alarmclock in the dresser to complete the task.\",\n    \"next_objective\": \"Move the second alarmclock to the dresser.\",\n    \"reasoning1\": \"This action directly fulfills the current phase by placing the second alarmclock into the dresser, completing the task goal.\",\n    \"option1\": \"move alarmclock 2 to dresser 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"Examining the dresser could confirm the presence of the first alarmclock and ensure that the second one can be placed without issues, though it is not necessary as the task has already progressed.\",\n    \"option2\": \"examine dresser 1\",\n    \"confidence2\": 8,\n    \"reasoning3\": \"Examining the alarmclock in inventory is irrelevant to the current phase, as it does not contribute to placing the second alarmclock in the dresser.\",\n    \"option3\": \"examine alarmclock 2\",\n    \"confidence3\": 2,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 1131,
+    "n_episodes": 79,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 1143,
+    "n_episodes": 80,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 12,
+    "n_advantage_overrides": 5,
+    "n_memory_actions_injected": 3,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 105.206,
+  "completed_utc": "2026-10-22T04:37:50.337922+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

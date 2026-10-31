@@ -1,0 +1,209 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 121,
+  "game_id": "pick_two_obj_and_place-CreditCard-None-Dresser-311/trial_T20190907_201917_045715",
+  "repeat": 3,
+  "seed": 12266,
+  "episode_index": 97,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put two creditcard in dresser.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a bed 1, a countertop 1, a diningtable 1, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a laundryhamper 1, and a sidetable 1.\n\nYour task is to: put two creditcard in dresser.",
+      "action": "go to dresser 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made yet. The task requires locating two creditcards and placing them in dresser 1. The current phase is SEARCHING, and I need to locate the first creditcard.\",\n    \"next_objective\": \"Find the first creditcard by navigating to a plausible receptacle.\",\n    \"reasoning1\": \"Dressers are common places to store small items like creditcards. Navigating to dresser 1 is a logical first step in the search.\",\n    \"option1\": \"go to dresser 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Countertops and tables often hold items like creditcards. Diningtable 1 is a plausible location to search for one.\",\n    \"option2\": \"go to diningtable 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Sidetables are often used to store small personal items. Sidetable 1 is a reasonable location to search for a creditcard.\",\n    \"option3\": \"go to sidetable 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at dresser 1. On the dresser 1, you see a keychain 2, a pen 1, a pencil 2, a pencil 1, and a television 1.",
+      "action": "go to sidetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the dresser 1. Next to it, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has reached the dresser and found a keychain, pens, and pencils, but no creditcards. The dresser has already been searched, and the room has also been searched. No creditcards have been located yet.\",\n    \"next_objective\": \"Search for the creditcards in unvisited locations\",\n    \"reasoning1\": \"This action allows the agent to move to a new location that hasn't been searched yet, increasing the chances of finding a creditcard.\",\n    \"option1\": \"go to sidetable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"This action also provides the agent with the opportunity to search a new location for the creditcard.\",\n    \"option2\": \"go to bed 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Moving to another unvisited location increases the chances of finding the creditcards, as it allows the agent to search a new area.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You arrive at sidetable 1. On the sidetable 1, you see a alarmclock 3, a alarmclock 2, a creditcard 2, a creditcard 1, and a keychain 1.",
+      "action": "take creditcard 1 from sidetable 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located two credit cards on sidetable 1, which is the target object for the current phase. The next objective is to take these two credit cards to prepare for placing them in the dresser.\",\n    \"next_objective\": \"Take the two credit cards from sidetable 1.\",\n    \"reasoning1\": \"This action directly takes one of the required credit cards, advancing the goal of obtaining both before placing them in the dresser.\",\n    \"option1\": \"take creditcard 1 from sidetable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"This action directly takes the second required credit card, advancing the goal of obtaining both before placing them in the dresser.\",\n    \"option2\": \"take creditcard 2 from sidetable 1\",\n    \"confidence2\": 40,\n    \"reasoning3\": \"Examining the sidetable may provide additional context about the credit cards or other objects, though it does not directly advance the goal of obtaining them.\",\n    \"option3\": \"examine sidetable 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You pick up the creditcard 1 from the sidetable 1.",
+      "action": "examine creditcard 1",
+      "inventory": "You are carrying: a creditcard 1.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken one credit card (creditcard 1) from the sidetable 1. The next objective is to locate the second credit card and take it to complete the task. Since the current phase is 'TREATED', the agent must now locate and take the second credit card.\",\n    \"next_objective\": \"Locate and take the second credit card to complete the task of putting two credit cards in the dresser.\",\n    \"reasoning1\": \"Examining the creditcard 1 could reveal if there is any additional information about the location of the second credit card, potentially guiding the agent to search more effectively.\",\n    \"option1\": \"examine creditcard 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The agent needs to search for the second credit card. Moving the already taken creditcard 1 to the sidetable 1 would not help in locating the second one and could slow progress.\",\n    \"option2\": \"move creditcard 1 to sidetable 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Since the sidetable 1 was the source of the first credit card and has been searched already, examining it again could help confirm whether the second credit card is still there or if the agent missed it during the initial search.\",\n    \"option3\": \"examine sidetable 1\",\n    \"confidence3\": 40,\n    \"best_action\": 3\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "There's nothing special about creditcard 1.",
+      "action": "examine sidetable 1",
+      "inventory": "You are carrying: a creditcard 1.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located and taken one creditcard (creditcard 1) from the sidetable. The second creditcard is still on the sidetable. Since the task requires two creditcards in the dresser, the next step is to retrieve the second creditcard before proceeding to the TREATED phase.\",\n    \"next_objective\": \"Retrieve the second creditcard from the sidetable.\",\n    \"reasoning1\": \"The second creditcard is already visible on the sidetable, so taking it will complete the task of acquiring both required objects.\",\n    \"option1\": \"take creditcard 2 from sidetable 1\",\n    \"confidence1\": 70,\n    \"reasoning2\": \"Examining the sidetable could provide additional information about the second creditcard, but it is already known to be there, so this action is less optimal.\",\n    \"option2\": \"examine sidetable 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Moving the creditcard from inventory to the sidetable would contradict the task goal and set back progress. This action is not aligned with the objective.\",\n    \"option3\": \"move creditcard 1 to sidetable 1\",\n    \"confidence3\": 10,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "On the sidetable 1, you see a alarmclock 3, a alarmclock 2, a creditcard 2, and a keychain 1.",
+      "action": "go to dresser 1",
+      "inventory": "You are carrying: a creditcard 1.",
+      "look": "You are facing the sidetable 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken one credit card (creditcard 1) from the sidetable. Currently, the agent is examining the sidetable again to locate a second credit card. The second credit card (creditcard 2) is visible on the sidetable, so the next objective is to take it.\",\n    \"next_objective\": \"Take creditcard 2 from sidetable 1.\",\n    \"reasoning1\": \"The action 'examine sidetable 1' has already confirmed that creditcard 2 is present. Since the agent is already at the sidetable, the next step is to take the credit card directly.\",\n    \"option1\": \"move creditcard 1 to sidetable 1\",\n    \"confidence1\": 30,\n    \"reasoning2\": \"The agent needs to take creditcard 2 from the sidetable, but the action 'take creditcard 2 from sidetable 1' is not available in the reference actions. Therefore, the best available action is to take the credit card already in inventory and temporarily move it to the sidetable to free up the agent's hand for the second credit card.\",\n    \"option2\": \"examine sidetable 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The sidetable has already been examined and confirmed to contain creditcard 2. Re-examining it at this point is not necessary unless there is a new reason, which is not the case here.\",\n    \"option3\": \"go to dresser 1\",\n    \"confidence3\": 40,\n    \"best_action\": 3\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You arrive at dresser 1. On the dresser 1, you see a keychain 2, a pen 1, a pencil 2, a pencil 1, and a television 1.",
+      "action": "go to drawer 2",
+      "inventory": "You are carrying: a creditcard 1.",
+      "look": "You are facing the dresser 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and picked up one credit card (creditcard 1) from the sidetable. They are now at the dresser, which is the destination receptacle. The next step is to place the credit card in the dresser and then return to the sidetable to retrieve the second credit card. However, the current [PHASE] is AT_DEST, meaning the focus is on putting the object into the destination (the dresser).\",\n    \"next_objective\": \"Place the creditcard 1 into the dresser 1 to complete one part of the task.\",\n    \"reasoning1\": \"The action 'move creditcard 1 to dresser 1' directly advances the PHASE by placing the carried object into the destination receptacle, fulfilling one of the two required credit cards in the dresser.\",\n    \"option1\": \"move creditcard 1 to dresser 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"The action 'examine dresser 1' might help confirm if the dresser is open and ready to accept the object, but it is not essential since the dresser is already visible and accessible in the current observation.\",\n    \"option2\": \"examine dresser 1\",\n    \"confidence2\": 25,\n    \"reasoning3\": \"The action 'go to drawer 2' is irrelevant to the current objective and does not help with completing the PHASE. It introduces a detour and is not necessary at this stage.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You arrive at drawer 2. The drawer 2 is closed.",
+      "action": "open drawer 2",
+      "inventory": "You are carrying: a creditcard 1.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"I have successfully located and taken one credit card (creditcard 1) from the sidetable. I am currently at drawer 2, which is closed, and I need to open it to place the credit card inside. The second credit card is still on the sidetable and must be picked up and placed in the dresser as well. The current challenge is to complete the placement of the first credit card into the dresser by opening drawer 2.\",\n    \"next_objective\": \"Open drawer 2 to place the creditcard 1 inside it.\",\n    \"reasoning1\": \"Opening drawer 2 is necessary to access its interior and complete the step of placing the first credit card in the dresser. This directly advances the [TREATED] phase by preparing the destination receptacle for the object.\",\n    \"option1\": \"open drawer 2\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining drawer 2 could reveal if there's a reason it remains closed or if there are other steps necessary to proceed, though it is not directly advancing the phase as effectively as opening it.\",\n    \"option2\": \"examine drawer 2\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Going to another location like the sidetable would move away from the current objective of placing the credit card in the dresser and would not advance the [TREATED] phase effectively.\",\n    \"option3\": \"go to sidetable 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "You open the drawer 2. The drawer 2 is open. In it, you see a book 1, and a cd 2.",
+      "action": "go to dresser 1",
+      "inventory": "You are carrying: a creditcard 1.",
+      "look": "You are facing the drawer 2. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken one creditcard (creditcard 1) from the sidetable. The second creditcard has not yet been located, and the current phase is [TREATED], indicating that the object is ready to be moved. The agent is now at drawer 2, which is open and accessible. However, the second creditcard is not yet in inventory.\",\n    \"next_objective\": \"Locate the second creditcard and move it to the dresser.\",\n    \"reasoning1\": \"The agent needs to find the second creditcard before it can be moved to the dresser. Since the current location is drawer 2, and the last known location of the first creditcard was the sidetable, it is likely the second one is also there or in another unsearched receptacle.\",\n    \"option1\": \"go to sidetable 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examine the current location (drawer 2) in case the second creditcard is already here and overlooked. This is a minor but valid step to verify inventory before moving.\",\n    \"option2\": \"examine drawer 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Returning to the dresser could help confirm the final destination and ensure it is ready to receive the second creditcard once it is obtained. This helps avoid potential later errors.\",\n    \"option3\": \"go to dresser 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "You arrive at dresser 1. On the dresser 1, you see a keychain 2, a pen 1, a pencil 2, a pencil 1, and a television 1.",
+      "action": "move creditcard 1 to dresser 1",
+      "inventory": "You are carrying: a creditcard 1.",
+      "look": "You are facing the dresser 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent is currently at dresser 1 and is carrying one creditcard (creditcard 1). The next objective is to put this creditcard into the dresser and then retrieve the second creditcard (already known to be on the sidetable) to complete the task of placing both in the dresser.\",\n    \"next_objective\": \"Put the creditcard 1 into the dresser 1 and prepare to return for the second creditcard.\",\n    \"reasoning1\": \"This action directly advances the task by putting the first creditcard into the dresser, fulfilling part of the requirement to place both in the dresser.\",\n    \"option1\": \"move creditcard 1 to dresser 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examining the dresser could reveal additional receptacles or features that might be relevant for placing the second creditcard, though it doesn't directly advance the goal at this moment.\",\n    \"option2\": \"examine dresser 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Navigating to drawer 2 may provide a secondary location to store the creditcard temporarily, but this does not directly advance the main objective of putting it in the dresser.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 10,
+      "observation": "You move the creditcard 1 to the dresser 1.",
+      "action": "go to countertop 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the dresser 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"One creditcard has been successfully moved to the dresser. The second creditcard is already in the agent's inventory, as it was taken from the sidetable earlier and not dropped. The next objective is to place this second creditcard into the dresser.\",\n    \"next_objective\": \"Place the second creditcard into the dresser.\",\n    \"reasoning1\": \"Taking creditcard 2 from the dresser is not relevant, as the second creditcard is already in the agent's inventory. Therefore, this action does not advance the phase.\",\n    \"option1\": \"take creditcard 1 from dresser 1\",\n    \"confidence1\": 20,\n    \"reasoning2\": \"Moving to another receptacle such as countertop or sidetable would not help complete the current task and would waste time, as the second creditcard is already in the inventory and the dresser is the immediate destination.\",\n    \"option2\": \"go to countertop 1\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Examine dresser 1 allows the agent to verify the current contents of the dresser and confirm whether the second creditcard can be added, ensuring the action of placing it will be valid and successful.\",\n    \"option3\": \"examine dresser 1\",\n    \"confidence3\": 70,\n    \"best_action\": 3\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 11,
+      "observation": "You arrive at countertop 1. On the countertop 1, you see a cellphone 1, a creditcard 3, a mirror 1, a mug 2, a mug 1, a pen 3, a pencil 3, and a remotecontrol 3.",
+      "action": "take creditcard 3 from countertop 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the countertop 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"One credit card has been placed in the dresser. The second credit card (creditcard 3) is currently visible on countertop 1. The next step is to take this second credit card and place it into the dresser.\",\n    \"next_objective\": \"Take the creditcard 3 from countertop 1 and put it into the dresser 1.\",\n    \"reasoning1\": \"Taking creditcard 3 from countertop 1 will allow progress toward the goal of placing two credit cards in the dresser.\",\n    \"option1\": \"take creditcard 3 from countertop 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Going to the dresser 1 is necessary to prepare for placing the second credit card there, but taking the credit card first is a higher priority.\",\n    \"option2\": \"go to dresser 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Examining countertop 1 is unnecessary since the contents are already visible and the credit card is clearly present.\",\n    \"option3\": \"examine countertop 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 12,
+      "observation": "You pick up the creditcard 3 from the countertop 1.",
+      "action": "go to dresser 1",
+      "inventory": "You are carrying: a creditcard 3.",
+      "look": "You are facing the countertop 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"One credit card has already been placed in the dresser. The second credit card (creditcard 3) is currently in the agent's inventory, and the next step is to move it to the dresser to complete the task. The challenge is to navigate directly to the dresser and complete the task.\",\n    \"next_objective\": \"Navigate to the dresser and place the creditcard 3 in it.\",\n    \"reasoning1\": \"Going to the dresser 1 is the most direct step to complete the task, as the agent is holding creditcard 3 and needs to place it in the dresser.\",\n    \"option1\": \"go to dresser 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining the creditcard 3 is not necessary at this point, as the task only requires placing it in the dresser, not analyzing it.\",\n    \"option2\": \"examine creditcard 3\",\n    \"confidence2\": 25,\n    \"reasoning3\": \"Moving the creditcard 3 to the countertop 1 would be counterproductive, as the goal is to place it in the dresser.\",\n    \"option3\": \"move creditcard 3 to countertop 1\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 13,
+      "observation": "You arrive at dresser 1. On the dresser 1, you see a creditcard 1, a keychain 2, a pen 1, a pencil 2, a pencil 1, and a television 1.",
+      "action": "move creditcard 3 to dresser 1",
+      "inventory": "You are carrying: a creditcard 3.",
+      "look": "You are facing the dresser 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"One credit card (creditcard 1) has already been placed in the dresser. The second credit card (creditcard 3) is currently in the inventory, and the agent is at the dresser (dresser 1), ready to complete the task of placing the second one.\",\n    \"next_objective\": \"Place the second credit card (creditcard 3) into the dresser.\",\n    \"reasoning1\": \"The most direct action to complete the task is to move the credit card in the inventory to the dresser. This action directly advances the current phase by achieving the final requirement of the goal.\",\n    \"option1\": \"move creditcard 3 to dresser 1\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"N/A\",\n    \"option2\": \"\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"N/A\",\n    \"option3\": \"\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 1564,
+    "n_episodes": 97,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 1578,
+    "n_episodes": 98,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 12,
+    "n_advantage_overrides": 4,
+    "n_memory_actions_injected": 4,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 1,
+    "n_conf_degenerate": 1,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 125.885,
+  "completed_utc": "2026-10-22T05:41:56.510931+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

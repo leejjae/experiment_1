@@ -1,0 +1,99 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bathroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bathroom",
+  "task_index": 38,
+  "game_id": "pick_and_place_simple-SprayBottle-None-GarbageCan-409/trial_T20190908_054742_818364",
+  "repeat": 2,
+  "seed": 3882,
+  "episode_index": 26,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put a spraybottle in garbagecan.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a countertop 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a handtowelholder 2, a handtowelholder 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, a towelholder 2, and a towelholder 1.\n\nYour task is to: put a spraybottle in garbagecan.",
+      "action": "go to countertop 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The task requires putting a spraybottle in the garbagecan. Since the PHASE is SEARCHING, the next objective is to locate the spraybottle. The current location is the room, and no objects have been found yet. The spraybottle is more likely to be in a drawer or on a countertop.\",\n    \"next_objective\": \"Locate the spraybottle by navigating to potential receptacles.\",\n    \"reasoning1\": \"Countertop 1 is a common surface where a spraybottle might be placed, so navigating there could reveal the object, advancing the SEARCHING phase.\",\n    \"option1\": \"go to countertop 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Drawers are often used to store small objects like a spraybottle. Drawer 1 is a plausible candidate to search, helping progress in the SEARCHING phase.\",\n    \"option2\": \"go to drawer 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Drawer 2 is another potential storage location for a spraybottle, making it a reasonable place to search and continue the SEARCHING phase.\",\n    \"option3\": \"go to drawer 2\",\n    \"confidence3\": 25,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at countertop 1. On the countertop 1, you see a sink 1, and a spraybottle 2.",
+      "action": "take spraybottle 2 from countertop 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the countertop 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The spraybottle 2 has been located on countertop 1, which is the current location. The next step is to pick it up to begin moving it toward the garbagecan 1.\",\n    \"next_objective\": \"Pick up the spraybottle 2 from countertop 1.\",\n    \"reasoning1\": \"Taking the spraybottle 2 from countertop 1 is necessary to move it to the garbagecan 1. This action directly advances the current phase by acquiring the object.\",\n    \"option1\": \"take spraybottle 2 from countertop 1\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"N/A\",\n    \"option2\": \"\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"N/A\",\n    \"option3\": \"\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the spraybottle 2 from the countertop 1.",
+      "action": "go to garbagecan 1",
+      "inventory": "You are carrying: a spraybottle 2.",
+      "look": "You are facing the countertop 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The spraybottle has been successfully taken from countertop 1 and is now in the inventory. The next objective is to deliver it to the garbagecan for disposal.\",\n    \"next_objective\": \"Navigate to the garbagecan and place the spraybottle inside.\",\n    \"reasoning1\": \"The garbagecan is the destination for the spraybottle, and going to it will allow the agent to complete the task by placing the object there.\",\n    \"option1\": \"go to garbagecan 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the spraybottle would not advance the current phase, as the treatment phase is already complete and the goal is to place it in the garbagecan.\",\n    \"option2\": \"examine spraybottle 2\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Going to the sinkbasin would be a detour and not helpful for the current objective of placing the spraybottle in the garbagecan.\",\n    \"option3\": \"go to sinkbasin 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at garbagecan 1. On the garbagecan 1, you see nothing.",
+      "action": "move spraybottle 2 to garbagecan 1",
+      "inventory": "You are carrying: a spraybottle 2.",
+      "look": "You are facing the garbagecan 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The spraybottle 2 has been successfully located on countertop 1, picked up, and the agent has arrived at garbagecan 1. The next step is to place the spraybottle into the garbagecan.\",\n    \"next_objective\": \"Place the spraybottle in the garbagecan.\",\n    \"reasoning1\": \"This action directly fulfills the task goal by placing the spraybottle in the garbagecan. It is the final required step.\",\n    \"option1\": \"move spraybottle 2 to garbagecan 1\",\n    \"confidence1\": 100,\n    \"reasoning2\": \"N/A\",\n    \"option2\": \"\",\n    \"confidence2\": 0,\n    \"reasoning3\": \"N/A\",\n    \"option3\": \"\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 376,
+    "n_episodes": 26,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 380,
+    "n_episodes": 27,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bathroom/jitrl_to_bathroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 4,
+    "n_advantage_overrides": 0,
+    "n_memory_actions_injected": 3,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 2,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 30.693,
+  "completed_utc": "2026-10-22T02:34:19.489314+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

@@ -1,0 +1,198 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_kitchen",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "kitchen",
+  "task_index": 105,
+  "game_id": "pick_heat_then_place_in_recep-Mug-None-Cabinet-3/trial_T20190909_014639_335717",
+  "repeat": 4,
+  "seed": 10651,
+  "episode_index": 68,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "put a hot mug in cabinet.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 1, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sidetable 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\n\nYour task is to: put a hot mug in cabinet.",
+      "action": "go to coffeemachine 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"I have just started the task and have not yet located a hot mug. The next step is to search for a mug, specifically one that is already hot or can be heated.\",\n    \"next_objective\": \"Locate a hot mug by navigating to a plausible receptacle that might hold one.\",\n    \"reasoning1\": \"The coffeemachine 1 is a likely source of a hot mug, as it is typically used to make hot beverages. This action directly supports the current phase of searching for the target object.\",\n    \"option1\": \"go to coffeemachine 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The microwave 1 is a potential location for a hot mug if the mug has been heated inside it. This is a logical place to search for a hot object.\",\n    \"option2\": \"go to microwave 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The stoveburner 1 is a heat source and might be used to heat a mug. A hot mug could potentially be found there, making it a relevant location to explore.\",\n    \"option3\": \"go to stoveburner 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at coffeemachine 1. On the coffeemachine 1, you see a mug 1.",
+      "action": "take mug 1 from coffeemachine 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the coffeemachine 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a mug on the coffeemachine. The next objective is to take the mug and begin the process of heating it to make it hot, as the goal requires placing a hot mug in the cabinet.\",\n    \"next_objective\": \"Take the mug from the coffeemachine to prepare it for heating.\",\n    \"reasoning1\": \"Taking the mug from the coffeemachine will allow the agent to proceed to the heating step, which is required for the goal of putting a hot mug in the cabinet.\",\n    \"option1\": \"take mug 1 from coffeemachine 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Going to other receptacles like drawers or cabinets would not advance the task since the current phase requires taking the target object, not searching for it.\",\n    \"option2\": \"go to drawer 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Exploring other receptacles like the countertop or cabinets is not relevant to the current phase of locating and taking the mug.\",\n    \"option3\": \"go to countertop 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the mug 1 from the coffeemachine 1.",
+      "action": "examine mug 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the coffeemachine 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully taken a mug from the coffeemachine, which is the first step in the task. The next step is to heat the mug to make it 'hot' as per the goal. The agent is currently holding the mug and must now proceed to heat it or determine its current state.\",\n    \"next_objective\": \"Determine if the mug is already hot or heat it using an appropriate receptacle.\",\n    \"reasoning1\": \"Heating the mug is a necessary step to satisfy the 'hot' condition in the task. The microwave is a common and effective appliance for heating mugs.\",\n    \"option1\": \"go to microwave 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Examining the mug directly can help determine if it is already hot, which might save time if the heating step is unnecessary.\",\n    \"option2\": \"examine mug 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Moving to the cabinet is premature at this stage, as the mug is not yet hot. However, it is included here to show a less relevant but still valid action.\",\n    \"option3\": \"go to cabinet 4\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "This is a normal mug 1. In it, you see nothing.",
+      "action": "go to microwave 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the coffeemachine 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the target object (mug 1) from the coffeemachine 1. The current inventory contains the mug 1, which is currently at room temperature. The next objective is to heat the mug to fulfill the 'hot' condition in the task goal.\",\n    \"next_objective\": \"Heat the mug 1 to make it hot.\",\n    \"reasoning1\": \"The microwave is a common appliance used to heat objects like mugs. Navigating to the microwave is a logical first step toward heating the mug.\",\n    \"option1\": \"go to microwave 1\",\n    \"confidence1\": 45,\n    \"reasoning2\": \"Stove burners can also be used to heat mugs, for example by placing them on the burner to warm the contents or the mug itself. Navigating to a stove burner is a viable alternative to the microwave.\",\n    \"option2\": \"go to stoveburner 1\",\n    \"confidence2\": 35,\n    \"reasoning3\": \"Countertops are often near appliances like microwaves or stoves, and may provide access to heating appliances indirectly. Navigating to the countertop could be a stepping stone to finding a heating device.\",\n    \"option3\": \"go to countertop 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You arrive at microwave 1. The microwave 1 is closed.",
+      "action": "heat mug 1 with microwave 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the microwave 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"So far, the agent has located and picked up a mug from the coffeemachine and has arrived at the microwave. The mug is currently unheated and needs to be heated to meet the 'hot' requirement of the task. The next objective is to heat the mug using the microwave.\",\n    \"next_objective\": \"Heat the mug using the microwave\",\n    \"reasoning1\": \"The most direct and effective way to heat the mug is by using the microwave, as it is the designated heating appliance in the list of valid actions.\",\n    \"option1\": \"heat mug 1 with microwave 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Opening the microwave first is a prerequisite to using it. While not directly heating the mug, this action enables the subsequent step of heating the mug.\",\n    \"option2\": \"open microwave 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Examining the mug provides additional information but does not contribute to heating it, which is the immediate goal in the HOLDING phase.\",\n    \"option3\": \"examine mug 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "You heat the mug 1 using the microwave 1.",
+      "action": "go to cabinet 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the microwave 1. Next to it, you see nothing.",
+      "phase": "TREATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully heated the mug using the microwave. The current inventory contains a hot mug, and the next objective is to place it into a cabinet. The main challenge is to navigate to an unvisited cabinet and place the mug there.\",\n    \"next_objective\": \"Navigate to a cabinet and put the hot mug in it.\",\n    \"reasoning1\": \"Going to cabinet 1 directly advances the objective of placing the hot mug in a cabinet. It is an unvisited receptacle and a likely candidate for the target destination.\",\n    \"option1\": \"go to cabinet 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to cabinet 4 is another viable option for placing the hot mug. It is an unvisited cabinet and a valid destination for the task.\",\n    \"option2\": \"go to cabinet 4\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to cabinet 3 also aligns with the goal of finding a cabinet to place the hot mug. It is an unvisited and suitable receptacle.\",\n    \"option3\": \"go to cabinet 3\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You arrive at cabinet 1. The cabinet 1 is closed.",
+      "action": "open cabinet 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the cabinet 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a mug on the coffeemachine, picked it up, and heated it in the microwave. It is now at cabinet 1 with the mug in inventory. The challenge is that the cabinet is closed, and the goal is to put the hot mug inside it.\",\n    \"next_objective\": \"Open the cabinet to place the hot mug inside.\",\n    \"reasoning1\": \"The cabinet is closed and must be opened to place the hot mug inside. Opening the cabinet is a direct step toward fulfilling the task goal.\",\n    \"option1\": \"open cabinet 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"Examining the cabinet could provide more details about its state, but the agent already knows it is closed and needs to open it, making this a less direct action.\",\n    \"option2\": \"examine cabinet 1\",\n    \"confidence2\": 7,\n    \"reasoning3\": \"Going to another cabinet or receptacle would not help with the current subgoal of placing the hot mug into cabinet 1. This action is not aligned with the objective.\",\n    \"option3\": \"go to cabinet 2\",\n    \"confidence3\": 3,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You open the cabinet 1. The cabinet 1 is open. In it, you see a plate 2, and a plate 1.",
+      "action": "examine cabinet 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the cabinet 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a mug from the coffeemachine, heated it in the microwave, and now is at the cabinet 1, which is open and ready to receive the mug. The next step is to place the hot mug in the destination receptacle, which is the cabinet.\",\n    \"next_objective\": \"Place the hot mug in the cabinet.\",\n    \"reasoning1\": \"This action directly places the hot mug into the destination receptacle (cabinet 1), completing the task goal. It is the most direct and effective action to achieve the objective.\",\n    \"option1\": \"move mug 1 to cabinet 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the cabinet 1 might provide additional context about its contents or state, but it does not directly contribute to achieving the task and could delay progress.\",\n    \"option2\": \"examine cabinet 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Closing the cabinet 1 would prevent the agent from placing the mug inside and would go against the task goal. This action is not appropriate at this stage.\",\n    \"option3\": \"close cabinet 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "The cabinet 1 is open. In it, you see a plate 2, and a plate 1.",
+      "action": "examine cabinet 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the cabinet 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a mug, heated it in the microwave, and is now at the destination cabinet, which is open and ready to receive the mug. The current challenge is to place the hot mug into the cabinet.\",\n    \"next_objective\": \"Place the hot mug into the cabinet.\",\n    \"reasoning1\": \"This action directly places the hot mug into the target destination, completing the task goal.\",\n    \"option1\": \"move mug 1 to cabinet 1\",\n    \"confidence1\": 90,\n    \"reasoning2\": \"Examining the cabinet again may provide additional insights into its contents or state, but it does not advance the task directly at this point.\",\n    \"option2\": \"examine cabinet 1\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Closing the cabinet is not necessary at this stage and could interfere with the task if the cabinet is not meant to be closed after placing the mug.\",\n    \"option3\": \"close cabinet 1\",\n    \"confidence3\": 0,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 9,
+      "observation": "The cabinet 1 is open. In it, you see a plate 2, and a plate 1.",
+      "action": "close cabinet 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the cabinet 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located, taken, and heated a mug. It is now at the destination cabinet, which is open. The next objective is to place the hot mug inside the cabinet.\",\n    \"next_objective\": \"Put the hot mug in the cabinet.\",\n    \"reasoning1\": \"The action 'move mug 1 to cabinet 1' directly fulfills the current objective of placing the mug in the destination cabinet. It is the most direct and logical action to complete the task.\",\n    \"option1\": \"move mug 1 to cabinet 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"The action 'close cabinet 1' could be relevant if the task required the cabinet to be closed after the mug is placed inside, but the task only requires the mug to be placed in the cabinet, not the cabinet to be closed. It is less directly relevant to the current phase.\",\n    \"option2\": \"close cabinet 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"The action 'examine cabinet 1' is not necessary at this stage since the cabinet is already open and its contents are known. It does not advance the objective of placing the mug inside.\",\n    \"option3\": \"examine cabinet 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 10,
+      "observation": "You close the cabinet 1.",
+      "action": "examine cabinet 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the cabinet 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a mug on the coffeemachine, heated it in the microwave, and now is at the destination cabinet 1. The current challenge is to complete the task by placing the hot mug inside the cabinet.\",\n    \"next_objective\": \"Put the hot mug in the cabinet.\",\n    \"reasoning1\": \"Putting the mug into the cabinet is the final step to complete the task. The agent is already holding the mug and is at the destination receptacle.\",\n    \"option1\": \"put mug 1 in cabinet 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"Examine the cabinet 1 again to confirm it is open and ready to receive the mug. This can provide confirmation that the receptacle is accessible.\",\n    \"option2\": \"examine cabinet 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"Open the cabinet 1 again to ensure it is accessible and ready to receive the hot mug. This action is necessary if the cabinet was closed recently.\",\n    \"option3\": \"open cabinet 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 11,
+      "observation": "The cabinet 1 is closed.",
+      "action": "open cabinet 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the cabinet 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken a mug, heated it in the microwave, and is now at the destination cabinet 1. The mug is currently in the inventory and is hot. The challenge now is to place it into the cabinet, but the cabinet is currently closed.\",\n    \"next_objective\": \"Open the cabinet to place the hot mug inside.\",\n    \"reasoning1\": \"Opening cabinet 1 is necessary to proceed with placing the hot mug inside, as the current phase is 'AT_DEST' and the next logical step is to perform the 'PUT' action.\",\n    \"option1\": \"open cabinet 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the cabinet is redundant at this point, as it has already been examined and is known to be closed. This action does not contribute to completing the task in this phase.\",\n    \"option2\": \"examine cabinet 1\",\n    \"confidence2\": 10,\n    \"reasoning3\": \"Going to another receptacle or object (e.g., drawer 1, sinkbasin 1) is irrelevant to the current task and would delay progress toward the final goal of placing the hot mug in the cabinet.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 10,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 12,
+      "observation": "You open the cabinet 1. The cabinet 1 is open. In it, you see a plate 2, and a plate 1.",
+      "action": "move mug 1 to cabinet 1",
+      "inventory": "You are carrying: a mug 1.",
+      "look": "You are facing the cabinet 1. Next to it, you see nothing.",
+      "phase": "AT_DEST",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located a mug on the coffeemachine, heated it in the microwave, and is now at cabinet 1, which is open and ready to receive the mug. The next objective is to place the hot mug into the cabinet, completing the task.\",\n    \"next_objective\": \"Put the hot mug into the cabinet.\",\n    \"reasoning1\": \"The action 'move mug 1 to cabinet 1' directly fulfills the goal of placing the hot mug in the cabinet and completes the current phase, [AT_DEST]. The mug is already in the inventory, and the cabinet is open and accessible.\",\n    \"option1\": \"move mug 1 to cabinet 1\",\n    \"confidence1\": 60,\n    \"reasoning2\": \"The action 'examine cabinet 1' is unnecessary at this point because the cabinet has already been examined multiple times and is confirmed to be open and suitable for placing the mug. This action does not advance the phase and is not recommended.\",\n    \"option2\": \"examine cabinet 1\",\n    \"confidence2\": 20,\n    \"reasoning3\": \"The action 'close cabinet 1' would interfere with the current goal, as the cabinet needs to remain open to place the mug inside. Closing it now would require reopening it, creating an unnecessary step.\",\n    \"option3\": \"close cabinet 1\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 1601,
+    "n_episodes": 68,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/kitchen/jitrl_to_kitchen/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 1614,
+    "n_episodes": 69,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/kitchen/jitrl_to_kitchen/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 13,
+    "n_advantage_overrides": 4,
+    "n_memory_actions_injected": 6,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 1,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 115.641,
+  "completed_utc": "2026-10-22T05:46:33.266048+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}

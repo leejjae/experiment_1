@@ -1,0 +1,154 @@
+{
+  "status": "complete",
+  "job": "jitrl_to_bedroom",
+  "mode": "baseline",
+  "split": "valid_seen",
+  "source": null,
+  "target": "bedroom",
+  "task_index": 1,
+  "game_id": "look_at_obj_in_light-Bowl-None-DeskLamp-301/trial_T20190909_150719_492274",
+  "repeat": 2,
+  "seed": 145,
+  "episode_index": 6,
+  "plan_sha256": "5cdba2c27b5eb8ca778e9d8ef00a39636e4407573fa76e4d1341e95517fccb76",
+  "implementation_sha256": {
+    "ALFWorld/agentprm/worker.py": "fbd3edfab8c36a0659c7b2e5a58ff31d0416f674d5024d504fe959967f02a5c3",
+    "ALFWorld/agentprm/common.py": "0e4217b8a791f6c1917b94777a0755d669098dbc1098dc4b43b23b1ff772b3a3",
+    "ALFWorld/agentprm/prm_memory.py": "21d308061d72d05483bc41b2d38fc29a313a4e37a13a05dbd7e31d5750dde5c6",
+    "ALFWorld/agentprm/judge_response.py": "23801166af6e3c0802c9aa74cf6935e0b32195e5c2b8a21148f53867b900a612",
+    "ALFWorld/src/jitrl_agent.py": "5f0520ea5b688a96d74c13e002e53ae055b5687827b5f5c628a3179b33ce07b7",
+    "ALFWorld/src/cross_episode_memory.py": "f2966bb539b926b7666477c25cfd3175bc53e2f4b51e9530b259d34ab81ec838",
+    "ALFWorld/src/utils.py": "bb5fe3c580ee930d19f1a0a87affb01f8eec708eade6f272759f248831c94db9",
+    "experiments/alfworld_no_feedback/agent.py": "0b8f3a9bc3d2579fe2736c7eb5e36c7e5f295125b25ae8566537aa7fdccb12ec",
+    "ALFWorld/src/env.py": "8631fc6adee35ce6fa1adade764b7af7d7e7bff47abec7382029e44b02d18a29"
+  },
+  "goal": "examine the bowl with the desklamp.",
+  "steps": [
+    {
+      "index": 0,
+      "observation": "-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, and a shelf 1.\n\nYour task is to: examine the bowl with the desklamp.",
+      "action": "go to desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are in the middle of a room. Looking quickly around you, you see nothing.",
+      "phase": "SEARCHING",
+      "raw_actor": "{\n    \"progress_analysis\": \"No progress has been made yet as the initial phase is just beginning. The task is to examine the bowl with the desklamp, which requires first locating the bowl and the desklamp. Since I am currently in the room and have not explored any receptacles yet, the next step is to search for either the bowl or the desklamp.\",\n    \"next_objective\": \"Locate the bowl or the desklamp by navigating to a plausible receptacle.\",\n    \"reasoning1\": \"Navigating to desk 1 is a logical choice as it is a common place for objects like a bowl or a desklamp to be located.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Navigating to drawer 1 is also a reasonable choice as drawers can contain small objects such as a bowl.\",\n    \"option2\": \"go to drawer 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to shelf 1 is another plausible choice as shelves can hold objects like a desklamp or a bowl.\",\n    \"option3\": \"go to shelf 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 1,
+      "observation": "You arrive at desk 1. On the desk 1, you see a alarmclock 1, a bowl 1, a keychain 1, and a mug 1.",
+      "action": "take bowl 1 from desk 1",
+      "inventory": "You are not carrying anything.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "LOCATED",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has located the bowl on the desk but has not yet taken it or examined it under the desklamp. The next step is to take the bowl, as it is required for the examination part of the task.\",\n    \"next_objective\": \"Take the bowl from the desk.\",\n    \"reasoning1\": \"Taking the bowl from the desk directly advances the current phase by obtaining the object needed for examination with the desklamp.\",\n    \"option1\": \"take bowl 1 from desk 1\",\n    \"confidence1\": 50,\n    \"reasoning2\": \"Examining the desk might provide additional clues about the location of the desklamp or the bowl, but the bowl is already visible and does not need further inspection.\",\n    \"option2\": \"examine desk 1\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to other locations like shelves or drawers would delay the task since the bowl is already on the desk and the desklamp is likely in another location that should be prioritized after taking the bowl.\",\n    \"option3\": \"go to shelf 4\",\n    \"confidence3\": 20,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 2,
+      "observation": "You pick up the bowl 1 from the desk 1.",
+      "action": "go to shelf 5",
+      "inventory": "You are carrying: a bowl 1.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The agent has successfully located and taken the bowl 1 from the desk 1. The current challenge is to find the desklamp to examine the bowl with it.\",\n    \"next_objective\": \"Navigate to the desklamp to examine the bowl.\",\n    \"reasoning1\": \"This action moves closer to finding the desklamp, which is necessary to fulfill the goal of examining the bowl with it. The location of the desklamp is unknown, so searching nearby receptacles is logical.\",\n    \"option1\": \"go to shelf 5\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"This action also advances the search for the desklamp by moving to another likely location. The desklamp is more likely to be found on a shelf or desk rather than a drawer or bed.\",\n    \"option2\": \"go to shelf 3\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"This action continues the search for the desklamp in a plausible location. Shelves are common places for lamps, making this a reasonable and productive step.\",\n    \"option3\": \"go to shelf 4\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 3,
+      "observation": "You arrive at shelf 5. On the shelf 5, you see a statue 1.",
+      "action": "go to desk 1",
+      "inventory": "You are carrying: a bowl 1.",
+      "look": "You are facing the shelf 5. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The bowl has been located and picked up from the desk, and the agent is now in the HAVING phase. The next objective is to find the desklamp and use it to examine the bowl. The desklamp has not yet been located or used in this task.\",\n    \"next_objective\": \"Navigate to the desklamp to examine the bowl.\",\n    \"reasoning1\": \"Examining the bowl directly will not fulfill the task goal, which requires using the desklamp. Therefore, the next step is to locate the desklamp.\",\n    \"option1\": \"go to desk 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"The desklamp may be located on another shelf or desk. Moving to other shelves like shelf 2 or shelf 1 could reveal it if it has not yet been found.\",\n    \"option2\": \"go to shelf 2\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Other drawers and receptacles may also contain the desklamp. For example, drawer 1 or drawer 14 might be a plausible location, as they are often used for lighting objects.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 4,
+      "observation": "You arrive at desk 1. On the desk 1, you see a alarmclock 1, a keychain 1, and a mug 1.",
+      "action": "examine bowl 1",
+      "inventory": "You are carrying: a bowl 1.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The bowl has been successfully located and taken from the desk, and the agent is now at the desk holding the bowl. The next objective is to examine the bowl with the desklamp, which means the desklamp must be turned on or used to illuminate the bowl. Since the agent is already at the desk, the next step is to use the desklamp to examine the bowl.\",\n    \"next_objective\": \"Examine the bowl using the desklamp located on the desk.\",\n    \"reasoning1\": \"This action directly addresses the goal of examining the bowl with the desklamp and makes sense as the desklamp is on the desk. It is a logical next step to fulfill the task.\",\n    \"option1\": \"examine bowl 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"While this action involves movement, it does not advance the task since the agent is already at the desk, and the desklamp is not in another location listed in the reference actions. It is not the most efficient use of the current state.\",\n    \"option2\": \"go to shelf 5\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Moving the bowl to the desk is redundant as the agent is already at the desk and holding the bowl. This action does not contribute to the examination process and is not useful in the current phase.\",\n    \"option3\": \"move bowl 1 to desk 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 5,
+      "observation": "This is a normal bowl 1. In it, you see nothing.",
+      "action": "go to drawer 3",
+      "inventory": "You are carrying: a bowl 1.",
+      "look": "You are facing the desk 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The task requires examining the bowl with the desklamp. The agent has already examined the bowl and found it to be a normal bowl with nothing inside. The next step is to locate the desklamp, as it is needed to complete the examination.\",\n    \"next_objective\": \"Locate the desklamp to complete the examination of the bowl.\",\n    \"reasoning1\": \"Searching a new location, such as drawer 3, increases the chances of finding the desklamp since it has not been searched yet.\",\n    \"option1\": \"go to drawer 3\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Exploring a different drawer, such as drawer 6, is a logical next step to search for the desklamp in a new location.\",\n    \"option2\": \"go to drawer 6\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Investigating drawer 1 is a valid next step since it has not been searched yet and could potentially contain the desklamp.\",\n    \"option3\": \"go to drawer 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 6,
+      "observation": "You arrive at drawer 3. On the drawer 3, you see nothing.",
+      "action": "go to drawer 4",
+      "inventory": "You are carrying: a bowl 1.",
+      "look": "You are facing the drawer 3. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The bowl has been located, taken, and examined, fulfilling the task goal of examining it with the desklamp. The current phase is [HOLDING], and there is no further objective for the task at this stage. The agent is at drawer 3, which has nothing on it.\",\n    \"next_objective\": \"There is no further objective for the current phase; the task has been completed.\",\n    \"reasoning1\": \"Since the task goal is complete, there is no need for further action.\",\n    \"option1\": \"examine bowl 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Re-examining the bowl is not necessary since it was already examined and found to be normal and empty.\",\n    \"option2\": \"go to drawer 4\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Navigating to another drawer could be a next step if there was a new objective, but since the task is complete, this does not advance the current phase.\",\n    \"option3\": \"go to desk 1\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 7,
+      "observation": "You arrive at drawer 4. On the drawer 4, you see nothing.",
+      "action": "go to dresser 1",
+      "inventory": "You are carrying: a bowl 1.",
+      "look": "You are facing the drawer 4. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The bowl has been located, picked up, and examined, but the desklamp has not yet been found. The current objective is to find the desklamp to fulfill the task goal of examining the bowl with it. The agent is currently in the [HOLDING] phase and must locate the desklamp.\",\n    \"next_objective\": \"Locate the desklamp to proceed with the examination.\",\n    \"reasoning1\": \"Going to dresser 1 is a logical next step to search for the desklamp, as dressers are common places for lamps in a room.\",\n    \"option1\": \"go to dresser 1\",\n    \"confidence1\": 40,\n    \"reasoning2\": \"Going to drawer 5 is a valid option, as drawers might hold a desklamp if it is small or compact.\",\n    \"option2\": \"go to drawer 5\",\n    \"confidence2\": 30,\n    \"reasoning3\": \"Going to shelf 3 is also a plausible option since shelves often hold lamps or similar objects.\",\n    \"option3\": \"go to shelf 3\",\n    \"confidence3\": 30,\n    \"best_action\": 1\n}",
+      "environment_reward": 0.0,
+      "terminated": false
+    },
+    {
+      "index": 8,
+      "observation": "You arrive at dresser 1. On the dresser 1, you see a cellphone 2, a creditcard 1, a desklamp 1, a pencil 2, and a watch 1.",
+      "action": "use desklamp 1",
+      "inventory": "You are carrying: a bowl 1.",
+      "look": "You are facing the dresser 1. Next to it, you see nothing.",
+      "phase": "HOLDING",
+      "raw_actor": "{\n    \"progress_analysis\": \"The bowl has been located, picked up, and examined. The next step is to use the desklamp to examine the bowl further, as required by the task. The desklamp is on the dresser, so the agent must interact with it.\",\n    \"next_objective\": \"Use the desklamp 1 to examine the bowl 1\",\n    \"reasoning1\": \"The desklamp is on the dresser, and the task requires examining the bowl with it. Using the desklamp will fulfill the requirement of the task goal.\",\n    \"option1\": \"use desklamp 1\",\n    \"confidence1\": 80,\n    \"reasoning2\": \"Examining the dresser might provide additional context, but the desklamp is already visible, and the immediate next step is to activate it for examining the bowl.\",\n    \"option2\": \"examine dresser 1\",\n    \"confidence2\": 15,\n    \"reasoning3\": \"Moving the bowl to the dresser may be unnecessary since the desklamp is already accessible and the bowl is already in inventory. It could create an unnecessary step.\",\n    \"option3\": \"move bowl 1 to dresser 1\",\n    \"confidence3\": 5,\n    \"best_action\": 1\n}",
+      "environment_reward": 1.0,
+      "terminated": true
+    }
+  ],
+  "success": true,
+  "outcome": 1.0,
+  "actor_endpoint": "http://localhost:8000/v1",
+  "memory_before": {
+    "n_steps": 49,
+    "n_episodes": 6,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "memory_after": {
+    "n_steps": 58,
+    "n_episodes": 7,
+    "base_dir": "/workspace/jitrl/experiments/alfworld_normalization/runs/eq25_logit_20261022/memory/alfworld/bedroom/jitrl_to_bedroom/qwen3-32b"
+  },
+  "counters": {
+    "n_steps_with_retrieval": 8,
+    "n_advantage_overrides": 1,
+    "n_memory_actions_injected": 3,
+    "n_json_parse_failures": 0,
+    "n_action_repairs": 0,
+    "n_conf_degenerate": 0,
+    "n_logit_fallbacks": 0
+  },
+  "elapsed_seconds": 99.26,
+  "completed_utc": "2026-10-22T01:48:10.052020+00:00",
+  "reward_protocol": "llm_judge_only_no_verifiable_feedback_scaled_0p1_v1",
+  "judge_reward_scale": 0.1,
+  "scoring_attempts": 1
+}
