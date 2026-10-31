@@ -48,7 +48,8 @@ data/alfworld_valid_seen_74.json   the 74 tasks, their order, seeds and step bud
 experiments/
   alfworld_react/         ReAct 0/2-shot, JitRL memory off
   alfworld_ace_sd/        ACE-SD (run.py, launch.py), iterative SD (run_iter.py, launch_iter.py),
-                          fixed-feedback rule comparison (launch_fixedfb.py), playbook viewer (show_playbook.py)
+                          fixed-feedback rule comparison (launch_fixedfb.py), playbook viewer (show_playbook.py),
+                          iterative SD with ACE playbook teachers, mean / EMA (run_ace_iter.py, launch_ace_iter.py)
   alfworld_baselines/     Reflexion / EvoTest / AWM (methods.py, run_baseline.py, launch.py)
   alfworld_jitrl/         memory-on JitRL, judge-only rewards: Eq. 25 + logit (agent.py), upstream retrieval k=3,
                           step judge (judge.py), one stream per room (run.py, launch.py)
@@ -104,6 +105,10 @@ RUN_DIR=runs_new/iter python experiments/alfworld_ace_sd/launch_iter.py 0.5
 
 # replace / mean / EMA with the same feedback (FEEDBACK_DIR = the sum β = 1 run)
 RUN_DIR=runs_new/fixedfb FEEDBACK_DIR=runs_new/iter/beta_1 python experiments/alfworld_ace_sd/launch_fixedfb.py
+
+# Iterative SD with ACE playbook teachers (room playbook on-policy as in ACE-SD; trial k of a task
+# combines the teachers of the playbook snapshots before trials 1..k), mean and EMA (lambda = 0.5), beta = 1
+RUN_DIR=runs_new/ace_iter python experiments/alfworld_ace_sd/launch_ace_iter.py
 
 # Reflexion / EvoTest / AWM
 RUN_DIR=runs_new/baselines python experiments/alfworld_baselines/launch.py
