@@ -13,7 +13,8 @@ set -euo pipefail
 MODE=${1:-split}
 ACTOR=(--model Qwen/Qwen3-32B-AWQ --served-model-name qwen3-32b --max-logprobs 20 --enable-prefix-caching)
 JUDGE=(--model openai/gpt-oss-20b --served-model-name gpt-oss-20b --enable-prefix-caching)
-SERVE=(python -m vllm.entrypoints.openai.api_server)
+# VLLM_PYTHON: the interpreter of the vLLM environment, if `python` on PATH is a different venv.
+SERVE=("${VLLM_PYTHON:-python}" -m vllm.entrypoints.openai.api_server)
 export VLLM_USE_FLASHINFER_SAMPLER=0
 case "$MODE" in
   split)

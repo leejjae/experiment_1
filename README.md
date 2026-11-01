@@ -39,12 +39,14 @@ Success rate per room, **Average / Final** (Final = 5th trial). The actor is Qwe
 - [Iterative SD, combination rules, over-accumulation analysis](docs/alfworld_ace_sd/iterative.md)
 - [Reflexion / EvoTest / AWM](docs/alfworld_baselines/results.md)
 - [Memory-on JitRL (Eq. 25 + logit, judge-only)](docs/alfworld_jitrl/results.md)
+- [Iterative SD with ACE playbook teachers, mean / EMA, valid_seen + valid_unseen (not run yet; how to run it on two machines)](docs/alfworld_ace_sd/ace_iter.md)
 
 ## Layout
 
 ```
 ALFWorld/                 JitRL agent and environment wrapper for ALFWorld (src/), standalone entry point main.py
 data/alfworld_valid_seen_74.json   the 74 tasks, their order, seeds and step budget (gamefile paths are relative to $ALFWORLD_DATA)
+data/alfworld_valid_unseen_59.json the 59 valid_unseen tasks of the JitRL comparison, same format (used by run_ace_iter.py --split valid_unseen)
 experiments/
   alfworld_react/         ReAct 0/2-shot, JitRL memory off
   alfworld_ace_sd/        ACE-SD (run.py, launch.py), iterative SD (run_iter.py, launch_iter.py),
@@ -107,8 +109,11 @@ RUN_DIR=runs_new/iter python experiments/alfworld_ace_sd/launch_iter.py 0.5
 RUN_DIR=runs_new/fixedfb FEEDBACK_DIR=runs_new/iter/beta_1 python experiments/alfworld_ace_sd/launch_fixedfb.py
 
 # Iterative SD with ACE playbook teachers (room playbook on-policy as in ACE-SD; trial k of a task
-# combines the teachers of the playbook snapshots before trials 1..k), mean and EMA (lambda = 0.5), beta = 1
-RUN_DIR=runs_new/ace_iter python experiments/alfworld_ace_sd/launch_ace_iter.py
+# combines the teachers of the playbook snapshots before trials 1..k), mean and EMA (lambda = 0.5), beta = 1.
+# One split per machine; full guide: docs/alfworld_ace_sd/ace_iter.md
+SPLIT=valid_seen   RUN_DIR=runs_new/ace_iter python experiments/alfworld_ace_sd/launch_ace_iter.py   # 740 trials
+SPLIT=valid_unseen RUN_DIR=runs_new/ace_iter python experiments/alfworld_ace_sd/launch_ace_iter.py   # 590 trials
+python analysis/agg_ace_iter.py runs_new/ace_iter --check   # progress, Average / Final, integrity checks
 
 # Reflexion / EvoTest / AWM
 RUN_DIR=runs_new/baselines python experiments/alfworld_baselines/launch.py
